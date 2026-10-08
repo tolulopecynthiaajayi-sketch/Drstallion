@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE TRB ISSUE</title>
+    <!-- SEO & Metadata -->
+    <meta name="description" content="A confidential issue release. Prepare the joint supplements.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-primary: #ffffff;
+            --accent-color: #FF6B00;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Hero Image with Gradient */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Gradient: Deep black fading to transparent over the image */
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 1) 90%),
+                        url('Magazine/Images/IMG-20250806-WA0000.jpg') no-repeat center center/cover;
+            opacity: 0.6;
+        }
+
+        header {
+            width: 100%;
+            padding: 3rem 0;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .logo {
+            max-width: 120px;
+            height: auto;
+            transition: opacity 0.5s ease;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            z-index: 10;
+        }
+
+        .kicker {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            color: #d1d1d1;
+        }
+
+        .headline {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 10vw, 7.5rem);
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .headline em {
+            color: var(--accent-color);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 300;
+            color: #b0b0b0;
+            margin-bottom: 5rem;
+            max-width: 600px;
+            letter-spacing: 0.05em;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Timer Grid */
+        .timer-grid {
+            display: flex;
+            gap: clamp(2rem, 5vw, 4rem);
+            justify-content: center;
+            flex-wrap: wrap;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .timer-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
+        }
+
+        .time-value {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .time-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Reveal State Elements */
+        .unlock-btn {
+            display: none;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 1.25rem 4rem;
+            font-size: 0.9rem;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards 0.5s;
+        }
+
+        .unlock-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Animations & Utilities */
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-20px);
+            position: absolute;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-background"></div>
+
+    <header>
+        <img src="TRB%20Logos/TRB%20Dr%20Stallion%20Final%20logo%20orange%20nobg.png" alt="TRB Logo" class="logo">
+    </header>
+
+    <main>
+        <div class="kicker">Confidential Issue</div>
+        <h1 class="headline">THE <em>TRB</em> ISSUE</h1>
+        <p class="subtitle" id="subtitleText">Volume 39. Prepare the joint supplements.</p>
+
+        <div class="timer-grid" id="timerGrid">
+            <div class="timer-block">
+                <div class="time-value" id="days">00</div>
+                <div class="time-label">Days</div>
+            </div>
+            <div class="timer-block">
+                <div class="time-value" id="hours">00</div>
+                <div class="time-label">Hours</div>
+            </div>
+            <div class="timer-block">
+                <div class="time-value" id="minutes">00</div>
+                <div class="time-label">Minutes</div>
+            </div>
+            <div class="timer-block">
+                <div class="time-value" id="seconds">00</div>
+                <div class="time-label">Seconds</div>
+            </div>
+        </div>
+
+        <a href="#" class="unlock-btn" id="unlockBtn">Unlock the Issue</a>
+    </main>
+
+    <script>
+        // Target Date: October 24, 2026, at 00:00:00 Irish Standard Time (UTC+1)
+        const targetDate = new Date("2026-10-24T00:00:00+01:00").getTime();
+
+        const timerGrid = document.getElementById('timerGrid');
+        const subtitleText = document.getElementById('subtitleText');
+        const unlockBtn = document.getElementById('unlockBtn');
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+
+        let isRevealed = false;
+
+        function updateCountdown() {
+            if (isRevealed) return;
+
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                triggerReveal();
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update DOM with padded values
+            daysEl.textContent = String(days).padStart(2, '0');
+            hoursEl.textContent = String(hours).padStart(2, '0');
+            minutesEl.textContent = String(minutes).padStart(2, '0');
+            secondsEl.textContent = String(seconds).padStart(2, '0');
+        }
+
+        function triggerReveal() {
+            isRevealed = true;
+            
+            // Hide timer grid gracefully
+            timerGrid.classList.add('hidden');
+            
+            // Wait slightly for transition then change text
+            setTimeout(() => {
+                subtitleText.style.opacity = 0;
+                setTimeout(() => {
+                    subtitleText.textContent = "Dr. Stallion has entered the building.";
+                    subtitleText.style.opacity = 1;
+                    
+                    // Show button
+                    unlockBtn.style.display = 'inline-block';
+                    
+                    // Trigger confetti
+                    triggerConfetti();
+                }, 300);
+            }, 200);
+        }
+
+        function triggerConfetti() {
+            const duration = 5 * 1000;
+            const animationEnd = Date.now() + duration;
+
+            (function frame() {
+                // Left side confetti
+                confetti({
+                    particleCount: 7,
+                    angle: 60,
+                    spread: 60,
+                    origin: { x: 0 },
+                    colors: ['#ffffff', '#0a0a0a', '#FF6B00']
+                });
+                // Right side confetti
+                confetti({
+                    particleCount: 7,
+                    angle: 120,
+                    spread: 60,
+                    origin: { x: 1 },
+                    colors: ['#ffffff', '#0a0a0a', '#FF6B00']
+                });
+
+                if (Date.now() < animationEnd) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+
+        // Initialize
+        updateCountdown();
+        const timerInterval = setInterval(updateCountdown, 1000);
+
+    </script>
+</body>
+</html>

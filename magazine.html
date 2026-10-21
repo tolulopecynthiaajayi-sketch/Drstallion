@@ -1898,10 +1898,26 @@
             position: relative;
         }
 
+        .review-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.25rem;
+            margin-bottom: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        .review-card-header h4 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            margin-bottom: 0;
+            padding-right: 0;
+            flex: 1 1 240px;
+            line-height: 1.25;
+            color: #ffffff;
+        }
+
         .review-rating-badge {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
             background: rgba(255, 107, 0, 0.15);
             border: 1px solid var(--accent-orange);
             color: var(--accent-orange);
@@ -1910,13 +1926,8 @@
             padding: 0.35rem 0.75rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-        }
-
-        .review-card h4 {
-            font-family: var(--font-serif);
-            font-size: 1.45rem;
-            margin-bottom: 0.5rem;
-            padding-right: 6rem;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .review-card p {
@@ -2852,8 +2863,8 @@
                     </div>
 
                     <div class="decibel-meter-box">
-                        <div class="decibel-val">118 dB</div>
-                        <div class="decibel-label">Peak Audio Output // Shouting Integrity Rating: 10/10</div>
+                        <div class="decibel-val">10 / 10</div>
+                        <div class="decibel-label">Acoustic Shouting Rating // Soundbar Survival: 0%</div>
                     </div>
                 </div>
 
@@ -2866,24 +2877,30 @@
                     </h2>
 
                     <div class="review-card">
-                        <span class="review-rating-badge">Rating: 10/10 Shouting</span>
-                        <h4>The Wicked Stepmother of Asaba (Parts 1–4)</h4>
+                        <div class="review-card-header">
+                            <h4>The Wicked Stepmother of Asaba (Parts 1 to 4)</h4>
+                            <span class="review-rating-badge">Rating: 10/10 Shouting</span>
+                        </div>
                         <p>
-                            Plot was completely abandoned by minute seventeen, but Chief Kanayo walked into the sitting room and yelled <em>"Tufiakwa!"</em> with such acoustic violence that my Samsung soundbar filed an industrial grievance. The sound mixer turned the background flute to maximum volume during an ordinary breakfast scene. Masterpiece.
+                            Plot was completely abandoned by minute seventeen, yet Chief Kanayo walked into the sitting room and yelled <em>"Tufiakwa!"</em> with such acoustic violence that my Samsung soundbar filed an industrial grievance. The sound mixer turned the background flute to maximum volume during an ordinary breakfast scene. Masterpiece.
                         </p>
                     </div>
 
                     <div class="review-card">
-                        <span class="review-rating-badge">Rating: 10/10 Agitation</span>
-                        <h4>Lekki Bloodline: The Return of the Billionaire</h4>
+                        <div class="review-card-header">
+                            <h4>Lekki Bloodline: The Return of the Billionaire</h4>
+                            <span class="review-rating-badge">Rating: 10/10 Agitation</span>
+                        </div>
                         <p>
                             No one in this movie spoke below 90 decibels. Even the domestic staff communicated via operatic outrage. Whenever someone was betrayed, thunder cracked instantly inside a closed air-conditioned bedroom in broad daylight. This is the cinematic realism Dr. Stallion demands.
                         </p>
                     </div>
 
                     <div class="review-card">
-                        <span class="review-rating-badge">Rating: 0/10 Disqualified</span>
-                        <h4>A Reasonable Discussion in Ikeja</h4>
+                        <div class="review-card-header">
+                            <h4>A Reasonable Discussion in Ikeja</h4>
+                            <span class="review-rating-badge">Rating: 0/10 Disqualified</span>
+                        </div>
                         <p>
                             Two brothers sat down, poured tea, and resolved a multi-million-naira land dispute with rational, polite dialogue in twelve minutes. Unacceptable. No table was overturned. No one held their chest and collapsed. Disqualified from the canon.
                         </p>

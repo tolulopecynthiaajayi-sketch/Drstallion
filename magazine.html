@@ -1294,30 +1294,72 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* SPREAD 06: THE FAMILY ANCHOR (MAMA & THE SISTERS)             */
+        /* SPREAD 06: THE FAMILY ANCHOR (IKATE CLAN & COMMITMENT)        */
         /* ------------------------------------------------------------- */
-        .family-spread-grid {
-            display: grid;
-            grid-template-columns: 5.5fr 4.5fr;
-            gap: 4rem;
-            align-items: start;
+        .family-simple-container {
+            max-width: 820px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .family-header h2 {
+        .family-simple-header {
+            margin-bottom: 2rem;
+        }
+
+        .family-simple-kicker {
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .family-simple-title {
             font-family: var(--font-serif);
-            font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
             line-height: 1.1;
             margin-bottom: 0.75rem;
+            color: #ffffff;
             letter-spacing: -0.02em;
         }
 
-        .family-subhead {
-            font-size: 1.02rem;
-            color: var(--accent-gold);
+        .family-simple-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
             font-style: italic;
             font-family: var(--font-serif);
-            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .family-simple-frame {
+            border: 1px solid var(--border-gold);
+            background: #000000;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 720px;
+        }
+
+        .family-simple-frame img {
+            width: 100%;
+            height: auto;
+            max-height: 620px;
+            object-fit: cover;
             display: block;
+        }
+
+        .family-simple-caption {
+            padding: 1.1rem 1.5rem;
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+            font-style: italic;
+            text-align: center;
         }
 
         .family-cards-grid {
@@ -2390,87 +2432,27 @@
             </div>
         </article>
 
-        <!-- SPREAD 06: THE FAMILY ANCHOR (IKATE CLAN & MOTHER'S LEGACY) -->
+        <!-- SPREAD 06: THE FAMILY ANCHOR (IKATE CLAN & COMMITMENT) -->
         <article class="editorial-spread" id="spread-06" data-title="The Family Anchor">
             <div class="spread-folio-header">
-                <div>Family Chronicle &nbsp;&bull;&nbsp; <span class="gold">The Ikate Sanctuary</span></div>
-                <div>A Mother's Eternal Legacy &bull; Sibling Accord</div>
-                <div>Folio 20 &bull; Ikate, Lagos &amp; Dublin</div>
+                <div>Family Archive &nbsp;&bull;&nbsp; <span class="gold">The Hearth</span></div>
+                <div>Commitment &bull; Folio 20</div>
+                <div>Ikate, Lagos</div>
             </div>
 
-            <div class="family-spread-grid">
-                <div>
-                    <div class="family-header">
-                        <h2>The Ikate Clan: Sibling Accord &amp; A Mother's Eternal Legacy.</h2>
-                        <span class="family-subhead">Flanked by a senior sister and a younger sister, Temitope stands as the fierce protector, host, and keeper of the family hearth.</span>
-                    </div>
-
-                    <div class="editorial-body">
-                        <p>
-                            You can impress executive committees, advise multi-billion-euro enterprises, and rank among the Top 150 Global HR Influencers, but in the Richard-Banji family court, none of that grants you executive immunity.
-                        </p>
-                        <p>
-                            The true source of Dr. Stallion’s quiet strength has never been corporate strategy; it is the sacred spiritual foundation laid by his beloved late Mother, and the unbreakable bond he shares with his sisters, their husbands, and their beautiful children.
-                        </p>
-                    </div>
-
-                    <div class="family-cards-grid">
-                        <div class="family-tribute-card mama-card">
-                            <span class="family-card-badge badge-gold">In Eternal Glory // Mummy's Legacy</span>
-                            <h4>The Prayers That Built An Empire</h4>
-                            <p>
-                                Though our dear Mother now rests in the presence of the Lord, her presence remains the unbroken cornerstone of Temi's life. She was the prayer warrior whose intercession paved the path for his journey from Nigeria to Ireland and across the globe. Temi carries her virtues in his heart every single day—her quiet dignity, her generosity, and her deep reverence for God.
-                            </p>
-                            <p style="font-style: italic; color: var(--accent-gold); font-family: var(--font-serif); font-size: 0.94rem;">
-                                &ldquo;A mother's prayers never expire; they live on in the strength, virtue, and blessings of her son.&rdquo;
-                            </p>
-                        </div>
-
-                        <div class="family-tribute-card sisters-card">
-                            <span class="family-card-badge badge-orange">The Sibling Accord // Between Sisters</span>
-                            <h4>Flanked By A Senior &amp; Younger Sister</h4>
-                            <p>
-                                Nestled between a wise senior sister and a cherished younger sister, Temi occupies a role he takes sacred pride in. He is the brother who dispenses executive-level advice, shields them fiercely from the world, opens his residence in Ikate to gather his siblings, their husbands, and all their children, and treats his family's joy and unity as his highest earthly assignment.
-                            </p>
-                        </div>
-                    </div>
+            <div class="family-simple-container">
+                <div class="family-simple-header">
+                    <span class="family-simple-kicker">Commitment &amp; Anchor</span>
+                    <h2 class="family-simple-title">Family</h2>
+                    <p class="family-simple-subtitle">
+                        A quiet reflection of devotion, home, and unconditional commitment.
+                    </p>
                 </div>
 
-                <div class="family-media-col">
-                    <div class="family-heirloom-frame">
-                        <img src="Magazine/Images/family-ikate.jpg" alt="Dr. Temitope with his siblings, husbands, and children at his residence in Ikate">
-                        <div style="padding: 1.25rem 1.5rem; background: var(--bg-elevated); border-top: 1px solid var(--border-subtle); font-size: 0.78rem; color: var(--text-secondary); line-height: 1.6; font-style: italic;">
-                            The Ikate Clan: Dr. Temitope with his sisters, brothers-in-law, and beloved nieces and nephews at his residence in Ikate — the true boardroom where love is unconditional.
-                        </div>
-                    </div>
-
-                    <div class="family-board-org">
-                        <div class="family-board-title">Richard-Banji Family // Governance</div>
-                        
-                        <div class="org-seat">
-                            <span class="seat-role">Eternal Spiritual Canopy</span>
-                            <span class="seat-holder">Our Beloved Late Mother (Watching from Glory)</span>
-                        </div>
-                        <div class="org-seat">
-                            <span class="seat-role">The Senior Sister</span>
-                            <span class="seat-holder">Chief Advisor of Wisdom &amp; Elder Counsel</span>
-                        </div>
-                        <div class="org-seat">
-                            <span class="seat-role">The Younger Sister</span>
-                            <span class="seat-holder">Director of High Standards &amp; Affection</span>
-                        </div>
-                        <div class="org-seat">
-                            <span class="seat-role">The In-Laws &amp; Children</span>
-                            <span class="seat-holder">The Sunshine &amp; Pride of the Ikate Home</span>
-                        </div>
-                        <div class="org-seat">
-                            <span class="seat-role">The Host &amp; Chief Protector</span>
-                            <span class="seat-holder">Dr. Temitope (Residence in Ikate, Lagos)</span>
-                        </div>
-                        <div class="org-seat">
-                            <span class="seat-role">Official Boardroom Menu</span>
-                            <span class="seat-holder">Authentic Ekiti Pounded Yam &amp; Egusi</span>
-                        </div>
+                <div class="family-simple-frame">
+                    <img src="Magazine/Images/family-ikate.jpg" alt="Dr. Temitope at home in Ikate with his family">
+                    <div class="family-simple-caption">
+                        Gathered at home in Ikate with his family.
                     </div>
                 </div>
             </div>

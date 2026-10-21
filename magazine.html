@@ -601,7 +601,7 @@
             color: var(--orange-rust);
         }
 
-        /* Spread 10: The FaceTime Nap Dossier : Midnight Surveillance & Electric Amber */
+        /* Spread 10: The WhatsApp Nap Dossier : Video Call Archive & Amber */
         #spread-10 {
             background: linear-gradient(140deg, rgba(16, 20, 28, 0.94) 0%, rgba(22, 16, 22, 0.9) 50%, rgba(14, 18, 24, 0.92) 100%);
             border-color: rgba(255, 107, 0, 0.35);
@@ -2012,12 +2012,9 @@
             transform: scale(1.03);
         }
 
-        .dossier-stamp {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: rgba(10, 10, 12, 0.88);
-            backdrop-filter: blur(8px);
+        .dossier-card-badge {
+            display: inline-block;
+            background: rgba(255, 107, 0, 0.14);
             border: 1px solid var(--accent-orange);
             color: var(--accent-orange);
             font-family: monospace;
@@ -2025,9 +2022,9 @@
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            padding: 0.35rem 0.65rem;
+            padding: 0.3rem 0.65rem;
             border-radius: 4px;
-            z-index: 2;
+            margin-bottom: 0.65rem;
         }
 
         .dossier-expand-hint {
@@ -2513,9 +2510,9 @@
                     <a href="#spread-10" class="toc-link" data-index="9">
                         <div>
                             <span class="toc-num">10</span>
-                            <span class="toc-article-name">The FaceTime Nap Dossier</span>
+                            <span class="toc-article-name">The WhatsApp Nap Dossier</span>
                         </div>
-                        <span class="toc-author">Surveillance Archive</span>
+                        <span class="toc-author">Video Call Archive</span>
                     </a>
                 </li>
                 <li class="toc-item">
@@ -3148,57 +3145,55 @@
             </div>
         </article>
 
-        <!-- SPREAD 10: THE FACETIME NAP DOSSIER -->
-        <article class="editorial-spread" id="spread-10" data-title="FaceTime Nap Dossier">
+        <!-- SPREAD 10: THE WHATSAPP NAP DOSSIER -->
+        <article class="editorial-spread" id="spread-10" data-title="WhatsApp Nap Dossier">
             <div class="spread-folio-header">
-                <div>Confidential Surveillance &nbsp;&bull;&nbsp; <span class="highlight">Trunk Line Archive</span></div>
-                <div>Mid-Call Slumber Protocol &nbsp;&bull;&nbsp; Folio 28</div>
-                <div>Exhibits A &amp; B : Unilateral Ceasefire</div>
+                <div>Video Call Archives &nbsp;&bull;&nbsp; <span class="highlight">Lagos &bull; Dublin</span></div>
+                <div>Sleeping On Duty &nbsp;&bull;&nbsp; Folio 28</div>
+                <div>Exhibits A &amp; B : The Nap Chronicles</div>
             </div>
 
             <div class="dossier-grid">
                 <div class="dossier-evidence-row">
                     <div class="dossier-phone-card photo-clickable" data-caption="Exhibit A: The Midnight Knockout (01:36 AM) : Tolulope smiling at top right while Temitope enters deep delta sleep on the pillow.">
-                        <div class="dossier-stamp">Exhibit A &bull; 01:36 AM</div>
                         <div class="dossier-phone-screen">
-                            <img src="Magazine/Images/IMG-20250608-WA0001.jpg" alt="Video call screenshot at 01:36 AM showing Temitope fast asleep on pillow and Tolulope smiling in thumbnail">
+                            <img src="Magazine/Images/IMG-20250608-WA0001.jpg" alt="WhatsApp video call screenshot at 01:36 AM showing Temitope fast asleep on pillow and Tolulope smiling in thumbnail">
                             <div class="dossier-expand-hint">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
                                 <span>Zoom</span>
                             </div>
                         </div>
                         <div class="dossier-card-meta">
-                            <h4>Exhibit A: The Midnight Knockout</h4>
-                            <p><strong>Timestamp:</strong> 01:36 AM &nbsp;&bull;&nbsp; <strong>Battery:</strong> 26%<br>
-                            Subject placed head on pillow under the sworn promise of 'resting the neck.' Unconsciousness followed within forty seconds. Tolulope remained on the line to monitor peaceful Dublin breathing.</p>
+                            <div class="dossier-card-badge">Exhibit A &bull; 01:36 AM</div>
+                            <h4>The Midnight Knockout</h4>
+                            <p>It was 1:36 in the morning. He laid his head on the pillow promising he was just resting his eyes while we talked. Within forty seconds, he was in deep sleep. I stayed on the call smiling at my phone and took this picture for proof.</p>
                         </div>
                     </div>
 
-                    <div class="dossier-phone-card photo-clickable" data-caption="Exhibit B: The Daylight Hibernation (03:21 PM) : Tolulope in glasses and sweater observing Temitope asleep with chin on hands in broad daylight.">
-                        <div class="dossier-stamp">Exhibit B &bull; 03:21 PM</div>
+                    <div class="dossier-phone-card photo-clickable" data-caption="Exhibit B: The Broad Daylight Nap (03:21 PM) : Tolulope in glasses and sweater observing Temitope asleep with chin on hands in broad daylight.">
                         <div class="dossier-phone-screen">
-                            <img src="Magazine/Images/IMG-20260111-WA0001.jpg" alt="Video call screenshot at 03:21 PM showing Temitope sleeping on folded hands in broad daylight and Tolulope smiling patiently">
+                            <img src="Magazine/Images/IMG-20260111-WA0001.jpg" alt="WhatsApp video call screenshot at 03:21 PM showing Temitope sleeping on folded hands in broad daylight and Tolulope smiling patiently">
                             <div class="dossier-expand-hint">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
                                 <span>Zoom</span>
                             </div>
                         </div>
                         <div class="dossier-card-meta">
-                            <h4>Exhibit B: The Daylight Hibernation</h4>
-                            <p><strong>Timestamp:</strong> 03:21 PM &nbsp;&bull;&nbsp; <strong>Battery:</strong> 68%<br>
-                            Sunday afternoon session. Subject claimed to be 'wide awake and actively multitasking.' Two minutes later, chin rested on folded hands, eyes sealed tight in broad daylight. The 39-year-old nap is non-negotiable.</p>
+                            <div class="dossier-card-badge">Exhibit B &bull; 03:21 PM</div>
+                            <h4>The Broad Daylight Nap</h4>
+                            <p>Broad daylight at 3:21 in the afternoon. In the middle of our conversation, his head rested on his folded hands and his eyes sealed completely shut. I looked straight into the camera, quietly documenting that at 39, afternoon naps will always win.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="dossier-editorial-col">
-                    <span class="dossier-kicker">Forensic Surveillance Report // Chronic Fatigue at 39</span>
-                    <h2 class="dossier-title">"I Was Listening With My <em>Eyes Closed</em>."</h2>
+                    <span class="dossier-kicker">Confidential Archive // The Art of the Quick Nap</span>
+                    <h2 class="dossier-title">"I'm Not Sleeping O, I'm <em>Listening</em>."</h2>
                     <p class="dossier-lead">
-                        A confidential investigative report into Dr. Temitope Richard-Banji's most predictable superpower: the ability to initiate deep delta-wave unconsciousness while actively remaining on FaceTime.
+                        An authentic look into Temitope's most consistent superpower: falling peacefully asleep right in the middle of a WhatsApp video call without even hanging up.
                     </p>
                     <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary); font-weight: 300; margin: 0;">
-                        The scenario repeats with scientific consistency across time zones. The conversation begins with immense intellectual enthusiasm: quarterly goals, geopolitical insights, and heartfelt reflections. Then, around minute eleven, the cadence slows. Sentences stretch into long reflective silences. When questioned, he issues the official defense statement: <em>"I'm not sleeping, I'm just absorbing the depth of what you said."</em> Moments later, gentle Dublin breathing fills the speaker while Tolulope stares into the front camera, capturing undeniable photographic evidence for posterity.
+                        The scenario repeats with hilarious consistency across time zones. We will be having a normal, friendly conversation: catching up on our day, laughing, and sharing stories. Then, around minute eleven, his responses get slower and slower. Sentences stretch into long, peaceful silences. When asked if he is still there, he will softly insist: <em>"I'm here, I'm listening, I'm awake."</em> Yet within seconds, complete silence takes over and he is fast asleep, blissfully unaware while I stare at the camera and take screenshots for evidence.
                     </p>
 
                     <div class="dossier-stats-grid">
@@ -3208,21 +3203,21 @@
                         </div>
                         <div class="dossier-stat-box">
                             <div class="dossier-stat-number">40 Sec</div>
-                            <div class="dossier-stat-label">Pillow Touch to Full REM</div>
+                            <div class="dossier-stat-label">Pillow Touch to Fast Asleep</div>
                         </div>
                         <div class="dossier-stat-box">
                             <div class="dossier-stat-number">0%</div>
-                            <div class="dossier-stat-label">Recollection After Minute 4</div>
+                            <div class="dossier-stat-label">Words Remembered After Asleep</div>
                         </div>
                         <div class="dossier-stat-box">
                             <div class="dossier-stat-number">100%</div>
-                            <div class="dossier-stat-label">Tolulope's Boundless Love</div>
+                            <div class="dossier-stat-label">Unconditional Love Anyway</div>
                         </div>
                     </div>
 
                     <div class="dossier-quote-box">
-                        <p>"I wasn't asleep at all, Tolulope. I was just processing your perspective in high resolution."</p>
-                        <cite>Official Statement from the Defense // Dublin Trunk Line</cite>
+                        <p>"I'm not sleeping o, Tolulope... I'm listening to you."</p>
+                        <cite>His exact words two seconds before sleeping off // WhatsApp Video Call</cite>
                     </div>
                 </div>
             </div>

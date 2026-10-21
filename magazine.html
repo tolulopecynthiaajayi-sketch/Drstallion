@@ -601,13 +601,23 @@
             color: var(--orange-rust);
         }
 
-        /* Spread 10: Back Cover & Toast to 39 — Grand Sunburst Orange & Champagne Radiance */
+        /* Spread 10: The FaceTime Nap Dossier : Midnight Surveillance & Electric Amber */
         #spread-10 {
+            background: linear-gradient(140deg, rgba(16, 20, 28, 0.94) 0%, rgba(22, 16, 22, 0.9) 50%, rgba(14, 18, 24, 0.92) 100%);
+            border-color: rgba(255, 107, 0, 0.35);
+            box-shadow: 0 30px 85px rgba(0, 0, 0, 0.8), 0 0 55px rgba(255, 107, 0, 0.12);
+        }
+        #spread-10 .spread-folio-header span.highlight {
+            color: var(--orange-blaze);
+        }
+
+        /* Spread 11: Back Cover & Toast to 39 : Grand Sunburst Orange & Champagne Radiance */
+        #spread-11 {
             background: linear-gradient(135deg, rgba(34, 20, 12, 0.94) 0%, rgba(16, 14, 20, 0.9) 50%, rgba(38, 22, 10, 0.94) 100%);
             border-color: rgba(255, 107, 0, 0.4);
             box-shadow: 0 35px 95px rgba(0, 0, 0, 0.85), 0 0 70px rgba(255, 107, 0, 0.18);
         }
-        #spread-10 .spread-folio-header span.highlight {
+        #spread-11 .spread-folio-header span.highlight {
             color: var(--orange-blaze);
         }
 
@@ -1938,7 +1948,227 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* SPREAD 10: BACK COVER / COLOPHON / TOAST TO 39                */
+        /* SPREAD 10: THE FACETIME NAP DOSSIER                           */
+        /* ------------------------------------------------------------- */
+        .dossier-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 960px) {
+            .dossier-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .dossier-evidence-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 580px) {
+            .dossier-evidence-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dossier-phone-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+        }
+
+        .dossier-phone-card:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 107, 0, 0.2);
+        }
+
+        .dossier-phone-screen {
+            position: relative;
+            aspect-ratio: 9 / 16;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .dossier-phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .dossier-phone-card:hover .dossier-phone-screen img {
+            transform: scale(1.03);
+        }
+
+        .dossier-stamp {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(10, 10, 12, 0.88);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--accent-orange);
+            color: var(--accent-orange);
+            font-family: monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.65rem;
+            border-radius: 4px;
+            z-index: 2;
+        }
+
+        .dossier-expand-hint {
+            position: absolute;
+            bottom: 0.85rem;
+            right: 0.85rem;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            pointer-events: none;
+        }
+
+        .dossier-card-meta {
+            padding: 1.25rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .dossier-card-meta h4 {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            color: #ffffff;
+            margin-bottom: 0.4rem;
+        }
+
+        .dossier-card-meta p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .dossier-editorial-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .dossier-kicker {
+            font-size: 0.72rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            font-weight: 600;
+            display: block;
+        }
+
+        .dossier-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.1rem, 3.6vw, 3rem);
+            line-height: 1.12;
+            margin: 0;
+        }
+
+        .dossier-title em {
+            font-style: italic;
+            color: var(--accent-orange);
+        }
+
+        .dossier-lead {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .dossier-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .dossier-stat-box {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 1.25rem;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .dossier-stat-box:hover {
+            border-color: rgba(255, 107, 0, 0.4);
+        }
+
+        .dossier-stat-number {
+            font-family: var(--font-serif);
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            line-height: 1;
+            margin-bottom: 0.35rem;
+        }
+
+        .dossier-stat-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .dossier-quote-box {
+            background: rgba(255, 107, 0, 0.06);
+            border-left: 3px solid var(--accent-orange);
+            padding: 1.25rem 1.5rem;
+            margin-top: 0.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .dossier-quote-box p {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .dossier-quote-box cite {
+            font-size: 0.78rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            font-style: normal;
+            font-weight: 600;
+            display: block;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 11: BACK COVER / COLOPHON / TOAST TO 39                */
         /* ------------------------------------------------------------- */
         .backcover-spread {
             background: radial-gradient(circle at center, #141418 0%, #080808 80%);
@@ -2180,7 +2410,7 @@
         </button>
 
         <div class="spread-indicator">
-            Spread <strong id="currentSpreadNum">01</strong> of <span id="totalSpreadsNum">10</span> &nbsp;—&nbsp; <span id="spreadTitlePreview">The Cover</span>
+            Spread <strong id="currentSpreadNum">01</strong> of <span id="totalSpreadsNum">11</span> &nbsp;:&nbsp; <span id="spreadTitlePreview">The Cover</span>
         </div>
 
         <button class="spread-nav-btn" id="nextSpreadBtn" title="Next Spread (Right Arrow)">
@@ -2283,6 +2513,15 @@
                     <a href="#spread-10" class="toc-link" data-index="9">
                         <div>
                             <span class="toc-num">10</span>
+                            <span class="toc-article-name">The FaceTime Nap Dossier</span>
+                        </div>
+                        <span class="toc-author">Surveillance Archive</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#spread-11" class="toc-link" data-index="10">
+                        <div>
+                            <span class="toc-num">11</span>
                             <span class="toc-article-name">Back Cover &amp; Toast to 39</span>
                         </div>
                         <span class="toc-author">Colophon</span>
@@ -2909,8 +3148,88 @@
             </div>
         </article>
 
-        <!-- SPREAD 10: BACK COVER / TOAST TO 39 -->
-        <article class="editorial-spread backcover-spread" id="spread-10" data-title="Toast to 39">
+        <!-- SPREAD 10: THE FACETIME NAP DOSSIER -->
+        <article class="editorial-spread" id="spread-10" data-title="FaceTime Nap Dossier">
+            <div class="spread-folio-header">
+                <div>Confidential Surveillance &nbsp;&bull;&nbsp; <span class="highlight">Trunk Line Archive</span></div>
+                <div>Mid-Call Slumber Protocol &nbsp;&bull;&nbsp; Folio 28</div>
+                <div>Exhibits A &amp; B : Unilateral Ceasefire</div>
+            </div>
+
+            <div class="dossier-grid">
+                <div class="dossier-evidence-row">
+                    <div class="dossier-phone-card photo-clickable" data-caption="Exhibit A: The Midnight Knockout (01:36 AM) : Tolulope smiling at top right while Temitope enters deep delta sleep on the pillow.">
+                        <div class="dossier-stamp">Exhibit A &bull; 01:36 AM</div>
+                        <div class="dossier-phone-screen">
+                            <img src="Magazine/Images/IMG-20250608-WA0001.jpg" alt="Video call screenshot at 01:36 AM showing Temitope fast asleep on pillow and Tolulope smiling in thumbnail">
+                            <div class="dossier-expand-hint">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                                <span>Zoom</span>
+                            </div>
+                        </div>
+                        <div class="dossier-card-meta">
+                            <h4>Exhibit A: The Midnight Knockout</h4>
+                            <p><strong>Timestamp:</strong> 01:36 AM &nbsp;&bull;&nbsp; <strong>Battery:</strong> 26%<br>
+                            Subject placed head on pillow under the sworn promise of 'resting the neck.' Unconsciousness followed within forty seconds. Tolulope remained on the line to monitor peaceful Dublin breathing.</p>
+                        </div>
+                    </div>
+
+                    <div class="dossier-phone-card photo-clickable" data-caption="Exhibit B: The Daylight Hibernation (03:21 PM) : Tolulope in glasses and sweater observing Temitope asleep with chin on hands in broad daylight.">
+                        <div class="dossier-stamp">Exhibit B &bull; 03:21 PM</div>
+                        <div class="dossier-phone-screen">
+                            <img src="Magazine/Images/IMG-20260111-WA0001.jpg" alt="Video call screenshot at 03:21 PM showing Temitope sleeping on folded hands in broad daylight and Tolulope smiling patiently">
+                            <div class="dossier-expand-hint">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                                <span>Zoom</span>
+                            </div>
+                        </div>
+                        <div class="dossier-card-meta">
+                            <h4>Exhibit B: The Daylight Hibernation</h4>
+                            <p><strong>Timestamp:</strong> 03:21 PM &nbsp;&bull;&nbsp; <strong>Battery:</strong> 68%<br>
+                            Sunday afternoon session. Subject claimed to be 'wide awake and actively multitasking.' Two minutes later, chin rested on folded hands, eyes sealed tight in broad daylight. The 39-year-old nap is non-negotiable.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dossier-editorial-col">
+                    <span class="dossier-kicker">Forensic Surveillance Report // Chronic Fatigue at 39</span>
+                    <h2 class="dossier-title">"I Was Listening With My <em>Eyes Closed</em>."</h2>
+                    <p class="dossier-lead">
+                        A confidential investigative report into Dr. Temitope Richard-Banji's most predictable superpower: the ability to initiate deep delta-wave unconsciousness while actively remaining on FaceTime.
+                    </p>
+                    <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary); font-weight: 300; margin: 0;">
+                        The scenario repeats with scientific consistency across time zones. The conversation begins with immense intellectual enthusiasm: quarterly goals, geopolitical insights, and heartfelt reflections. Then, around minute eleven, the cadence slows. Sentences stretch into long reflective silences. When questioned, he issues the official defense statement: <em>"I'm not sleeping, I'm just absorbing the depth of what you said."</em> Moments later, gentle Dublin breathing fills the speaker while Tolulope stares into the front camera, capturing undeniable photographic evidence for posterity.
+                    </p>
+
+                    <div class="dossier-stats-grid">
+                        <div class="dossier-stat-box">
+                            <div class="dossier-stat-number">11.4 Min</div>
+                            <div class="dossier-stat-label">Average Call Consciousness</div>
+                        </div>
+                        <div class="dossier-stat-box">
+                            <div class="dossier-stat-number">40 Sec</div>
+                            <div class="dossier-stat-label">Pillow Touch to Full REM</div>
+                        </div>
+                        <div class="dossier-stat-box">
+                            <div class="dossier-stat-number">0%</div>
+                            <div class="dossier-stat-label">Recollection After Minute 4</div>
+                        </div>
+                        <div class="dossier-stat-box">
+                            <div class="dossier-stat-number">100%</div>
+                            <div class="dossier-stat-label">Tolulope's Boundless Love</div>
+                        </div>
+                    </div>
+
+                    <div class="dossier-quote-box">
+                        <p>"I wasn't asleep at all, Tolulope. I was just processing your perspective in high resolution."</p>
+                        <cite>Official Statement from the Defense // Dublin Trunk Line</cite>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- SPREAD 11: BACK COVER / TOAST TO 39 -->
+        <article class="editorial-spread backcover-spread" id="spread-11" data-title="Toast to 39">
             <img src="Magazine/Images/logo-white.png" alt="TRB Dr Stallion White Logo" class="backcover-logo">
             
             <h2 class="backcover-title">
@@ -3097,7 +3416,7 @@
         const photoLightboxImg = document.getElementById('photoLightboxImg');
         const photoLightboxCaption = document.getElementById('photoLightboxCaption');
         const photoLightboxClose = document.getElementById('photoLightboxClose');
-        const photoFrames = document.querySelectorAll('.photo-frame');
+        const photoFrames = document.querySelectorAll('.photo-frame, .photo-clickable');
 
         function openPhotoLightbox(src, caption) {
             if (!photoLightboxModal || !photoLightboxImg) return;

@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE TRB ISSUE — Volume 39 | Special Confidential Folio</title>
+    <!-- SEO & Editorial Meta -->
+    <meta name="description" content="The TRB Issue: Volume 39. A luxury bespoke editorial honoring Dr. Temitope Richard-Banji — Top 150 Global HR Influencer, youth mentor, corporate strategist, and tired 39-year-old.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root {
+            --bg-deep: #080808;
+            --bg-surface: #0f0f11;
+            --bg-elevated: #161619;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(255, 107, 0, 0.35);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent-orange: #FF6B00;
+            --accent-orange-glow: rgba(255, 107, 0, 0.4);
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --spread-width: 1360px;
+            --transition-smooth: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Subtle Luxury Grain */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            opacity: 0.035;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Top Progress Bar */
+        .progress-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #FF6B00, #ff944d);
+            box-shadow: 0 0 10px var(--accent-orange-glow);
+            transition: width 0.15s ease-out;
+        }
+
+        /* Fixed Navigation / Masthead Bar */
+        .masthead-nav {
+            position: fixed;
+            top: 3px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(180deg, rgba(8, 8, 8, 0.95) 0%, rgba(8, 8, 8, 0.7) 70%, transparent 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 900;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-brand-logo {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-meta-text {
+            font-size: 0.7rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            border-left: 1px solid var(--border-subtle);
+            padding-left: 1.25rem;
+            font-weight: 500;
+        }
+
+        .nav-meta-text span {
+            color: var(--accent-orange);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pill-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 0.55rem 1.1rem;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pill-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--accent-orange);
+            background: rgba(255, 107, 0, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .pill-btn.active {
+            background: var(--accent-orange);
+            color: #000000;
+            font-weight: 600;
+            border-color: var(--accent-orange);
+        }
+
+        .pill-btn svg {
+            width: 14px;
+            height: 14px;
+            stroke-width: 2;
+        }
+
+        /* Floating Spread Navigation Bar (for Spread Reader Mode) */
+        .spread-navigator {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 0.75rem 1.75rem;
+            background: rgba(18, 18, 22, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 107, 0, 0.1);
+            border-radius: 999px;
+            z-index: 950;
+            transition: var(--transition-smooth);
+        }
+
+        .spread-nav-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.4rem;
+            border-radius: 50%;
+            transition: var(--transition-smooth);
+        }
+
+        .spread-nav-btn:hover {
+            color: var(--accent-orange);
+            background: rgba(255, 255, 255, 0.06);
+            transform: scale(1.1);
+        }
+
+        .spread-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .spread-indicator {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .spread-indicator strong {
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+
+        /* Table of Contents Modal / Drawer */
+        .toc-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 8, 8, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1050;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .toc-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .toc-modal {
+            width: 90%;
+            max-width: 920px;
+            max-height: 85vh;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            padding: 3.5rem;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            transform: translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toc-overlay.open .toc-modal {
+            transform: translateY(0);
+        }
+
+        .toc-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .toc-close:hover {
+            color: var(--accent-orange);
+        }
+
+        .toc-title {
+            font-family: var(--font-serif);
+            font-size: 2.25rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-orange);
+            margin-bottom: 2.5rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.75rem 3rem;
+        }
+
+        .toc-item a {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            text-decoration: none;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 0.6rem;
+            transition: var(--transition-smooth);
+        }
+
+        .toc-item a:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+            transform: translateX(4px);
+        }
+
+        .toc-num {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--accent-orange);
+            font-style: italic;
+            margin-right: 1.25rem;
+        }
+
+        .toc-article-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .toc-author {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* Editorial Container & Spreads                                 */
+        /* ------------------------------------------------------------- */
+        .magazine-viewport {
+            width: 100%;
+            padding-top: 5.5rem;
+            padding-bottom: 6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* In Spread Mode, each section is a full screen luxury spread */
+        body.mode-spread .magazine-viewport {
+            height: 100vh;
+            overflow: hidden;
+            padding-top: 4.5rem;
+            padding-bottom: 4.5rem;
+            justify-content: center;
+        }
+
+        .editorial-spread {
+            width: 100%;
+            max-width: var(--spread-width);
+            margin: 0 auto 6rem auto;
+            padding: 3rem 2.5rem;
+            position: relative;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body.mode-spread .editorial-spread {
+            margin: 0 auto;
+            height: calc(100vh - 9rem);
+            max-height: 840px;
+            overflow-y: auto;
+            display: none;
+            opacity: 0;
+            transform: scale(0.98);
+        }
+
+        body.mode-spread .editorial-spread.active-spread {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Editorial Headers & Meta Folios */
+        .spread-folio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 0.85rem;
+            margin-bottom: 2.75rem;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+        }
+
+        .spread-folio-header span.highlight {
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 01: THE COVER                                          */
+        /* ------------------------------------------------------------- */
+        .spread-cover {
+            background: #080808;
+            padding: 0;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            overflow: hidden;
+            position: relative;
+            min-height: 820px;
+        }
+
+        .cover-container {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            min-height: 820px;
+            position: relative;
+        }
+
+        .cover-portrait-pane {
+            position: relative;
+            background: #000000;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .cover-portrait-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: contrast(1.05) saturate(1.1);
+        }
+
+        .cover-portrait-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(8, 8, 8, 0.95) 0%, rgba(8, 8, 8, 0.3) 45%, transparent 100%),
+                        linear-gradient(90deg, transparent 60%, rgba(8, 8, 8, 0.95) 100%);
+        }
+
+        .cover-content-pane {
+            padding: 3.5rem 3.5rem 3.5rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cover-masthead {
+            font-family: var(--font-serif);
+            font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .cover-masthead em {
+            color: var(--accent-orange);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .cover-kicker {
+            font-size: 0.75rem;
+            letter-spacing: 0.38em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cover-kicker::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-subtle);
+        }
+
+        .cover-lead-story {
+            margin: 2rem 0;
+            border-left: 2px solid var(--accent-orange);
+            padding-left: 1.5rem;
+        }
+
+        .cover-lead-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .cover-lead-headline {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.75rem;
+        }
+
+        .cover-lead-headline em {
+            font-style: italic;
+            color: var(--accent-orange);
+        }
+
+        .cover-lead-blurb {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .cover-teasers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.75rem;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+        }
+
+        .teaser-item h4 {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            margin-bottom: 0.35rem;
+        }
+
+        .teaser-item p {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            line-height: 1.3;
+            color: #ececec;
+        }
+
+        .cover-footer-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 1.75rem;
+            margin-top: 2rem;
+        }
+
+        .barcode-box {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .barcode-lines {
+            font-family: monospace;
+            letter-spacing: 0.3em;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .barcode-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 02: LETTER FROM THE EDITOR (CYNTHIA)                  */
+        /* ------------------------------------------------------------- */
+        .editor-grid {
+            display: grid;
+            grid-template-columns: 4fr 5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .editor-image-col {
+            position: relative;
+        }
+
+        .editor-frame {
+            position: relative;
+            background: #000;
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+        }
+
+        .editor-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(15%) contrast(1.05);
+            transition: var(--transition-smooth);
+        }
+
+        .editor-frame:hover img {
+            filter: grayscale(0%) contrast(1.08);
+            transform: scale(1.02);
+        }
+
+        .editor-caption {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            margin-top: 0.85rem;
+            font-style: italic;
+        }
+
+        .editor-text-col h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 4vw, 3.4rem);
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .editor-byline {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            color: var(--accent-orange);
+            font-weight: 600;
+            margin-bottom: 2.25rem;
+            display: block;
+        }
+
+        .editorial-body {
+            font-size: 1.05rem;
+            color: #d1d1d6;
+            line-height: 1.85;
+            font-weight: 300;
+        }
+
+        .editorial-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .editorial-body p:first-of-type::first-letter {
+            font-family: var(--font-serif);
+            font-size: 4.8rem;
+            float: left;
+            line-height: 0.8;
+            margin: 0.15rem 0.85rem 0 0;
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+
+        .editor-signature {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sig-name {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .sig-title {
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 03: THE 'DR. STALLION' PARADOX                         */
+        /* ------------------------------------------------------------- */
+        .paradox-header {
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto 3.5rem auto;
+        }
+
+        .paradox-kicker {
+            font-size: 0.75rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .paradox-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.25rem;
+        }
+
+        .giant-pullquote-box {
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.08) 0%, rgba(18, 18, 22, 0.6) 100%);
+            border: 1px solid var(--border-accent);
+            padding: 3rem;
+            margin: 2.5rem 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .giant-quote-mark {
+            font-family: var(--font-serif);
+            font-size: 6rem;
+            line-height: 0;
+            color: var(--accent-orange);
+            opacity: 0.4;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .giant-quote-text {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 3.2vw, 2.75rem);
+            line-height: 1.25;
+            font-style: italic;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .quote-speaker {
+            display: block;
+            margin-top: 1.5rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            font-family: var(--font-sans);
+            font-weight: 600;
+        }
+
+        .paradox-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            margin-top: 3rem;
+        }
+
+        .paradox-col-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .paradox-col-badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            padding: 0.35rem 0.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .badge-myth {
+            background: rgba(255, 255, 255, 0.06);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .badge-reality {
+            background: rgba(255, 107, 0, 0.15);
+            color: var(--accent-orange);
+            border: 1px solid var(--border-accent);
+        }
+
+        .paradox-col-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.85rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .paradox-col-card p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+            font-weight: 300;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 04: LUXURY FAUX-AD (AURORA NOIR)                       */
+        /* ------------------------------------------------------------- */
+        .spread-ad {
+            background: #050505;
+            padding: 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+        }
+
+        .ad-container {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            min-height: 720px;
+        }
+
+        .ad-image-pane {
+            position: relative;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .ad-image-pane img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .ad-copy-pane {
+            padding: 4.5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #09090b 0%, #030303 100%);
+        }
+
+        .ad-brand-kicker {
+            font-size: 0.72rem;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+        }
+
+        .ad-product-name {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 4.2vw, 3.8rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin: 1rem 0 1.5rem 0;
+            font-weight: 700;
+        }
+
+        .ad-product-name em {
+            font-style: italic;
+            font-weight: 400;
+            color: #d4d4d8;
+        }
+
+        .ad-description {
+            font-size: 1rem;
+            color: #a1a1aa;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .ad-notes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 1.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .ad-note-item span {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .ad-note-item strong {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .ad-cta-btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--accent-orange);
+            border: 1px solid var(--accent-orange);
+            padding: 1rem 2.5rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            transition: var(--transition-smooth);
+            font-weight: 600;
+        }
+
+        .ad-cta-btn:hover {
+            background: var(--accent-orange);
+            color: #000000;
+            box-shadow: 0 0 25px var(--accent-orange-glow);
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 05: THE PREMIER LEAGUE DELUSION                         */
+        /* ------------------------------------------------------------- */
+        .sports-spread-grid {
+            display: grid;
+            grid-template-columns: 5fr 4fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+
+        .sports-header h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .sports-subhead {
+            font-size: 1.05rem;
+            color: var(--accent-orange);
+            font-weight: 400;
+            font-style: italic;
+            font-family: var(--font-serif);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .xray-container {
+            background: #000000;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .xray-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .xray-overlay-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--accent-orange);
+            color: var(--accent-orange);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 0.35rem 0.75rem;
+            font-weight: 600;
+        }
+
+        .biometric-telemetry {
+            margin-top: 1.5rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 1.5rem;
+        }
+
+        .telemetry-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+        }
+
+        .telemetry-row:last-child {
+            border-bottom: none;
+        }
+
+        .telemetry-label {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .telemetry-val {
+            font-weight: 600;
+            color: var(--accent-orange);
+            font-family: monospace;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 06: THE CONTENT CREATOR'S DIARY                        */
+        /* ------------------------------------------------------------- */
+        .creator-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .creator-banner {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .creator-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.08) brightness(0.9);
+        }
+
+        .creator-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(8, 8, 8, 0.2) 0%, rgba(8, 8, 8, 0.85) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.5rem;
+        }
+
+        .creator-banner-overlay h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+            line-height: 1.1;
+        }
+
+        .diary-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .diary-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 1.75rem;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .diary-card:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        .diary-time {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--accent-orange);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .diary-time::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .diary-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+        }
+
+        .diary-card p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 07: NOLLYWOOD REVIEWS                                  */
+        /* ------------------------------------------------------------- */
+        .nollywood-grid {
+            display: grid;
+            grid-template-columns: 4.5fr 5.5fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+
+        .nollywood-media {
+            border: 1px solid var(--border-subtle);
+            background: #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .nollywood-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .decibel-meter-box {
+            margin-top: 1.5rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-accent);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .decibel-val {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            line-height: 1;
+        }
+
+        .decibel-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+        }
+
+        .review-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .review-rating-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 107, 0, 0.15);
+            border: 1px solid var(--accent-orange);
+            color: var(--accent-orange);
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .review-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.45rem;
+            margin-bottom: 0.5rem;
+            padding-right: 6rem;
+        }
+
+        .review-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 08: BACK COVER / COLOPHON / TOAST TO 39                */
+        /* ------------------------------------------------------------- */
+        .backcover-spread {
+            background: radial-gradient(circle at center, #141418 0%, #080808 80%);
+            border: 1px solid var(--border-accent);
+            text-align: center;
+            padding: 5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .backcover-logo {
+            max-width: 140px;
+            margin-bottom: 2rem;
+        }
+
+        .backcover-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+
+        .backcover-title em {
+            color: var(--accent-orange);
+            font-style: italic;
+        }
+
+        .backcover-text {
+            max-width: 680px;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .toast-celebrate-btn {
+            background: var(--accent-orange);
+            color: #000000;
+            border: none;
+            padding: 1.25rem 3.5rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 0 35px var(--accent-orange-glow);
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .toast-celebrate-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 50px rgba(255, 107, 0, 0.7);
+            background: #ff7d1a;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .cover-container,
+            .editor-grid,
+            .paradox-columns,
+            .ad-container,
+            .sports-spread-grid,
+            .nollywood-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .cover-portrait-pane {
+                height: 480px;
+            }
+
+            body.mode-spread .editorial-spread {
+                height: auto;
+                max-height: none;
+                overflow-y: visible;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .masthead-nav {
+                padding: 1rem 1.25rem;
+            }
+
+            .nav-meta-text {
+                display: none;
+            }
+
+            .editorial-spread {
+                padding: 2rem 1.25rem;
+                margin-bottom: 3.5rem;
+            }
+
+            .cover-content-pane {
+                padding: 2rem 1.25rem;
+            }
+
+            .cover-teasers {
+                grid-template-columns: 1fr;
+            }
+
+            .toc-modal {
+                padding: 2rem 1.5rem;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="mode-scroll">
+
+    <!-- Audio Synthesis Generator for Editorial Paper Turn -->
+    <script>
+        function playPaperTurnSound() {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                const ctx = new AudioContext();
+                const bufferSize = ctx.sampleRate * 0.12;
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
+                }
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(800, ctx.currentTime);
+                filter.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.12);
+                const gain = ctx.createGain();
+                gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(ctx.destination);
+                noise.start();
+            } catch (e) {
+                // Audio autoplay might be restricted, fail silently
+            }
+        }
+    </script>
+
+    <!-- Reading Progress Indicator -->
+    <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+
+    <!-- Fixed Editorial Masthead Navigation -->
+    <header class="masthead-nav">
+        <a href="magazine.html" class="nav-brand">
+            <img src="Magazine/Images/logo-orange.png" alt="TRB Dr. Stallion Logo" class="nav-brand-logo">
+            <div class="nav-meta-text">
+                THE TRB ISSUE &nbsp;|&nbsp; <span>VOL. 39</span> &nbsp;|&nbsp; OCTOBER 24, 2026
+            </div>
+        </a>
+
+        <div class="nav-controls">
+            <!-- Table of Contents Trigger -->
+            <button class="pill-btn" id="tocOpenBtn" title="View Table of Contents">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <span>Index</span>
+            </button>
+
+            <!-- Mode Switcher: Continuous Scroll vs Spread Reader -->
+            <button class="pill-btn" id="modeToggleBtn" title="Switch between Scroll and Spread Reader Mode">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <rect x="2" y="3" width="20" height="18" rx="2"></rect>
+                    <line x1="12" y1="3" x2="12" y2="21"></line>
+                </svg>
+                <span id="modeLabel">Spread Mode</span>
+            </button>
+
+            <!-- Return to Countdown -->
+            <a href="index.html" class="pill-btn" title="Back to Countdown">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Timer</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Floating Spread Navigator (Visible in Spread Reader Mode) -->
+    <div class="spread-navigator" id="spreadNavigator" style="display: none;">
+        <button class="spread-nav-btn" id="prevSpreadBtn" title="Previous Spread (Left Arrow)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+
+        <div class="spread-indicator">
+            Spread <strong id="currentSpreadNum">01</strong> of <span id="totalSpreadsNum">08</span> &nbsp;—&nbsp; <span id="spreadTitlePreview">The Cover</span>
+        </div>
+
+        <button class="spread-nav-btn" id="nextSpreadBtn" title="Next Spread (Right Arrow)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Table of Contents Modal Drawer -->
+    <div class="toc-overlay" id="tocOverlay">
+        <div class="toc-modal">
+            <button class="toc-close" id="tocCloseBtn" title="Close Index">&times;</button>
+            <h3 class="toc-title">The TRB Issue — Contents</h3>
+            <div class="toc-subtitle">Volume 39 &nbsp;|&nbsp; Dublin &amp; Global &nbsp;|&nbsp; Limited Collector's Folio</div>
+            
+            <ul class="toc-list">
+                <li class="toc-item">
+                    <a href="#spread-01" class="toc-link" data-index="0">
+                        <div>
+                            <span class="toc-num">01</span>
+                            <span class="toc-article-name">The Cover: Masthead &amp; Teasers</span>
+                        </div>
+                        <span class="toc-author">Folio</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#spread-02" class="toc-link" data-index="1">
+                        <div>
+                            <span class="toc-num">02</span>
+                            <span class="toc-article-name">Letter from the Editor</span>
+                        </div>
+                        <span class="toc-author">By Cynthia</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#spread-03" class="toc-link" data-index="2">
+                        <div>
+                            <span class="toc-num">03</span>
+                            <span class="toc-article-name">The 'Dr. Stallion' Paradox</span>
+                        </div>
+                        <span class="toc-author">Investigative</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#spread-04" class="toc-link" data-index="3">
+                        <div>
+                            <span class="toc-num">04</span>
+                            <span class="toc-article-name">Faux Ad: Aurora Noir</span>
+                        </div>
+                        <span class="toc-author">Luxury Maison</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#spread-05" class="toc-link" data-index="4">
+                        <div>
+                            <span class="toc-num">05</span>
+                            <span class="toc-article-name">The Premier League Delusion</span>
+                        </div>
+                        <span class="toc-author">Sports Desk</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#spread-06" class="toc-link" data-index="5">
+                        <div>
+                            <span class="toc-num">06</span>
+                            <span class="toc-article-name">Content Creator's Diary (@the_only_trb)</span>
+                        </div>
+                        <span class="toc-author">Culture Feature</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#spread-07" class="toc-link" data-index="6">
+                        <div>
+                            <span class="toc-num">07</span>
+                            <span class="toc-article-name">The Nollywood Tribunal: 10/10 Shouting</span>
+                        </div>
+                        <span class="toc-author">Film Critique</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#spread-08" class="toc-link" data-index="7">
+                        <div>
+                            <span class="toc-num">08</span>
+                            <span class="toc-article-name">Back Cover &amp; Toast to 39</span>
+                        </div>
+                        <span class="toc-author">Colophon</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Editorial Spreads Viewport -->
+    <main class="magazine-viewport" id="magazineViewport">
+
+        <!-- SPREAD 01: THE COVER -->
+        <article class="editorial-spread spread-cover active-spread" id="spread-01" data-title="The Cover">
+            <div class="cover-container">
+                <div class="cover-portrait-pane">
+                    <img src="Magazine/Images/temi-portrait-hero.jpg" alt="Dr. Temitope Richard-Banji Portrait" class="cover-portrait-img">
+                    <div class="cover-portrait-gradient"></div>
+                </div>
+
+                <div class="cover-content-pane">
+                    <div>
+                        <div class="cover-kicker">Confidential Monograph &nbsp;&bull;&nbsp; Special Folio</div>
+                        <h1 class="cover-masthead">THE <em>TRB</em> ISSUE</h1>
+                        <p style="font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2rem;">
+                            Volume 39 &nbsp;&bull;&nbsp; Dublin &amp; Global &nbsp;&bull;&nbsp; Edition 2026
+                        </p>
+
+                        <div class="cover-lead-story">
+                            <div class="cover-lead-tag">Exclusive Profile // Cover Feature</div>
+                            <h2 class="cover-lead-headline">The <em>Myth</em>, The Man, The Cartilage.</h2>
+                            <p class="cover-lead-blurb">
+                                How a Top 150 Global HR Influencer conquered 13 years of executive boardrooms, corporate transformations, and youth mentorship — while violently negotiating with his lower back at age 39.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="cover-teasers">
+                            <div class="teaser-item">
+                                <h4>01 / The Orthopedic Bureau</h4>
+                                <p>Why Premier League scouts ceased monitoring Sunday League pitches in Tallaght.</p>
+                            </div>
+                            <div class="teaser-item">
+                                <h4>02 / The Reel Crisis</h4>
+                                <p>Inside @the_only_trb: 47 takes at 2:00 AM in pursuit of the elusive corporate hook.</p>
+                            </div>
+                        </div>
+
+                        <div class="cover-footer-bar">
+                            <div class="barcode-box">
+                                <div class="barcode-lines">||||| | |||| ||| || | |||||</div>
+                                <div class="barcode-label">ISSN 1987-2026 &nbsp;|&nbsp; PRICELESS</div>
+                            </div>
+                            <div style="text-align: right; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted);">
+                                Dr. Stallion &nbsp;&bull;&nbsp; Global HR Folio
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- SPREAD 02: LETTER FROM THE EDITOR (CYNTHIA) -->
+        <article class="editorial-spread" id="spread-02" data-title="Letter from the Editor">
+            <div class="spread-folio-header">
+                <div>The TRB Issue &nbsp;&bull;&nbsp; <span class="highlight">Volume 39</span></div>
+                <div>Editorial &nbsp;&bull;&nbsp; Letter from the Editor</div>
+                <div>Dublin, Ireland</div>
+            </div>
+
+            <div class="editor-grid">
+                <div class="editor-image-col">
+                    <div class="editor-frame">
+                        <img src="Magazine/Images/temi-dapper-suit.jpg" alt="Dr. Temitope Richard-Banji in dapper evening suit">
+                    </div>
+                    <p class="editor-caption">Fig. 1.1: Dr. Temitope Richard-Banji — corporate statesman, youth coach, steadfast brother.</p>
+                </div>
+
+                <div class="editor-text-col">
+                    <span class="editor-byline">Letter from the Editor &nbsp;&bull;&nbsp; By Cynthia Ajayi</span>
+                    <h2>The Quiet Heart Behind The Loud Accolades.</h2>
+
+                    <div class="editorial-body">
+                        <p>
+                            It is easy to measure Temitope Richard-Banji by the metrics that make the rest of the world applaud. You can point to the Top 150 Global HR Influencer ranking, the thirteen solid years spent navigating the complex architecture of people and culture across continents, the keynote stages, the executive boardrooms, and the effortless authority with which he commands any room he walks into.
+                        </p>
+                        <p>
+                            Yet those who know him beyond the LinkedIn badges and the sharp tailored collars know that his greatest triumphs never show up on an executive dashboard. They happen in the quiet margins: in the midnight phone calls with young men trying to find their footing in new countries, in the tireless hours he pours into coaching, counseling, and believing in people long before they learn to believe in themselves.
+                        </p>
+                        <p>
+                            His faith isn't an ornament he wears on Sundays; it is the bedrock of his composure. Through seasons of transition, relocations, pressure, and responsibility, I have watched him anchor himself in prayer, treating leadership not as a platform for self-aggrandizement, but as an altar of service. He carries other people's burdens with an ease that often makes you forget he has his own.
+                        </p>
+                        <p>
+                            Temi, as you cross into your 39th year, we honor the visionary leader and the global force you have become. But far more than that, we thank God for the brother, the confidant, and the fiercely loyal friend you are. (Even if we must now collectively budget for knee braces and remind you that you are no longer twenty-one on the football pitch).
+                        </p>
+                        <p>
+                            May this 39th year bring unprecedented peace, divine health, joyful laughter, and deeper intimacy with your Maker. You are deeply loved, profoundly appreciated, and forever celebrated.
+                        </p>
+
+                        <div class="editor-signature">
+                            <div>
+                                <div class="sig-name">Cynthia Ajayi</div>
+                                <div class="sig-title">Editor-in-Chief &amp; Sister</div>
+                            </div>
+                            <div style="font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-orange); font-weight: 600;">
+                                Dublin &bull; October 2026
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- SPREAD 03: THE 'DR. STALLION' PARADOX -->
+        <article class="editorial-spread" id="spread-03" data-title="The Dr. Stallion Paradox">
+            <div class="spread-folio-header">
+                <div>Investigative Dispatch &nbsp;&bull;&nbsp; <span class="highlight">The Dossier</span></div>
+                <div>Executive Profile &nbsp;&bull;&nbsp; Folio 08</div>
+                <div>Confidential Analysis</div>
+            </div>
+
+            <div class="paradox-header">
+                <span class="paradox-kicker">An Investigative Inquest into Legend vs. Lactic Acid</span>
+                <h2 class="paradox-title">The "Dr. Stallion" Paradox</h2>
+                <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto; font-weight: 300;">
+                    How an international corporate titan with an aura of indestructible horsepower spends his evenings bargaining with heating pads and seeking afternoon quiet.
+                </p>
+            </div>
+
+            <div class="giant-pullquote-box">
+                <span class="giant-quote-mark">&ldquo;</span>
+                <p class="giant-quote-text">
+                    I'm not Dr. Stallion. That's how you people used to kill somebody.
+                </p>
+                <span class="quote-speaker">— Dr. Temitope Richard-Banji, upon being invited to another 7:00 AM breakfast strategy summit</span>
+            </div>
+
+            <div class="paradox-columns">
+                <div class="paradox-col-card">
+                    <span class="paradox-col-badge badge-myth">The Digital Mythos: Dr. Stallion</span>
+                    <h3>The 20-Hour Corporate Engine</h3>
+                    <p>
+                        In the collective imagination of LinkedIn and corporate Dublin, "Dr. Stallion" is an unstoppable humanoid algorithm. He wakes at 4:30 AM to read labor market quarterly filings while doing one-arm pushups. He reviews 400 executive CVs before breakfast, reorganizes departmental org charts with a single penetrating gaze, and delivers visionary keynote remarks without a drop of perspiration.
+                    </p>
+                    <p>
+                        He is described by colleagues as having "unfaltering bandwidth," an uncanny ability to resolve cross-border talent bottlenecks, and an aura that suggests he has never experienced fatigue since 2011.
+                    </p>
+                </div>
+
+                <div class="paradox-col-card">
+                    <span class="paradox-col-badge badge-reality">The Domestic Reality: 39-Year-Old Temi</span>
+                    <h3>The Man Wrapped In The Fleece Blanket</h3>
+                    <p>
+                        Behind closed doors, the mythical stallion is fundamentally a 39-year-old Nigerian gentleman who wants nothing more than silence, pounded yam with hot soup, and thirty minutes without someone tagging him in a video about "The Future of AI in Talent Acquisition."
+                    </p>
+                    <p>
+                        At 8:15 PM, his iPhone sits face down because if one more person messages <em>"Doc, quick question on my career transition,"</em> his soul will exit his body. He groans when rising from low armchairs, possesses four different brands of joint rub, and will vigorously defend his right to sleep at 9:30 PM like an honorable elder statesman.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- SPREAD 04: LUXURY FAUX-AD (AURORA NOIR) -->
+        <article class="editorial-spread spread-ad" id="spread-04" data-title="Luxury Folio: Aurora Noir">
+            <div class="ad-container">
+                <div class="ad-image-pane">
+                    <img src="Magazine/Images/editorial/luxury-ad-pillow.jpg" alt="Luxury glowing smartphone on black silk pillow">
+                </div>
+
+                <div class="ad-copy-pane">
+                    <div>
+                        <span class="ad-brand-kicker">Maison Richard-Banji &nbsp;&bull;&nbsp; Haute Parfumerie</span>
+                        <h2 class="ad-product-name">AURORA <em>NOIR</em></h2>
+                        <p class="ad-description">
+                            The definitive fragrance for the corporate statesman who claims he is going to bed, yet continues replying to Slack notifications from a darkened room until 2:37 AM.
+                        </p>
+
+                        <div class="ad-notes">
+                            <div class="ad-note-item">
+                                <span>Head Notes</span>
+                                <strong>Double Espresso &amp; Unread DMs</strong>
+                            </div>
+                            <div class="ad-note-item">
+                                <span>Heart Notes</span>
+                                <strong>Global HR Influence &amp; Deep Sighs</strong>
+                            </div>
+                            <div class="ad-note-item">
+                                <span>Base Notes</span>
+                                <strong>Smoked Amber &amp; Glucosamine</strong>
+                            </div>
+                            <div class="ad-note-item">
+                                <span>Sillage</span>
+                                <strong>Indestructible &amp; Exhausted</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a href="#spread-05" class="ad-cta-btn">Experience The Essence</a>
+                        <p style="font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-top: 1rem;">
+                            Strictly Limited to 39 Flacons Worldwide &bull; Dublin
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- SPREAD 05: THE PREMIER LEAGUE DELUSION -->
+        <article class="editorial-spread" id="spread-05" data-title="The Premier League Delusion">
+            <div class="spread-folio-header">
+                <div>Sports &amp; Athletics Dispatch &nbsp;&bull;&nbsp; <span class="highlight">Clinical Report</span></div>
+                <div>Anatomy &amp; Delusion &nbsp;&bull;&nbsp; Sunday League</div>
+                <div>Pitch 4, Dublin</div>
+            </div>
+
+            <div class="sports-spread-grid">
+                <div>
+                    <div class="sports-header">
+                        <h2>The Premier League Delusion: Why Arteta Ceased Calling.</h2>
+                        <span class="sports-subhead">A clinical post-mortem on the Sunday afternoon he mistook his 39-year-old ankle for Thierry Henry's.</span>
+                    </div>
+
+                    <div class="editorial-body">
+                        <p>
+                            Every weekend on the wet artificial turf of Dublin, a psychological tragedy unfolds. A respectable man—a man holding multiple university credentials, a global corporate reputation, and a mortgage—laces up fluorescent football boots and genuinely convinces himself that an Arsenal talent scout has gotten lost off the M50 and is hiding behind the goalposts with a clipboard.
+                        </p>
+                        <p>
+                            For sixty-four seconds, Dr. Stallion looks like a revelation. The body feint is sharp; the vision is sublime; the hand gestures to teammates are intensely managerial. But football at thirty-nine is governed by the brutal laws of Newtonian physics and deteriorating collagen.
+                        </p>
+                        <p>
+                            On minute sixty-seven, attempting a step-over that has not been executed smoothly since the Obasanjo administration, his right ankle produced an acoustic event resembling a dry twig snapping under an elephant's foot.
+                        </p>
+                        <p>
+                            The medical staff (two confused friends with a lukewarm Lucozade and a damp towel) confirmed the worst: he is not 21 years old. The Premier League contract has expired before it was drafted. His immediate future involves Deep Heat, compression socks, and watching the highlights from an orthopedic reclining chair.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="xray-container">
+                        <img src="Magazine/Images/editorial/ankle-knee-scan.jpg" alt="Monochrome knee and ankle orthopedic MRI scan with telemetry">
+                        <div class="xray-overlay-badge">Diagnostic: Severe 39yo Syndrome</div>
+                    </div>
+
+                    <div class="biometric-telemetry">
+                        <div class="telemetry-row">
+                            <span class="telemetry-label">Subject</span>
+                            <span class="telemetry-val">Temitope R.B. (39y)</span>
+                        </div>
+                        <div class="telemetry-row">
+                            <span class="telemetry-label">Cartilage Resilience</span>
+                            <span class="telemetry-val">CRITICAL (14%)</span>
+                        </div>
+                        <div class="telemetry-row">
+                            <span class="telemetry-label">Ronaldinho Delusion Index</span>
+                            <span class="telemetry-val">99.4% (OFF CHARTS)</span>
+                        </div>
+                        <div class="telemetry-row">
+                            <span class="telemetry-label">Recommended Therapy</span>
+                            <span class="telemetry-val">SIT DOWN &amp; DRINK WATER</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- SPREAD 06: THE CONTENT CREATOR'S DIARY -->
+        <article class="editorial-spread" id="spread-06" data-title="The Content Creator's Diary">
+            <div class="spread-folio-header">
+                <div>Digital Culture &nbsp;&bull;&nbsp; <span class="highlight">@the_only_trb</span></div>
+                <div>Behind The Ring Light &nbsp;&bull;&nbsp; Folio 22</div>
+                <div>Dublin, 02:00 AM</div>
+            </div>
+
+            <div class="creator-grid">
+                <div class="creator-banner">
+                    <img src="Magazine/Images/editorial/creator-studio.jpg" alt="Dark studio desk with glowing ring light and notebook">
+                    <div class="creator-banner-overlay">
+                        <span style="font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent-orange); margin-bottom: 0.5rem; font-weight: 600;">
+                            The Struggle For The Algorithm
+                        </span>
+                        <h2>47 Takes, Zero Hooks: The Agony of @the_only_trb</h2>
+                    </div>
+                </div>
+
+                <div class="diary-timeline">
+                    <div class="diary-card">
+                        <div class="diary-time">01:14 AM — The Creative Spark</div>
+                        <h4>"The World Needs This Insight"</h4>
+                        <p>
+                            Dr. Stallion sits up in bed. An epiphany has struck: <em>"Cross-functional synergy in remote teams is fundamentally an emotional intelligence problem."</em> He adjusts his glasses. The world cannot wait until 9:00 AM. The ring light is plugged in.
+                        </p>
+                    </div>
+
+                    <div class="diary-card">
+                        <div class="diary-time">01:42 AM — The Lighting Crisis</div>
+                        <h4>"The Forehead Glare"</h4>
+                        <p>
+                            Take 8. The delivery was Shakespearean, but the ring light reflection turned his forehead into a miniature lighthouse. He re-positions the camera. Take 14: delivered with immaculate corporate gravity, but he accidentally said <em>"abeg"</em> on second 11. Delete.
+                        </p>
+                    </div>
+
+                    <div class="diary-card">
+                        <div class="diary-time">02:28 AM — The Accent Negotiation</div>
+                        <h4>"Too Lekki or Too Dublin?"</h4>
+                        <p>
+                            Take 29. A deep identity crisis erupts. Is he an Irish executive thought leader or an Ibadan intellectual? He tries pronouncing 'organizational' three different ways before giving up and staring blankly into the lens for 40 seconds.
+                        </p>
+                    </div>
+
+                    <div class="diary-card">
+                        <div class="diary-time">03:05 AM — The Defeat &amp; The Post</div>
+                        <h4>"Comment 'SCALE' Below"</h4>
+                        <p>
+                            At 3:05 AM, mentally drained and physically 48 years old, he uploads Take 3. He falls asleep praying for 100k views. He wakes at 7:45 AM: 12 views, 1 like from his cousin, and a comment asking: <em>"Uncle, is your ankle better?"</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- SPREAD 07: NOLLYWOOD REVIEWS -->
+        <article class="editorial-spread" id="spread-07" data-title="Nollywood Reviews">
+            <div class="spread-folio-header">
+                <div>Cinematic Tribunal &nbsp;&bull;&nbsp; <span class="highlight">Decibel Culture</span></div>
+                <div>Film Review &nbsp;&bull;&nbsp; High Agitation</div>
+                <div>Alaba International Standards</div>
+            </div>
+
+            <div class="nollywood-grid">
+                <div>
+                    <div class="nollywood-media">
+                        <img src="Magazine/Images/editorial/nollywood-drama.jpg" alt="Dramatic Nollywood actor shouting passionately in opulent parlor">
+                    </div>
+
+                    <div class="decibel-meter-box">
+                        <div class="decibel-val">118 dB</div>
+                        <div class="decibel-label">Peak Audio Output // Shouting Integrity Rating: 10/10</div>
+                    </div>
+                </div>
+
+                <div>
+                    <span style="font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent-orange); font-weight: 600; display: block; margin-bottom: 0.5rem;">
+                        The Richard-Banji Film Criterion
+                    </span>
+                    <h2 style="font-family: var(--font-serif); font-size: clamp(2.2rem, 3.8vw, 3.2rem); line-height: 1.1; margin-bottom: 1.5rem;">
+                        10/10 For Shouting. Zero Notes.
+                    </h2>
+
+                    <div class="review-card">
+                        <span class="review-rating-badge">Rating: 10/10 Shouting</span>
+                        <h4>The Wicked Stepmother of Asaba (Parts 1–4)</h4>
+                        <p>
+                            Plot was completely abandoned by minute seventeen, but Chief Kanayo walked into the sitting room and yelled <em>"Tufiakwa!"</em> with such acoustic violence that my Samsung soundbar filed an industrial grievance. The sound mixer turned the background flute to maximum volume during an ordinary breakfast scene. Masterpiece.
+                        </p>
+                    </div>
+
+                    <div class="review-card">
+                        <span class="review-rating-badge">Rating: 10/10 Agitation</span>
+                        <h4>Lekki Bloodline: The Return of the Billionaire</h4>
+                        <p>
+                            No one in this movie spoke below 90 decibels. Even the domestic staff communicated via operatic outrage. Whenever someone was betrayed, thunder cracked instantly inside a closed air-conditioned bedroom in broad daylight. This is the cinematic realism Dr. Stallion demands.
+                        </p>
+                    </div>
+
+                    <div class="review-card">
+                        <span class="review-rating-badge">Rating: 0/10 Disqualified</span>
+                        <h4>A Reasonable Discussion in Ikeja</h4>
+                        <p>
+                            Two brothers sat down, poured tea, and resolved a multi-million-naira land dispute with rational, polite dialogue in twelve minutes. Unacceptable. No table was overturned. No one held their chest and collapsed. Disqualified from the canon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- SPREAD 08: BACK COVER / TOAST TO 39 -->
+        <article class="editorial-spread backcover-spread" id="spread-08" data-title="Toast to 39">
+            <img src="Magazine/Images/logo-white.png" alt="TRB Dr Stallion White Logo" class="backcover-logo">
+            
+            <h2 class="backcover-title">
+                To Thirty-Nine Years of <em>Excellence</em>.
+            </h2>
+            
+            <p class="backcover-text">
+                Here's to Dr. Temitope Richard-Banji: the visionary HR leader, the relentless coach, the devoted servant of God, the football romantic, and the rarest kind of friend. May your 39th year bring deeper peace, legendary triumphs, renewed cartilage, and fewer 2:00 AM reel revisions.
+            </p>
+
+            <button class="toast-celebrate-btn" id="confettiToastBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                <span>Toast Dr. Stallion at 39</span>
+            </button>
+            
+            <p style="font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); margin-top: 3.5rem;">
+                &copy; 2026 THE TRB ISSUE &nbsp;&bull;&nbsp; SPECIALLY COMMISSIONED BY CYNTHIA &nbsp;&bull;&nbsp; DUBLIN
+            </p>
+        </article>
+
+    </main>
+
+    <!-- Interactive Navigation Logic -->
+    <script>
+        const spreads = Array.from(document.querySelectorAll('.editorial-spread'));
+        const totalSpreads = spreads.length;
+        let currentSpreadIndex = 0;
+        let isSpreadMode = false; // default to smooth continuous scroll
+
+        const progressBar = document.getElementById('progressBar');
+        const modeToggleBtn = document.getElementById('modeToggleBtn');
+        const modeLabel = document.getElementById('modeLabel');
+        const spreadNavigator = document.getElementById('spreadNavigator');
+        const prevSpreadBtn = document.getElementById('prevSpreadBtn');
+        const nextSpreadBtn = document.getElementById('nextSpreadBtn');
+        const currentSpreadNumEl = document.getElementById('currentSpreadNum');
+        const totalSpreadsNumEl = document.getElementById('totalSpreadsNum');
+        const spreadTitlePreviewEl = document.getElementById('spreadTitlePreview');
+
+        totalSpreadsNumEl.textContent = String(totalSpreads).padStart(2, '0');
+
+        // Scroll Progress Calculation (in Scroll Mode)
+        window.addEventListener('scroll', () => {
+            if (!isSpreadMode) {
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if (totalHeight > 0) {
+                    const progress = (window.scrollY / totalHeight) * 100;
+                    progressBar.style.width = `${progress}%`;
+                }
+            }
+        });
+
+        // Mode Switching
+        modeToggleBtn.addEventListener('click', () => {
+            isSpreadMode = !isSpreadMode;
+            playPaperTurnSound();
+
+            if (isSpreadMode) {
+                document.body.classList.remove('mode-scroll');
+                document.body.classList.add('mode-spread');
+                modeLabel.textContent = 'Scroll Mode';
+                spreadNavigator.style.display = 'flex';
+                showSpread(currentSpreadIndex);
+            } else {
+                document.body.classList.remove('mode-spread');
+                document.body.classList.add('mode-scroll');
+                modeLabel.textContent = 'Spread Mode';
+                spreadNavigator.style.display = 'none';
+                spreads.forEach(s => s.classList.remove('active-spread'));
+                // Scroll to current spread in view
+                spreads[currentSpreadIndex].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        function showSpread(index) {
+            if (index < 0) index = 0;
+            if (index >= totalSpreads) index = totalSpreads - 1;
+            currentSpreadIndex = index;
+
+            spreads.forEach((spread, idx) => {
+                if (idx === currentSpreadIndex) {
+                    spread.classList.add('active-spread');
+                    spread.scrollTop = 0;
+                } else {
+                    spread.classList.remove('active-spread');
+                }
+            });
+
+            // Update UI
+            currentSpreadNumEl.textContent = String(currentSpreadIndex + 1).padStart(2, '0');
+            const title = spreads[currentSpreadIndex].getAttribute('data-title') || 'Spread';
+            spreadTitlePreviewEl.textContent = title;
+
+            prevSpreadBtn.disabled = currentSpreadIndex === 0;
+            nextSpreadBtn.disabled = currentSpreadIndex === totalSpreads - 1;
+
+            const progress = ((currentSpreadIndex + 1) / totalSpreads) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            playPaperTurnSound();
+        }
+
+        prevSpreadBtn.addEventListener('click', () => {
+            if (currentSpreadIndex > 0) showSpread(currentSpreadIndex - 1);
+        });
+
+        nextSpreadBtn.addEventListener('click', () => {
+            if (currentSpreadIndex < totalSpreads - 1) showSpread(currentSpreadIndex + 1);
+        });
+
+        // Keyboard Navigation (Arrow Keys)
+        window.addEventListener('keydown', (e) => {
+            if (isSpreadMode) {
+                if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+                    if (currentSpreadIndex < totalSpreads - 1) showSpread(currentSpreadIndex + 1);
+                } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                    if (currentSpreadIndex > 0) showSpread(currentSpreadIndex - 1);
+                }
+            }
+        });
+
+        // Table of Contents Modal Handling
+        const tocOpenBtn = document.getElementById('tocOpenBtn');
+        const tocCloseBtn = document.getElementById('tocCloseBtn');
+        const tocOverlay = document.getElementById('tocOverlay');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        function openToc() {
+            tocOverlay.classList.add('open');
+        }
+
+        function closeToc() {
+            tocOverlay.classList.remove('open');
+        }
+
+        tocOpenBtn.addEventListener('click', openToc);
+        tocCloseBtn.addEventListener('click', closeToc);
+        tocOverlay.addEventListener('click', (e) => {
+            if (e.target === tocOverlay) closeToc();
+        });
+
+        tocLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const targetIdx = parseInt(link.getAttribute('data-index'));
+                closeToc();
+                if (isSpreadMode) {
+                    e.preventDefault();
+                    showSpread(targetIdx);
+                }
+            });
+        });
+
+        // Confetti Celebration Trigger
+        const confettiToastBtn = document.getElementById('confettiToastBtn');
+        confettiToastBtn.addEventListener('click', () => {
+            playPaperTurnSound();
+            const duration = 4.5 * 1000;
+            const animationEnd = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 8,
+                    angle: 60,
+                    spread: 65,
+                    origin: { x: 0 },
+                    colors: ['#ffffff', '#FF6B00', '#111111', '#ffa96b']
+                });
+                confetti({
+                    particleCount: 8,
+                    angle: 120,
+                    spread: 65,
+                    origin: { x: 1 },
+                    colors: ['#ffffff', '#FF6B00', '#111111', '#ffa96b']
+                });
+
+                if (Date.now() < animationEnd) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        });
+    </script>
+</body>
+</html>

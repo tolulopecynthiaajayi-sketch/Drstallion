@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE TRB ISSUE — Volume 39 | Special Confidential Folio</title>
     <!-- SEO & Editorial Meta -->
-    <meta name="description" content="The TRB Issue: Volume 39. A luxury bespoke editorial honoring Dr. Temitope Richard-Banji — Ekiti son, Liverpool devotee, niche perfume connoisseur, Top 150 Global HR Influencer, and tired 39-year-old.">
+    <meta name="description" content="The TRB Issue: Volume 39. A luxury bespoke editorial honoring Dr. Temitope Richard-Banji — Ekiti son, devoted son & brother, Liverpool faithful, niche perfume connoisseur, Top 150 Global HR Influencer, and tired 39-year-old.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,11 +20,13 @@
             --bg-elevated: #151518;
             --border-subtle: rgba(255, 255, 255, 0.08);
             --border-accent: rgba(255, 107, 0, 0.35);
+            --border-gold: rgba(234, 179, 8, 0.35);
             --text-primary: #ffffff;
             --text-secondary: #a1a1aa;
             --text-muted: #71717a;
             --accent-orange: #FF6B00;
             --accent-orange-glow: rgba(255, 107, 0, 0.4);
+            --accent-gold: #EAB308;
             --liverpool-red: #C8102E;
             --font-serif: 'Playfair Display', Georgia, serif;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -418,6 +420,11 @@
 
         .spread-folio-header span.highlight {
             color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        .spread-folio-header span.gold {
+            color: var(--accent-gold);
             font-weight: 600;
         }
 
@@ -948,7 +955,7 @@
         .biometric-telemetry {
             margin-top: 1.25rem;
             background: var(--bg-elevated);
-            border: 1fr solid var(--border-subtle);
+            border: 1px solid var(--border-subtle);
             padding: 1.35rem;
         }
 
@@ -981,7 +988,166 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* SPREAD 06: THE PHOTO GALLERY / LOOKBOOK                       */
+        /* SPREAD 06: THE FAMILY ANCHOR (MAMA & THE SISTERS)             */
+        /* ------------------------------------------------------------- */
+        .family-spread-grid {
+            display: grid;
+            grid-template-columns: 5.5fr 4.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .family-header h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .family-subhead {
+            font-size: 1.02rem;
+            color: var(--accent-gold);
+            font-style: italic;
+            font-family: var(--font-serif);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .family-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.75rem;
+            margin-top: 2rem;
+        }
+
+        .family-tribute-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 2rem;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .family-tribute-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .family-tribute-card.mama-card {
+            border-left: 3px solid var(--accent-gold);
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0.05) 0%, rgba(21, 21, 24, 0.95) 100%);
+        }
+
+        .family-tribute-card.sisters-card {
+            border-left: 3px solid var(--accent-orange);
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.05) 0%, rgba(21, 21, 24, 0.95) 100%);
+        }
+
+        .family-card-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 0.3rem 0.65rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-gold {
+            background: rgba(234, 179, 8, 0.15);
+            color: var(--accent-gold);
+            border: 1px solid var(--border-gold);
+        }
+
+        .badge-orange {
+            background: rgba(255, 107, 0, 0.15);
+            color: var(--accent-orange);
+            border: 1px solid var(--border-accent);
+        }
+
+        .family-tribute-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.45rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
+        }
+
+        .family-tribute-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .family-tribute-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .family-media-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .family-heirloom-frame {
+            border: 1px solid var(--border-gold);
+            overflow: hidden;
+            background: #000;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .family-heirloom-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .family-board-org {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 1.75rem;
+        }
+
+        .family-board-title {
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 0.6rem;
+        }
+
+        .org-seat {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+        }
+
+        .org-seat:last-child {
+            border-bottom: none;
+        }
+
+        .seat-role {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .seat-holder {
+            font-size: 0.78rem;
+            color: var(--accent-orange);
+            letter-spacing: 0.05em;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 07: THE PHOTO GALLERY / LOOKBOOK                       */
         /* ------------------------------------------------------------- */
         .lookbook-header {
             text-align: center;
@@ -1055,7 +1221,7 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* SPREAD 07: THE CONTENT CREATOR'S DIARY                        */
+        /* SPREAD 08: THE CONTENT CREATOR'S DIARY                        */
         /* ------------------------------------------------------------- */
         .creator-grid {
             display: grid;
@@ -1146,7 +1312,7 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* SPREAD 08: NOLLYWOOD REVIEWS                                  */
+        /* SPREAD 09: NOLLYWOOD REVIEWS                                  */
         /* ------------------------------------------------------------- */
         .nollywood-grid {
             display: grid;
@@ -1229,7 +1395,7 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* SPREAD 09: BACK COVER / COLOPHON / TOAST TO 39                */
+        /* SPREAD 10: BACK COVER / COLOPHON / TOAST TO 39                */
         /* ------------------------------------------------------------- */
         .backcover-spread {
             background: radial-gradient(circle at center, #141418 0%, #080808 80%);
@@ -1298,6 +1464,7 @@
             .paradox-columns,
             .perfume-spread-grid,
             .sports-spread-grid,
+            .family-spread-grid,
             .lookbook-grid,
             .nollywood-grid {
                 grid-template-columns: 1fr;
@@ -1441,7 +1608,7 @@
         </button>
 
         <div class="spread-indicator">
-            Spread <strong id="currentSpreadNum">01</strong> of <span id="totalSpreadsNum">09</span> &nbsp;—&nbsp; <span id="spreadTitlePreview">The Cover</span>
+            Spread <strong id="currentSpreadNum">01</strong> of <span id="totalSpreadsNum">10</span> &nbsp;—&nbsp; <span id="spreadTitlePreview">The Cover</span>
         </div>
 
         <button class="spread-nav-btn" id="nextSpreadBtn" title="Next Spread (Right Arrow)">
@@ -1508,33 +1675,42 @@
                     <a href="#spread-06" class="toc-link" data-index="5">
                         <div>
                             <span class="toc-num">06</span>
-                            <span class="toc-article-name">The Lookbook: The 2TB Photo Crisis</span>
+                            <span class="toc-article-name">The Anchor: Mama &amp; The Sisterhood</span>
                         </div>
-                        <span class="toc-author">Style Folio</span>
+                        <span class="toc-author">Family Chronicle</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-07" class="toc-link" data-index="6">
                         <div>
                             <span class="toc-num">07</span>
-                            <span class="toc-article-name">Content Creator's Diary (@the_only_trb)</span>
+                            <span class="toc-article-name">The Lookbook: The 2TB Photo Crisis</span>
                         </div>
-                        <span class="toc-author">Culture Feature</span>
+                        <span class="toc-author">Style Folio</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-08" class="toc-link" data-index="7">
                         <div>
                             <span class="toc-num">08</span>
-                            <span class="toc-article-name">The Nollywood Tribunal: 10/10 Shouting</span>
+                            <span class="toc-article-name">Content Creator's Diary (@the_only_trb)</span>
                         </div>
-                        <span class="toc-author">Film Critique</span>
+                        <span class="toc-author">Culture Feature</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-09" class="toc-link" data-index="8">
                         <div>
                             <span class="toc-num">09</span>
+                            <span class="toc-article-name">The Nollywood Tribunal: 10/10 Shouting</span>
+                        </div>
+                        <span class="toc-author">Film Critique</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#spread-10" class="toc-link" data-index="9">
+                        <div>
+                            <span class="toc-num">10</span>
                             <span class="toc-article-name">Back Cover &amp; Toast to 39</span>
                         </div>
                         <span class="toc-author">Colophon</span>
@@ -1557,7 +1733,7 @@
 
                 <div class="cover-content-pane">
                     <div>
-                        <div class="cover-kicker">Ekiti Pedigree &bull; Global Influence &bull; Vol. 39</div>
+                        <div class="cover-kicker">Ekiti Pedigree &bull; Family Anchor &bull; Vol. 39</div>
                         <h1 class="cover-masthead">THE <em>TRB</em> ISSUE</h1>
                         <p style="font-size: 0.8rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2rem;">
                             Ekiti State &bull; Dublin &bull; Anfield &bull; Edition 2026
@@ -1567,7 +1743,7 @@
                             <div class="cover-lead-tag">Exclusive Profile // Cover Feature</div>
                             <h2 class="cover-lead-headline">From Ekiti Hills to Dublin Boardrooms: The <em>Myth</em> &amp; The Man.</h2>
                             <p class="cover-lead-blurb">
-                                How an Ekiti son conquered 13 years of Global HR leadership, amassed 47 bottles of niche extrait de parfum, sang 'You'll Never Walk Alone' through tear-stained eyes, and modeled for 10,000 photos — while violently negotiating with his lower back at age 39.
+                                How an Ekiti son conquered 13 years of Global HR leadership, amassed 47 bottles of niche extrait de parfum, shielded his sisters, honored his mother's prayers, and supported Liverpool FC with theological devotion — while violently negotiating with his lower back at age 39.
                             </p>
                         </div>
                     </div>
@@ -1575,8 +1751,8 @@
                     <div>
                         <div class="cover-teasers">
                             <div class="teaser-item">
-                                <h4>01 / The Anfield Delusion</h4>
-                                <p>Why Arne Slot and Liverpool scouts have ceased monitoring Sunday League pitches in Tallaght.</p>
+                                <h4>01 / The Family Dynasty</h4>
+                                <p>Why Dr. Stallion's supreme authority collapses into "Yes, Mummy!" the instant his mother calls.</p>
                             </div>
                             <div class="teaser-item">
                                 <h4>02 / The Sillage Monograph</h4>
@@ -1587,7 +1763,7 @@
                         <div class="cover-footer-bar">
                             <div class="barcode-box">
                                 <div class="barcode-lines">||||| | |||| ||| || | |||||</div>
-                                <div class="barcode-label">ISSN 1987-2026 &nbsp;|&nbsp; EKITI &bull; LFC &bull; DUBLIN</div>
+                                <div class="barcode-label">ISSN 1987-2026 &nbsp;|&nbsp; EKITI &bull; FAMILY &bull; DUBLIN</div>
                             </div>
                             <div style="text-align: right; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted);">
                                 Dr. Stallion &nbsp;&bull;&nbsp; Global HR Folio
@@ -1611,7 +1787,7 @@
                     <div class="editor-frame">
                         <img src="Magazine/Images/temi-dapper-suit.jpg" alt="Dr. Temitope Richard-Banji in dapper evening suit">
                     </div>
-                    <p class="editor-caption">Fig. 1.1: Dr. Temitope Richard-Banji — the proud Ekiti man, steadfast mentor, fragrant visionary.</p>
+                    <p class="editor-caption">Fig. 1.1: Dr. Temitope Richard-Banji — the proud Ekiti man, beloved son, protective brother, steadfast friend.</p>
                 </div>
 
                 <div class="editor-text-col">
@@ -1623,16 +1799,19 @@
                             To the global corporate world, Temitope Richard-Banji is a formidable name. You can point to the Top 150 Global HR Influencer ranking, the thirteen solid years spent architecting talent strategy across continents, the keynote stages, and that unmistakable aura of executive authority that commands every room he enters.
                         </p>
                         <p>
-                            Yet, those of us blessed to know him intimately know that behind the boardroom accolades stands a proud Ekiti son whose values were forged in dignity, hard work, and intellectual grit. Temi carries Ekiti excellence in his DNA: uncompromising standards, deep respect for people, and a sacred conviction that no Irish mashed potato will ever come close to authentic Ekiti pounded yam with proper egusi.
+                            Yet, those of us blessed to call him family know that his greatest title isn't 'Doctor' or 'Top 150 Influencer.' His greatest title is being the beating heart, the fierce protector, and the unyielding pillar of our family. 
                         </p>
                         <p>
-                            His Christian faith isn't an ornament he wears on Sundays; it is the compass of his entire life. Through relocations, heavy corporate burdens, and seasons of intense pressure, I have watched him retreat to the secret place of prayer. In the quiet margins, he pours tireless hours into coaching young people, praying over struggling friends, and mentoring upcoming immigrants trying to find their footing in Ireland. He carries others with a selfless grace that makes you forget he has his own weight to bear.
+                            To his sisters, Temi is the ultimate big brother: the one who sends a four-minute voice note critiquing your life choices with the gravitas of a Supreme Court justice, yet will immediately drop everything if you are distressed or need him. He carries our burdens as though they were his own responsibility. You can never feel alone in this world when Temitope is in your corner.
                         </p>
                         <p>
-                            And then, of course, there is the legendary Temi we all chuckle over: the man who cannot pass a good mirror without a mini photoshoot; the man who sprays niche perfumes with such religious devotion that you can smell his oud trail across Dublin three business days before he walks through the door; and the devoted Liverpool fanatic who screams at the television during every match like Jurgen Klopp personally delegated tactical oversight to him!
+                            And then, there is his sacred bond with our beloved Mother. No matter how many global conferences he headlines or how important he becomes in Dublin and beyond, the moment Mummy calls, the mythical 'Dr. Stallion' immediately melts into the sweet, devoted son who answers, <em>"Yes, Ma! I am well, Ma. Have you eaten, Ma?"</em> He honors her with every breath, treats her comfort as non-negotiable, and walks under the powerful canopy of her ceaseless prayers.
                         </p>
                         <p>
-                            Temi, as you turn 39, we celebrate the leader you have become, the brother and confidant you will always be, and the lives you touch every day. May your 39th year bring divine health, overflowing peace, Liverpool trophies, fresh bottles of extrait, and renewed cartilage. You are deeply loved, profoundly appreciated, and forever celebrated.
+                            His Ekiti roots run deep in his dignity and intellectual stubbornness, his Christian faith anchors his soul, his love for Liverpool FC tests his cardiovascular health, and his 47 bottles of niche perfume announce his presence before he even leaves his house.
+                        </p>
+                        <p>
+                            Temi, as you turn 39, your sisters, your mother, and your entire family salute the extraordinary man you are. We thank God for your life, your generosity, and your boundless love. May this 39th year bring divine health, peace of mind, Liverpool silverware, fresh bottles of extrait, and renewed cartilage!
                         </p>
 
                         <div class="editor-signature">
@@ -1829,11 +2008,86 @@
             </div>
         </article>
 
-        <!-- SPREAD 06: THE LOOKBOOK / THE 2TB PHOTO CRISIS -->
-        <article class="editorial-spread" id="spread-06" data-title="The Lookbook">
+        <!-- SPREAD 06: THE FAMILY ANCHOR (MAMA & THE SISTERS) -->
+        <article class="editorial-spread" id="spread-06" data-title="The Family Anchor">
+            <div class="spread-folio-header">
+                <div>Family Chronicle &nbsp;&bull;&nbsp; <span class="gold">The Inner Sanctum</span></div>
+                <div>Dynasty &bull; Mother's Prayers &bull; Sisterhood</div>
+                <div>Folio 20 &bull; Ekiti &amp; Dublin</div>
+            </div>
+
+            <div class="family-spread-grid">
+                <div>
+                    <div class="family-header">
+                        <h2>The Real Boardroom: The Matriarch's Seal &amp; The Sisterhood.</h2>
+                        <span class="family-subhead">Behind the global corporate titan is a devoted son wrapped around his mother’s finger, and an elder brother who would fight the world for his sisters.</span>
+                    </div>
+
+                    <div class="editorial-body">
+                        <p>
+                            You can impress executive committees, advise multi-billion-euro enterprises, and rank among the Top 150 Global HR Influencers, but in the Richard-Banji family court, none of that grants you executive immunity.
+                        </p>
+                        <p>
+                            The true source of Dr. Stallion’s quiet strength has never been corporate strategy; it is the sacred spiritual anchor of his beloved Mother, and the unbreakable bond he shares with his sisters.
+                        </p>
+                    </div>
+
+                    <div class="family-cards-grid">
+                        <div class="family-tribute-card mama-card">
+                            <span class="family-card-badge badge-gold">The Matriarch // Mummy's Golden Boy</span>
+                            <h4>The Prayers That Built An Empire</h4>
+                            <p>
+                                There is only one person on earth who can humble Dr. Stallion in 0.4 seconds. The moment Mummy calls, all corporate poise vanishes. He becomes her little boy again, checking on her health, hanging on her every word, and soaking in her prayers. Her intercession has been the invisible shield over his life across continents, seasons, and milestones.
+                            </p>
+                            <p style="font-style: italic; color: var(--accent-gold); font-family: var(--font-serif); font-size: 0.92rem;">
+                                &ldquo;Honor your mother, and your days shall be long, blessed, and fragrant.&rdquo; — The Temitope Creed
+                            </p>
+                        </div>
+
+                        <div class="family-tribute-card sisters-card">
+                            <span class="family-card-badge badge-orange">The Sisterhood // The Chief Protector</span>
+                            <h4>The Brother Who Never Sleeps On Duty</h4>
+                            <p>
+                                Having Temi as a big brother is having a 24/7 personal life coach, career strategist, security detail, and comedian all rolled into one impeccably dressed gentleman. He may complain when his sisters flood his WhatsApp with requests, but the world knows: do not cross his sisters. He will defend them with everything he has, celebrate their wins louder than anyone else, and ensure they are always provided for and protected.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="family-media-col">
+                    <div class="family-heirloom-frame">
+                        <img src="Magazine/Images/editorial/family-heritage.jpg" alt="Elegant candlelit family heritage portrait still life">
+                    </div>
+
+                    <div class="family-board-org">
+                        <div class="family-board-title">Richard-Banji Family // Corporate Governance</div>
+                        
+                        <div class="org-seat">
+                            <span class="seat-role">Supreme Spiritual Commander</span>
+                            <span class="seat-holder">Mummy (Permanent Veto Power)</span>
+                        </div>
+                        <div class="org-seat">
+                            <span class="seat-role">VPs of Demands &amp; Affection</span>
+                            <span class="seat-holder">The Sisters (Always Right)</span>
+                        </div>
+                        <div class="org-seat">
+                            <span class="seat-role">Head of Scent, Logistics &amp; Pounding</span>
+                            <span class="seat-holder">Dr. Temitope (On Call 24/7)</span>
+                        </div>
+                        <div class="org-seat">
+                            <span class="seat-role">Official Boardroom Menu</span>
+                            <span class="seat-holder">Ekiti Pounded Yam &amp; Egusi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- SPREAD 07: THE PHOTO GALLERY / LOOKBOOK -->
+        <article class="editorial-spread" id="spread-07" data-title="The Lookbook">
             <div class="spread-folio-header">
                 <div>Visual Style &amp; Archives &nbsp;&bull;&nbsp; <span class="highlight">The Lookbook</span></div>
-                <div>iCloud Storage Alert: 99% Full &nbsp;&bull;&nbsp; Folio 20</div>
+                <div>iCloud Storage Alert: 99% Full &nbsp;&bull;&nbsp; Folio 22</div>
                 <div>Dublin &amp; Global Fashion</div>
             </div>
 
@@ -1885,8 +2139,8 @@
             </div>
         </article>
 
-        <!-- SPREAD 07: THE CONTENT CREATOR'S DIARY -->
-        <article class="editorial-spread" id="spread-07" data-title="Content Creator's Diary">
+        <!-- SPREAD 08: THE CONTENT CREATOR'S DIARY -->
+        <article class="editorial-spread" id="spread-08" data-title="Content Creator's Diary">
             <div class="spread-folio-header">
                 <div>Digital Culture &nbsp;&bull;&nbsp; <span class="highlight">@the_only_trb</span></div>
                 <div>Behind The Ring Light &nbsp;&bull;&nbsp; Folio 24</div>
@@ -1940,8 +2194,8 @@
             </div>
         </article>
 
-        <!-- SPREAD 08: NOLLYWOOD REVIEWS -->
-        <article class="editorial-spread" id="spread-08" data-title="Nollywood Reviews">
+        <!-- SPREAD 09: NOLLYWOOD REVIEWS -->
+        <article class="editorial-spread" id="spread-09" data-title="Nollywood Reviews">
             <div class="spread-folio-header">
                 <div>Cinematic Tribunal &nbsp;&bull;&nbsp; <span class="highlight">Decibel Culture</span></div>
                 <div>Film Review &nbsp;&bull;&nbsp; High Agitation</div>
@@ -1995,8 +2249,8 @@
             </div>
         </article>
 
-        <!-- SPREAD 09: BACK COVER / TOAST TO 39 -->
-        <article class="editorial-spread backcover-spread" id="spread-09" data-title="Toast to 39">
+        <!-- SPREAD 10: BACK COVER / TOAST TO 39 -->
+        <article class="editorial-spread backcover-spread" id="spread-10" data-title="Toast to 39">
             <img src="Magazine/Images/logo-white.png" alt="TRB Dr Stallion White Logo" class="backcover-logo">
             
             <h2 class="backcover-title">
@@ -2004,7 +2258,7 @@
             </h2>
             
             <p class="backcover-text">
-                To Dr. Temitope Richard-Banji: the proud son of Ekiti, the devoted servant of God, the relentless coach to upcoming generations, the Anfield faithful through thick and thin, the most fragrant gentleman in Dublin, and the rarest kind of friend. May your 39th year bring deeper peace, legendary triumphs, renewed cartilage, and infinite photo opportunities.
+                To Dr. Temitope Richard-Banji: the proud son of Ekiti, the joy of his mother's heart, the protective hero to his sisters, the faithful Anfield supporter, the most fragrant gentleman in Dublin, and the rarest kind of leader. May your 39th year bring overflowing peace, divine health, legendary triumphs, renewed cartilage, and infinite love from the family that cherishes you beyond words.
             </p>
 
             <button class="toast-celebrate-btn" id="confettiToastBtn">
@@ -2015,7 +2269,7 @@
             </button>
             
             <p style="font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); margin-top: 3.5rem;">
-                &copy; 2026 THE TRB ISSUE &nbsp;&bull;&nbsp; COMMISSIONED WITH LOVE BY CYNTHIA &nbsp;&bull;&nbsp; EKITI &bull; DUBLIN &bull; ANFIELD
+                &copy; 2026 THE TRB ISSUE &nbsp;&bull;&nbsp; COMMISSIONED WITH BOUNDLESS LOVE BY CYNTHIA &amp; THE FAMILY &nbsp;&bull;&nbsp; DUBLIN &bull; EKITI
             </p>
         </article>
 
@@ -2162,14 +2416,14 @@
                     angle: 60,
                     spread: 65,
                     origin: { x: 0 },
-                    colors: ['#ffffff', '#FF6B00', '#C8102E', '#111111', '#ffa96b']
+                    colors: ['#ffffff', '#FF6B00', '#EAB308', '#C8102E', '#111111', '#ffa96b']
                 });
                 confetti({
                     particleCount: 8,
                     angle: 120,
                     spread: 65,
                     origin: { x: 1 },
-                    colors: ['#ffffff', '#FF6B00', '#C8102E', '#111111', '#ffa96b']
+                    colors: ['#ffffff', '#FF6B00', '#EAB308', '#C8102E', '#111111', '#ffa96b']
                 });
 
                 if (Date.now() < animationEnd) {

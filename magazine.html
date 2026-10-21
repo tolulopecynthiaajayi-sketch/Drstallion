@@ -2201,7 +2201,56 @@
             color: var(--text-secondary);
             font-weight: 300;
             line-height: 1.8;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .backcover-scripture-box {
+            background: rgba(255, 107, 0, 0.04);
+            border: 1px solid rgba(255, 107, 0, 0.28);
+            border-radius: 12px;
+            padding: 2.25rem 2.5rem;
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto 2.75rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 107, 0, 0.05);
+        }
+
+        .scripture-kicker {
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .scripture-item blockquote {
+            font-family: var(--font-serif);
+            font-size: clamp(1.15rem, 2vw, 1.35rem);
+            line-height: 1.6;
+            color: #ffffff;
+            font-style: italic;
+            margin: 0 0 0.5rem 0;
+            padding: 0;
+        }
+
+        .scripture-item cite {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .scripture-divider {
+            width: 50px;
+            height: 1px;
+            background: rgba(255, 107, 0, 0.35);
+            margin: 1.5rem auto;
         }
 
         .toast-celebrate-btn {
@@ -3232,8 +3281,28 @@
             </h2>
             
             <p class="backcover-text">
-                To Dr. Temitope Richard-Banji: the proud son of Ekiti, the living reflection of his mother's eternal prayers, the protective brother to his senior and younger sisters, the generous host of the Ikate clan, the faithful Anfield believer, the most fragrant gentleman in Dublin, and the rarest kind of leader. May your 39th year bring overflowing peace, divine health, legendary triumphs, renewed cartilage, and infinite love from the family that cherishes you beyond words.
+                To Dr. Temitope Richard-Banji: the proud son of Ekiti, the faithful Anfield believer, the most fragrant gentleman in Dublin, and the rarest kind of leader. May your thirty-ninth year bring overflowing peace, divine health, supernatural grace, and extraordinary fulfillment in every single step you take.
             </p>
+
+            <div class="backcover-scripture-box">
+                <div class="scripture-kicker">A Birthday Prayer &amp; Scripture Benediction</div>
+                
+                <div class="scripture-item">
+                    <blockquote>
+                        &ldquo;The Lord is my shepherd; I have all that I need.&rdquo;
+                    </blockquote>
+                    <cite>Psalm 23:1 (NLT)</cite>
+                </div>
+
+                <div class="scripture-divider"></div>
+
+                <div class="scripture-item">
+                    <blockquote>
+                        &ldquo;They are like trees planted along the riverbank, bearing fruit each season. Their leaves never wither, and they prosper in all they do.&rdquo;
+                    </blockquote>
+                    <cite>Psalm 1:3 (NLT)</cite>
+                </div>
+            </div>
 
             <button class="toast-celebrate-btn" id="confettiToastBtn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -3243,7 +3312,7 @@
             </button>
             
             <p style="font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); margin-top: 3.5rem;">
-                &copy; 2026 THE TRB ISSUE &nbsp;&bull;&nbsp; COMMISSIONED WITH BOUNDLESS LOVE BY TOLULOPE &amp; THE FAMILY &nbsp;&bull;&nbsp; DUBLIN &bull; EKITI
+                &copy; 2026 THE TRB ISSUE &nbsp;&bull;&nbsp; COMMISSIONED WITH BOUNDLESS LOVE BY TOLULOPE &nbsp;&bull;&nbsp; DUBLIN &bull; LAGOS
             </p>
         </article>
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE TRB ISSUE — Volume 39 | Special Confidential Folio</title>
     <!-- SEO & Editorial Meta -->
-    <meta name="description" content="The TRB Issue: Volume 39. A luxury bespoke editorial honoring Dr. Temitope Richard-Banji — Top 150 Global HR Influencer, youth mentor, corporate strategist, and tired 39-year-old.">
+    <meta name="description" content="The TRB Issue: Volume 39. A luxury bespoke editorial honoring Dr. Temitope Richard-Banji — Ekiti son, Liverpool devotee, niche perfume connoisseur, Top 150 Global HR Influencer, and tired 39-year-old.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +16,8 @@
     <style>
         :root {
             --bg-deep: #080808;
-            --bg-surface: #0f0f11;
-            --bg-elevated: #161619;
+            --bg-surface: #0e0e11;
+            --bg-elevated: #151518;
             --border-subtle: rgba(255, 255, 255, 0.08);
             --border-accent: rgba(255, 107, 0, 0.35);
             --text-primary: #ffffff;
@@ -25,6 +25,7 @@
             --text-muted: #71717a;
             --accent-orange: #FF6B00;
             --accent-orange-glow: rgba(255, 107, 0, 0.4);
+            --liverpool-red: #C8102E;
             --font-serif: 'Playfair Display', Georgia, serif;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --spread-width: 1360px;
@@ -69,7 +70,7 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        /* Top Progress Bar */
+        /* Reading Progress Bar */
         .progress-bar-container {
             position: fixed;
             top: 0;
@@ -88,7 +89,7 @@
             transition: width 0.15s ease-out;
         }
 
-        /* Fixed Navigation / Masthead Bar */
+        /* Masthead Navigation Bar */
         .masthead-nav {
             position: fixed;
             top: 3px;
@@ -97,8 +98,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.25rem 2.5rem;
-            background: linear-gradient(180deg, rgba(8, 8, 8, 0.95) 0%, rgba(8, 8, 8, 0.7) 70%, transparent 100%);
+            padding: 1.15rem 2.5rem;
+            background: linear-gradient(180deg, rgba(8, 8, 8, 0.96) 0%, rgba(8, 8, 8, 0.75) 75%, transparent 100%);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             z-index: 900;
@@ -114,13 +115,13 @@
         }
 
         .nav-brand-logo {
-            height: 38px;
+            height: 36px;
             width: auto;
             object-fit: contain;
         }
 
         .nav-meta-text {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             letter-spacing: 0.28em;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -136,23 +137,23 @@
         .nav-controls {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.85rem;
         }
 
         .pill-btn {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border-subtle);
             color: var(--text-secondary);
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            padding: 0.55rem 1.1rem;
+            padding: 0.5rem 1rem;
             border-radius: 999px;
             cursor: pointer;
             transition: var(--transition-smooth);
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.45rem;
             text-decoration: none;
             font-weight: 500;
         }
@@ -177,7 +178,7 @@
             stroke-width: 2;
         }
 
-        /* Floating Spread Navigation Bar (for Spread Reader Mode) */
+        /* Floating Spread Navigator (Spread Reader Mode) */
         .spread-navigator {
             position: fixed;
             bottom: 2rem;
@@ -187,7 +188,7 @@
             align-items: center;
             gap: 1.5rem;
             padding: 0.75rem 1.75rem;
-            background: rgba(18, 18, 22, 0.85);
+            background: rgba(18, 18, 22, 0.88);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -236,7 +237,7 @@
             font-weight: 700;
         }
 
-        /* Table of Contents Modal / Drawer */
+        /* Table of Contents Modal */
         .toc-overlay {
             position: fixed;
             top: 0;
@@ -262,7 +263,7 @@
 
         .toc-modal {
             width: 90%;
-            max-width: 920px;
+            max-width: 940px;
             max-height: 85vh;
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
@@ -302,7 +303,7 @@
         }
 
         .toc-subtitle {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 0.25em;
             color: var(--accent-orange);
@@ -313,7 +314,7 @@
             list-style: none;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.75rem 3rem;
+            gap: 1.5rem 2.5rem;
         }
 
         .toc-item a {
@@ -335,27 +336,27 @@
 
         .toc-num {
             font-family: var(--font-serif);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--accent-orange);
             font-style: italic;
-            margin-right: 1.25rem;
+            margin-right: 1rem;
         }
 
         .toc-article-name {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 500;
             letter-spacing: 0.02em;
         }
 
         .toc-author {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
         /* ------------------------------------------------------------- */
-        /* Editorial Container & Spreads                                 */
+        /* Editorial Viewport & Spreads                                  */
         /* ------------------------------------------------------------- */
         .magazine-viewport {
             width: 100%;
@@ -366,7 +367,6 @@
             align-items: center;
         }
 
-        /* In Spread Mode, each section is a full screen luxury spread */
         body.mode-spread .magazine-viewport {
             height: 100vh;
             overflow: hidden;
@@ -379,7 +379,7 @@
             width: 100%;
             max-width: var(--spread-width);
             margin: 0 auto 6rem auto;
-            padding: 3rem 2.5rem;
+            padding: 3.25rem 2.75rem;
             position: relative;
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
@@ -403,7 +403,6 @@
             transform: scale(1);
         }
 
-        /* Editorial Headers & Meta Folios */
         .spread-folio-header {
             display: flex;
             justify-content: space-between;
@@ -431,13 +430,13 @@
             border: 1px solid rgba(255, 255, 255, 0.12);
             overflow: hidden;
             position: relative;
-            min-height: 820px;
+            min-height: 840px;
         }
 
         .cover-container {
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            min-height: 820px;
+            grid-template-columns: 1.15fr 1fr;
+            min-height: 840px;
             position: relative;
         }
 
@@ -454,14 +453,14 @@
             height: 100%;
             object-fit: cover;
             object-position: center top;
-            filter: contrast(1.05) saturate(1.1);
+            filter: contrast(1.05) saturate(1.08);
         }
 
         .cover-portrait-gradient {
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(8, 8, 8, 0.95) 0%, rgba(8, 8, 8, 0.3) 45%, transparent 100%),
-                        linear-gradient(90deg, transparent 60%, rgba(8, 8, 8, 0.95) 100%);
+            background: linear-gradient(0deg, rgba(8, 8, 8, 0.95) 0%, rgba(8, 8, 8, 0.25) 50%, transparent 100%),
+                        linear-gradient(90deg, transparent 65%, rgba(8, 8, 8, 0.95) 100%);
         }
 
         .cover-content-pane {
@@ -490,7 +489,7 @@
         }
 
         .cover-kicker {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             letter-spacing: 0.38em;
             text-transform: uppercase;
             color: var(--accent-orange);
@@ -515,7 +514,7 @@
         }
 
         .cover-lead-tag {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -524,7 +523,7 @@
 
         .cover-lead-headline {
             font-family: var(--font-serif);
-            font-size: 2.2rem;
+            font-size: 2.15rem;
             line-height: 1.15;
             letter-spacing: -0.01em;
             margin-bottom: 0.75rem;
@@ -539,19 +538,19 @@
             font-size: 0.95rem;
             color: var(--text-secondary);
             font-weight: 300;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         .cover-teasers {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.75rem;
+            gap: 1.5rem;
             border-top: 1px solid var(--border-subtle);
-            padding-top: 2rem;
+            padding-top: 1.75rem;
         }
 
         .teaser-item h4 {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--accent-orange);
@@ -560,9 +559,9 @@
 
         .teaser-item p {
             font-family: var(--font-serif);
-            font-size: 1.05rem;
-            line-height: 1.3;
-            color: #ececec;
+            font-size: 0.98rem;
+            line-height: 1.35;
+            color: #eaeaea;
         }
 
         .cover-footer-bar {
@@ -570,14 +569,14 @@
             justify-content: space-between;
             align-items: flex-end;
             border-top: 1px solid var(--border-subtle);
-            padding-top: 1.75rem;
-            margin-top: 2rem;
+            padding-top: 1.5rem;
+            margin-top: 1.75rem;
         }
 
         .barcode-box {
             display: flex;
             flex-direction: column;
-            gap: 0.35rem;
+            gap: 0.3rem;
         }
 
         .barcode-lines {
@@ -588,7 +587,7 @@
         }
 
         .barcode-label {
-            font-size: 0.62rem;
+            font-size: 0.6rem;
             letter-spacing: 0.25em;
             color: var(--text-muted);
             text-transform: uppercase;
@@ -599,32 +598,27 @@
         /* ------------------------------------------------------------- */
         .editor-grid {
             display: grid;
-            grid-template-columns: 4fr 5fr;
+            grid-template-columns: 4.2fr 5.8fr;
             gap: 4rem;
             align-items: start;
         }
 
-        .editor-image-col {
-            position: relative;
-        }
-
         .editor-frame {
-            position: relative;
             background: #000;
             border: 1px solid var(--border-subtle);
             overflow: hidden;
+            position: relative;
         }
 
         .editor-frame img {
             width: 100%;
             height: auto;
             display: block;
-            filter: grayscale(15%) contrast(1.05);
+            filter: contrast(1.05);
             transition: var(--transition-smooth);
         }
 
         .editor-frame:hover img {
-            filter: grayscale(0%) contrast(1.08);
             transform: scale(1.02);
         }
 
@@ -638,24 +632,24 @@
 
         .editor-text-col h2 {
             font-family: var(--font-serif);
-            font-size: clamp(2.4rem, 4vw, 3.4rem);
+            font-size: clamp(2.3rem, 3.8vw, 3.3rem);
             line-height: 1.1;
             margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
         }
 
         .editor-byline {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 0.28em;
             color: var(--accent-orange);
             font-weight: 600;
-            margin-bottom: 2.25rem;
+            margin-bottom: 2rem;
             display: block;
         }
 
         .editorial-body {
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             color: #d1d1d6;
             line-height: 1.85;
             font-weight: 300;
@@ -667,7 +661,7 @@
 
         .editorial-body p:first-of-type::first-letter {
             font-family: var(--font-serif);
-            font-size: 4.8rem;
+            font-size: 4.6rem;
             float: left;
             line-height: 0.8;
             margin: 0.15rem 0.85rem 0 0;
@@ -703,8 +697,8 @@
         /* ------------------------------------------------------------- */
         .paradox-header {
             text-align: center;
-            max-width: 860px;
-            margin: 0 auto 3.5rem auto;
+            max-width: 880px;
+            margin: 0 auto 3rem auto;
         }
 
         .paradox-kicker {
@@ -712,22 +706,22 @@
             letter-spacing: 0.35em;
             text-transform: uppercase;
             color: var(--accent-orange);
-            margin-bottom: 1rem;
+            margin-bottom: 0.85rem;
             display: block;
         }
 
         .paradox-title {
             font-family: var(--font-serif);
-            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-size: clamp(2.6rem, 4.5vw, 3.8rem);
             line-height: 1.05;
             letter-spacing: -0.02em;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
         }
 
         .giant-pullquote-box {
             background: linear-gradient(135deg, rgba(255, 107, 0, 0.08) 0%, rgba(18, 18, 22, 0.6) 100%);
             border: 1px solid var(--border-accent);
-            padding: 3rem;
+            padding: 2.75rem 3rem;
             margin: 2.5rem 0;
             position: relative;
             text-align: center;
@@ -735,7 +729,7 @@
 
         .giant-quote-mark {
             font-family: var(--font-serif);
-            font-size: 6rem;
+            font-size: 5.5rem;
             line-height: 0;
             color: var(--accent-orange);
             opacity: 0.4;
@@ -745,7 +739,7 @@
 
         .giant-quote-text {
             font-family: var(--font-serif);
-            font-size: clamp(1.8rem, 3.2vw, 2.75rem);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
             line-height: 1.25;
             font-style: italic;
             color: #ffffff;
@@ -754,9 +748,9 @@
 
         .quote-speaker {
             display: block;
-            margin-top: 1.5rem;
-            font-size: 0.78rem;
-            letter-spacing: 0.25em;
+            margin-top: 1.35rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
             color: var(--accent-orange);
             font-family: var(--font-sans);
@@ -766,8 +760,8 @@
         .paradox-columns {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
-            margin-top: 3rem;
+            gap: 3rem;
+            margin-top: 2.5rem;
         }
 
         .paradox-col-card {
@@ -783,7 +777,7 @@
             text-transform: uppercase;
             letter-spacing: 0.22em;
             padding: 0.35rem 0.75rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             font-weight: 600;
         }
 
@@ -801,157 +795,124 @@
 
         .paradox-col-card h3 {
             font-family: var(--font-serif);
-            font-size: 1.85rem;
-            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            margin-bottom: 0.85rem;
             line-height: 1.2;
         }
 
         .paradox-col-card p {
             color: var(--text-secondary);
-            font-size: 0.98rem;
+            font-size: 0.96rem;
             line-height: 1.75;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.15rem;
             font-weight: 300;
         }
 
         /* ------------------------------------------------------------- */
-        /* SPREAD 04: LUXURY FAUX-AD (AURORA NOIR)                       */
+        /* SPREAD 04: THE PERFUME VAULT & SILLAGE MONOGRAPH              */
         /* ------------------------------------------------------------- */
-        .spread-ad {
-            background: #050505;
-            padding: 0;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            overflow: hidden;
-        }
-
-        .ad-container {
+        .perfume-spread-grid {
             display: grid;
             grid-template-columns: 1.15fr 1fr;
-            min-height: 720px;
+            gap: 3.5rem;
+            align-items: center;
         }
 
-        .ad-image-pane {
+        .perfume-media-container {
             position: relative;
-            background: #000;
-            overflow: hidden;
         }
 
-        .ad-image-pane img {
+        .perfume-main-img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
             display: block;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
         }
 
-        .ad-copy-pane {
-            padding: 4.5rem 4rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: linear-gradient(135deg, #09090b 0%, #030303 100%);
-        }
-
-        .ad-brand-kicker {
-            font-size: 0.72rem;
-            letter-spacing: 0.45em;
-            text-transform: uppercase;
-            color: var(--accent-orange);
-        }
-
-        .ad-product-name {
+        .perfume-quote-strip {
+            margin-top: 1.25rem;
+            background: var(--bg-elevated);
+            border-left: 2px solid var(--accent-orange);
+            padding: 1.25rem 1.5rem;
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 4.2vw, 3.8rem);
-            line-height: 1.05;
-            letter-spacing: -0.02em;
-            margin: 1rem 0 1.5rem 0;
-            font-weight: 700;
-        }
-
-        .ad-product-name em {
             font-style: italic;
-            font-weight: 400;
-            color: #d4d4d8;
+            font-size: 1.05rem;
+            color: #e4e4e7;
         }
 
-        .ad-description {
-            font-size: 1rem;
-            color: #a1a1aa;
-            line-height: 1.8;
-            font-weight: 300;
-            margin-bottom: 2rem;
-        }
-
-        .ad-notes {
+        .scent-pyramid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 1.25rem;
+            margin: 2rem 0;
             border-top: 1px solid var(--border-subtle);
             padding-top: 1.75rem;
-            margin-bottom: 2.5rem;
         }
 
-        .ad-note-item span {
+        .scent-node {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            padding: 1.1rem;
+        }
+
+        .scent-node span {
             font-size: 0.65rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--text-muted);
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-
-        .ad-note-item strong {
-            font-family: var(--font-serif);
-            font-size: 1.05rem;
-            color: #ffffff;
-            font-weight: 500;
-        }
-
-        .ad-cta-btn {
-            display: inline-block;
-            background: transparent;
             color: var(--accent-orange);
-            border: 1px solid var(--accent-orange);
-            padding: 1rem 2.5rem;
-            font-size: 0.8rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            text-decoration: none;
-            text-align: center;
-            transition: var(--transition-smooth);
+            display: block;
+            margin-bottom: 0.3rem;
             font-weight: 600;
         }
 
-        .ad-cta-btn:hover {
-            background: var(--accent-orange);
-            color: #000000;
-            box-shadow: 0 0 25px var(--accent-orange-glow);
+        .scent-node strong {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: #ffffff;
+            font-weight: 400;
         }
 
         /* ------------------------------------------------------------- */
-        /* SPREAD 05: THE PREMIER LEAGUE DELUSION                         */
+        /* SPREAD 05: THE PREMIER LEAGUE DELUSION (LIVERPOOL FC)         */
         /* ------------------------------------------------------------- */
         .sports-spread-grid {
             display: grid;
-            grid-template-columns: 5fr 4fr;
+            grid-template-columns: 5.2fr 4.8fr;
             gap: 3.5rem;
             align-items: start;
         }
 
+        .ynwa-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(200, 16, 46, 0.15);
+            border: 1px solid rgba(200, 16, 46, 0.5);
+            color: #ff6b81;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
         .sports-header h2 {
             font-family: var(--font-serif);
-            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            font-size: clamp(2.3rem, 3.8vw, 3.4rem);
             line-height: 1.08;
             letter-spacing: -0.02em;
             margin-bottom: 0.75rem;
         }
 
         .sports-subhead {
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             color: var(--accent-orange);
             font-weight: 400;
             font-style: italic;
             font-family: var(--font-serif);
-            margin-bottom: 2rem;
+            margin-bottom: 1.75rem;
             display: block;
         }
 
@@ -973,28 +934,28 @@
             position: absolute;
             top: 1rem;
             left: 1rem;
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(8px);
-            border: 1px solid var(--accent-orange);
-            color: var(--accent-orange);
+            border: 1px solid var(--liverpool-red);
+            color: #ff8597;
             font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.18em;
             padding: 0.35rem 0.75rem;
             font-weight: 600;
         }
 
         .biometric-telemetry {
-            margin-top: 1.5rem;
+            margin-top: 1.25rem;
             background: var(--bg-elevated);
-            border: 1px solid var(--border-subtle);
-            padding: 1.5rem;
+            border: 1fr solid var(--border-subtle);
+            padding: 1.35rem;
         }
 
         .telemetry-row {
             display: flex;
             justify-content: space-between;
-            padding: 0.6rem 0;
+            padding: 0.55rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 0.8rem;
         }
@@ -1015,8 +976,86 @@
             font-family: monospace;
         }
 
+        .telemetry-val.red {
+            color: #ff6b81;
+        }
+
         /* ------------------------------------------------------------- */
-        /* SPREAD 06: THE CONTENT CREATOR'S DIARY                        */
+        /* SPREAD 06: THE PHOTO GALLERY / LOOKBOOK                       */
+        /* ------------------------------------------------------------- */
+        .lookbook-header {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .lookbook-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+        }
+
+        .lookbook-card:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-4px);
+        }
+
+        .lookbook-img-box {
+            height: 380px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .lookbook-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: var(--transition-smooth);
+        }
+
+        .lookbook-card:hover .lookbook-img-box img {
+            transform: scale(1.04);
+        }
+
+        .lookbook-meta {
+            padding: 1.5rem;
+        }
+
+        .lookbook-tag {
+            font-size: 0.65rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+        }
+
+        .lookbook-meta h4 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        .lookbook-meta p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            font-weight: 300;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* SPREAD 07: THE CONTENT CREATOR'S DIARY                        */
         /* ------------------------------------------------------------- */
         .creator-grid {
             display: grid;
@@ -1026,7 +1065,7 @@
 
         .creator-banner {
             position: relative;
-            height: 380px;
+            height: 360px;
             overflow: hidden;
             border: 1px solid var(--border-subtle);
         }
@@ -1041,7 +1080,7 @@
         .creator-banner-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(8, 8, 8, 0.2) 0%, rgba(8, 8, 8, 0.85) 100%);
+            background: linear-gradient(180deg, rgba(8, 8, 8, 0.2) 0%, rgba(8, 8, 8, 0.9) 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -1075,7 +1114,7 @@
 
         .diary-time {
             font-family: monospace;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--accent-orange);
             margin-bottom: 0.5rem;
             display: flex;
@@ -1085,8 +1124,8 @@
 
         .diary-time::before {
             content: "";
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             background: var(--accent-orange);
             border-radius: 50%;
             display: inline-block;
@@ -1107,7 +1146,7 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* SPREAD 07: NOLLYWOOD REVIEWS                                  */
+        /* SPREAD 08: NOLLYWOOD REVIEWS                                  */
         /* ------------------------------------------------------------- */
         .nollywood-grid {
             display: grid;
@@ -1146,7 +1185,7 @@
         }
 
         .decibel-label {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -1169,7 +1208,7 @@
             border: 1px solid var(--accent-orange);
             color: var(--accent-orange);
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             padding: 0.35rem 0.75rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -1190,7 +1229,7 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* SPREAD 08: BACK COVER / COLOPHON / TOAST TO 39                */
+        /* SPREAD 09: BACK COVER / COLOPHON / TOAST TO 39                */
         /* ------------------------------------------------------------- */
         .backcover-spread {
             background: radial-gradient(circle at center, #141418 0%, #080808 80%);
@@ -1221,7 +1260,7 @@
         }
 
         .backcover-text {
-            max-width: 680px;
+            max-width: 720px;
             font-size: 1.15rem;
             color: var(--text-secondary);
             font-weight: 300;
@@ -1257,8 +1296,9 @@
             .cover-container,
             .editor-grid,
             .paradox-columns,
-            .ad-container,
+            .perfume-spread-grid,
             .sports-spread-grid,
+            .lookbook-grid,
             .nollywood-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
@@ -1266,6 +1306,10 @@
 
             .cover-portrait-pane {
                 height: 480px;
+            }
+
+            .lookbook-grid {
+                grid-template-columns: 1fr 1fr;
             }
 
             body.mode-spread .editorial-spread {
@@ -1294,6 +1338,10 @@
             }
 
             .cover-teasers {
+                grid-template-columns: 1fr;
+            }
+
+            .lookbook-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1335,9 +1383,7 @@
                 filter.connect(gain);
                 gain.connect(ctx.destination);
                 noise.start();
-            } catch (e) {
-                // Audio autoplay might be restricted, fail silently
-            }
+            } catch (e) {}
         }
     </script>
 
@@ -1351,7 +1397,7 @@
         <a href="magazine.html" class="nav-brand">
             <img src="Magazine/Images/logo-orange.png" alt="TRB Dr. Stallion Logo" class="nav-brand-logo">
             <div class="nav-meta-text">
-                THE TRB ISSUE &nbsp;|&nbsp; <span>VOL. 39</span> &nbsp;|&nbsp; OCTOBER 24, 2026
+                THE TRB ISSUE &nbsp;|&nbsp; <span>VOL. 39</span> &nbsp;|&nbsp; EKITI &bull; DUBLIN &bull; ANFIELD
             </div>
         </a>
 
@@ -1395,7 +1441,7 @@
         </button>
 
         <div class="spread-indicator">
-            Spread <strong id="currentSpreadNum">01</strong> of <span id="totalSpreadsNum">08</span> &nbsp;—&nbsp; <span id="spreadTitlePreview">The Cover</span>
+            Spread <strong id="currentSpreadNum">01</strong> of <span id="totalSpreadsNum">09</span> &nbsp;—&nbsp; <span id="spreadTitlePreview">The Cover</span>
         </div>
 
         <button class="spread-nav-btn" id="nextSpreadBtn" title="Next Spread (Right Arrow)">
@@ -1410,7 +1456,7 @@
         <div class="toc-modal">
             <button class="toc-close" id="tocCloseBtn" title="Close Index">&times;</button>
             <h3 class="toc-title">The TRB Issue — Contents</h3>
-            <div class="toc-subtitle">Volume 39 &nbsp;|&nbsp; Dublin &amp; Global &nbsp;|&nbsp; Limited Collector's Folio</div>
+            <div class="toc-subtitle">Volume 39 &nbsp;|&nbsp; Ekiti &bull; Dublin &bull; Anfield &nbsp;|&nbsp; Limited Collector's Folio</div>
             
             <ul class="toc-list">
                 <li class="toc-item">
@@ -1444,16 +1490,16 @@
                     <a href="#spread-04" class="toc-link" data-index="3">
                         <div>
                             <span class="toc-num">04</span>
-                            <span class="toc-article-name">Faux Ad: Aurora Noir</span>
+                            <span class="toc-article-name">The Perfume Vault: Sillage Architecture</span>
                         </div>
-                        <span class="toc-author">Luxury Maison</span>
+                        <span class="toc-author">Haute Parfumerie</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-05" class="toc-link" data-index="4">
                         <div>
                             <span class="toc-num">05</span>
-                            <span class="toc-article-name">The Premier League Delusion</span>
+                            <span class="toc-article-name">The Liverpool FC &amp; Anfield Delusion</span>
                         </div>
                         <span class="toc-author">Sports Desk</span>
                     </a>
@@ -1462,24 +1508,33 @@
                     <a href="#spread-06" class="toc-link" data-index="5">
                         <div>
                             <span class="toc-num">06</span>
-                            <span class="toc-article-name">Content Creator's Diary (@the_only_trb)</span>
+                            <span class="toc-article-name">The Lookbook: The 2TB Photo Crisis</span>
                         </div>
-                        <span class="toc-author">Culture Feature</span>
+                        <span class="toc-author">Style Folio</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-07" class="toc-link" data-index="6">
                         <div>
                             <span class="toc-num">07</span>
-                            <span class="toc-article-name">The Nollywood Tribunal: 10/10 Shouting</span>
+                            <span class="toc-article-name">Content Creator's Diary (@the_only_trb)</span>
                         </div>
-                        <span class="toc-author">Film Critique</span>
+                        <span class="toc-author">Culture Feature</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-08" class="toc-link" data-index="7">
                         <div>
                             <span class="toc-num">08</span>
+                            <span class="toc-article-name">The Nollywood Tribunal: 10/10 Shouting</span>
+                        </div>
+                        <span class="toc-author">Film Critique</span>
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#spread-09" class="toc-link" data-index="8">
+                        <div>
+                            <span class="toc-num">09</span>
                             <span class="toc-article-name">Back Cover &amp; Toast to 39</span>
                         </div>
                         <span class="toc-author">Colophon</span>
@@ -1502,17 +1557,17 @@
 
                 <div class="cover-content-pane">
                     <div>
-                        <div class="cover-kicker">Confidential Monograph &nbsp;&bull;&nbsp; Special Folio</div>
+                        <div class="cover-kicker">Ekiti Pedigree &bull; Global Influence &bull; Vol. 39</div>
                         <h1 class="cover-masthead">THE <em>TRB</em> ISSUE</h1>
-                        <p style="font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2rem;">
-                            Volume 39 &nbsp;&bull;&nbsp; Dublin &amp; Global &nbsp;&bull;&nbsp; Edition 2026
+                        <p style="font-size: 0.8rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2rem;">
+                            Ekiti State &bull; Dublin &bull; Anfield &bull; Edition 2026
                         </p>
 
                         <div class="cover-lead-story">
                             <div class="cover-lead-tag">Exclusive Profile // Cover Feature</div>
-                            <h2 class="cover-lead-headline">The <em>Myth</em>, The Man, The Cartilage.</h2>
+                            <h2 class="cover-lead-headline">From Ekiti Hills to Dublin Boardrooms: The <em>Myth</em> &amp; The Man.</h2>
                             <p class="cover-lead-blurb">
-                                How a Top 150 Global HR Influencer conquered 13 years of executive boardrooms, corporate transformations, and youth mentorship — while violently negotiating with his lower back at age 39.
+                                How an Ekiti son conquered 13 years of Global HR leadership, amassed 47 bottles of niche extrait de parfum, sang 'You'll Never Walk Alone' through tear-stained eyes, and modeled for 10,000 photos — while violently negotiating with his lower back at age 39.
                             </p>
                         </div>
                     </div>
@@ -1520,21 +1575,21 @@
                     <div>
                         <div class="cover-teasers">
                             <div class="teaser-item">
-                                <h4>01 / The Orthopedic Bureau</h4>
-                                <p>Why Premier League scouts ceased monitoring Sunday League pitches in Tallaght.</p>
+                                <h4>01 / The Anfield Delusion</h4>
+                                <p>Why Arne Slot and Liverpool scouts have ceased monitoring Sunday League pitches in Tallaght.</p>
                             </div>
                             <div class="teaser-item">
-                                <h4>02 / The Reel Crisis</h4>
-                                <p>Inside @the_only_trb: 47 takes at 2:00 AM in pursuit of the elusive corporate hook.</p>
+                                <h4>02 / The Sillage Monograph</h4>
+                                <p>Inside his 47-bottle perfume vault: smelling like a diplomat 4 days before arrival.</p>
                             </div>
                         </div>
 
                         <div class="cover-footer-bar">
                             <div class="barcode-box">
                                 <div class="barcode-lines">||||| | |||| ||| || | |||||</div>
-                                <div class="barcode-label">ISSN 1987-2026 &nbsp;|&nbsp; PRICELESS</div>
+                                <div class="barcode-label">ISSN 1987-2026 &nbsp;|&nbsp; EKITI &bull; LFC &bull; DUBLIN</div>
                             </div>
-                            <div style="text-align: right; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted);">
+                            <div style="text-align: right; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted);">
                                 Dr. Stallion &nbsp;&bull;&nbsp; Global HR Folio
                             </div>
                         </div>
@@ -1556,7 +1611,7 @@
                     <div class="editor-frame">
                         <img src="Magazine/Images/temi-dapper-suit.jpg" alt="Dr. Temitope Richard-Banji in dapper evening suit">
                     </div>
-                    <p class="editor-caption">Fig. 1.1: Dr. Temitope Richard-Banji — corporate statesman, youth coach, steadfast brother.</p>
+                    <p class="editor-caption">Fig. 1.1: Dr. Temitope Richard-Banji — the proud Ekiti man, steadfast mentor, fragrant visionary.</p>
                 </div>
 
                 <div class="editor-text-col">
@@ -1565,19 +1620,19 @@
 
                     <div class="editorial-body">
                         <p>
-                            It is easy to measure Temitope Richard-Banji by the metrics that make the rest of the world applaud. You can point to the Top 150 Global HR Influencer ranking, the thirteen solid years spent navigating the complex architecture of people and culture across continents, the keynote stages, the executive boardrooms, and the effortless authority with which he commands any room he walks into.
+                            To the global corporate world, Temitope Richard-Banji is a formidable name. You can point to the Top 150 Global HR Influencer ranking, the thirteen solid years spent architecting talent strategy across continents, the keynote stages, and that unmistakable aura of executive authority that commands every room he enters.
                         </p>
                         <p>
-                            Yet those who know him beyond the LinkedIn badges and the sharp tailored collars know that his greatest triumphs never show up on an executive dashboard. They happen in the quiet margins: in the midnight phone calls with young men trying to find their footing in new countries, in the tireless hours he pours into coaching, counseling, and believing in people long before they learn to believe in themselves.
+                            Yet, those of us blessed to know him intimately know that behind the boardroom accolades stands a proud Ekiti son whose values were forged in dignity, hard work, and intellectual grit. Temi carries Ekiti excellence in his DNA: uncompromising standards, deep respect for people, and a sacred conviction that no Irish mashed potato will ever come close to authentic Ekiti pounded yam with proper egusi.
                         </p>
                         <p>
-                            His faith isn't an ornament he wears on Sundays; it is the bedrock of his composure. Through seasons of transition, relocations, pressure, and responsibility, I have watched him anchor himself in prayer, treating leadership not as a platform for self-aggrandizement, but as an altar of service. He carries other people's burdens with an ease that often makes you forget he has his own.
+                            His Christian faith isn't an ornament he wears on Sundays; it is the compass of his entire life. Through relocations, heavy corporate burdens, and seasons of intense pressure, I have watched him retreat to the secret place of prayer. In the quiet margins, he pours tireless hours into coaching young people, praying over struggling friends, and mentoring upcoming immigrants trying to find their footing in Ireland. He carries others with a selfless grace that makes you forget he has his own weight to bear.
                         </p>
                         <p>
-                            Temi, as you cross into your 39th year, we honor the visionary leader and the global force you have become. But far more than that, we thank God for the brother, the confidant, and the fiercely loyal friend you are. (Even if we must now collectively budget for knee braces and remind you that you are no longer twenty-one on the football pitch).
+                            And then, of course, there is the legendary Temi we all chuckle over: the man who cannot pass a good mirror without a mini photoshoot; the man who sprays niche perfumes with such religious devotion that you can smell his oud trail across Dublin three business days before he walks through the door; and the devoted Liverpool fanatic who screams at the television during every match like Jurgen Klopp personally delegated tactical oversight to him!
                         </p>
                         <p>
-                            May this 39th year bring unprecedented peace, divine health, joyful laughter, and deeper intimacy with your Maker. You are deeply loved, profoundly appreciated, and forever celebrated.
+                            Temi, as you turn 39, we celebrate the leader you have become, the brother and confidant you will always be, and the lives you touch every day. May your 39th year bring divine health, overflowing peace, Liverpool trophies, fresh bottles of extrait, and renewed cartilage. You are deeply loved, profoundly appreciated, and forever celebrated.
                         </p>
 
                         <div class="editor-signature">
@@ -1598,7 +1653,7 @@
         <article class="editorial-spread" id="spread-03" data-title="The Dr. Stallion Paradox">
             <div class="spread-folio-header">
                 <div>Investigative Dispatch &nbsp;&bull;&nbsp; <span class="highlight">The Dossier</span></div>
-                <div>Executive Profile &nbsp;&bull;&nbsp; Folio 08</div>
+                <div>Ekiti Rigor &bull; Executive Reality &bull; Folio 08</div>
                 <div>Confidential Analysis</div>
             </div>
 
@@ -1606,7 +1661,7 @@
                 <span class="paradox-kicker">An Investigative Inquest into Legend vs. Lactic Acid</span>
                 <h2 class="paradox-title">The "Dr. Stallion" Paradox</h2>
                 <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto; font-weight: 300;">
-                    How an international corporate titan with an aura of indestructible horsepower spends his evenings bargaining with heating pads and seeking afternoon quiet.
+                    How an Ekiti intellectual with the corporate stamina of a high-speed locomotive spends his evenings bargaining with heating pads and seeking absolute silence.
                 </p>
             </div>
 
@@ -1623,7 +1678,7 @@
                     <span class="paradox-col-badge badge-myth">The Digital Mythos: Dr. Stallion</span>
                     <h3>The 20-Hour Corporate Engine</h3>
                     <p>
-                        In the collective imagination of LinkedIn and corporate Dublin, "Dr. Stallion" is an unstoppable humanoid algorithm. He wakes at 4:30 AM to read labor market quarterly filings while doing one-arm pushups. He reviews 400 executive CVs before breakfast, reorganizes departmental org charts with a single penetrating gaze, and delivers visionary keynote remarks without a drop of perspiration.
+                        In the collective imagination of LinkedIn and corporate Dublin, "Dr. Stallion" is an unstoppable humanoid algorithm. He wakes at 4:30 AM to read labor market filings while doing one-arm pushups. He reviews 400 executive CVs before breakfast, reorganizes departmental org charts with a single penetrating gaze, and delivers visionary keynote remarks without a drop of perspiration.
                     </p>
                     <p>
                         He is described by colleagues as having "unfaltering bandwidth," an uncanny ability to resolve cross-border talent bottlenecks, and an aura that suggests he has never experienced fatigue since 2011.
@@ -1632,9 +1687,9 @@
 
                 <div class="paradox-col-card">
                     <span class="paradox-col-badge badge-reality">The Domestic Reality: 39-Year-Old Temi</span>
-                    <h3>The Man Wrapped In The Fleece Blanket</h3>
+                    <h3>The Ekiti Gentleman In The Fleece Blanket</h3>
                     <p>
-                        Behind closed doors, the mythical stallion is fundamentally a 39-year-old Nigerian gentleman who wants nothing more than silence, pounded yam with hot soup, and thirty minutes without someone tagging him in a video about "The Future of AI in Talent Acquisition."
+                        Behind closed doors, the mythical stallion is fundamentally a 39-year-old Nigerian gentleman who wants nothing more than silence, real Ekiti pounded yam with steaming hot soup, and thirty minutes without someone tagging him in a video about "The Future of AI in Talent Acquisition."
                     </p>
                     <p>
                         At 8:15 PM, his iPhone sits face down because if one more person messages <em>"Doc, quick question on my career transition,"</em> his soul will exit his body. He groans when rising from low armchairs, possesses four different brands of joint rub, and will vigorously defend his right to sleep at 9:30 PM like an honorable elder statesman.
@@ -1643,78 +1698,101 @@
             </div>
         </article>
 
-        <!-- SPREAD 04: LUXURY FAUX-AD (AURORA NOIR) -->
-        <article class="editorial-spread spread-ad" id="spread-04" data-title="Luxury Folio: Aurora Noir">
-            <div class="ad-container">
-                <div class="ad-image-pane">
-                    <img src="Magazine/Images/editorial/luxury-ad-pillow.jpg" alt="Luxury glowing smartphone on black silk pillow">
-                </div>
+        <!-- SPREAD 04: THE PERFUME VAULT & SILLAGE MONOGRAPH -->
+        <article class="editorial-spread" id="spread-04" data-title="The Perfume Vault">
+            <div class="spread-folio-header">
+                <div>Haute Parfumerie &nbsp;&bull;&nbsp; <span class="highlight">The Sillage Monograph</span></div>
+                <div>Olfactory Architecture &nbsp;&bull;&nbsp; Folio 14</div>
+                <div>Maison Richard-Banji</div>
+            </div>
 
-                <div class="ad-copy-pane">
-                    <div>
-                        <span class="ad-brand-kicker">Maison Richard-Banji &nbsp;&bull;&nbsp; Haute Parfumerie</span>
-                        <h2 class="ad-product-name">AURORA <em>NOIR</em></h2>
-                        <p class="ad-description">
-                            The definitive fragrance for the corporate statesman who claims he is going to bed, yet continues replying to Slack notifications from a darkened room until 2:37 AM.
+            <div class="perfume-spread-grid">
+                <div>
+                    <span style="font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent-orange); font-weight: 600; display: block; margin-bottom: 0.5rem;">
+                        The 47-Bottle Fragrance Monograph
+                    </span>
+                    <h2 style="font-family: var(--font-serif); font-size: clamp(2.3rem, 3.8vw, 3.4rem); line-height: 1.1; margin-bottom: 1.25rem;">
+                        The Sillage of Dr. Stallion: Smelling Like A Diplomat Since 2011.
+                    </h2>
+
+                    <div class="editorial-body">
+                        <p>
+                            In corporate circles, presence is measured by charisma and strategic foresight. For Dr. Temitope Richard-Banji, it is also measured by the three-mile olfactory shockwave that heralds his arrival. Temi does not merely wear perfume; he conducts atmospheric alchemy.
                         </p>
-
-                        <div class="ad-notes">
-                            <div class="ad-note-item">
-                                <span>Head Notes</span>
-                                <strong>Double Espresso &amp; Unread DMs</strong>
-                            </div>
-                            <div class="ad-note-item">
-                                <span>Heart Notes</span>
-                                <strong>Global HR Influence &amp; Deep Sighs</strong>
-                            </div>
-                            <div class="ad-note-item">
-                                <span>Base Notes</span>
-                                <strong>Smoked Amber &amp; Glucosamine</strong>
-                            </div>
-                            <div class="ad-note-item">
-                                <span>Sillage</span>
-                                <strong>Indestructible &amp; Exhausted</strong>
-                            </div>
-                        </div>
+                        <p>
+                            His fragrance vault is an architectural wonder: high-concentration Extraits de Parfum, artisanal French flacons, rare Cambodi and Indonesian ouds, smoky amber blends, and spicy cardamom layers. A single spray is an insult to his philosophy; Dr. Stallion layers six distinct atomizers until his scent trail has its own postal code in Dublin.
+                        </p>
+                        <p>
+                            Friends and colleagues confirm: you do not need Google Calendar to know Temi has entered the building. You simply inhale, detect notes of smoked vanilla, cedarwood, and Top 150 Global HR authority, and prepare yourself for an inspiring conversation.
+                        </p>
                     </div>
 
-                    <div>
-                        <a href="#spread-05" class="ad-cta-btn">Experience The Essence</a>
-                        <p style="font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-top: 1rem;">
-                            Strictly Limited to 39 Flacons Worldwide &bull; Dublin
-                        </p>
+                    <div class="scent-pyramid">
+                        <div class="scent-node">
+                            <span>Top Notes</span>
+                            <strong>Bergamot, Cardamom &amp; Double Espresso</strong>
+                        </div>
+                        <div class="scent-node">
+                            <span>Heart Notes</span>
+                            <strong>Rare Smoky Oud &amp; Global HR Authority</strong>
+                        </div>
+                        <div class="scent-node">
+                            <span>Base Notes</span>
+                            <strong>Amber Resin, Sandalwood &amp; Deep Heat</strong>
+                        </div>
+                        <div class="scent-node">
+                            <span>Sillage Radius</span>
+                            <strong>3.8 Kilometers // 4 Business Days</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="perfume-media-container">
+                    <img src="Magazine/Images/editorial/perfume-vault.jpg" alt="Luxury niche perfume bottles on black marble and silk" class="perfume-main-img">
+                    <div class="perfume-quote-strip">
+                        &ldquo;You cannot change organizational culture if your cologne does not command respect in the elevator.&rdquo;
+                        <div style="font-size: 0.7rem; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent-orange); margin-top: 0.4rem; font-style: normal;">
+                            — The TRB Olfactory Canon
+                        </div>
                     </div>
                 </div>
             </div>
         </article>
 
-        <!-- SPREAD 05: THE PREMIER LEAGUE DELUSION -->
-        <article class="editorial-spread" id="spread-05" data-title="The Premier League Delusion">
+        <!-- SPREAD 05: THE PREMIER LEAGUE DELUSION (LIVERPOOL FC) -->
+        <article class="editorial-spread" id="spread-05" data-title="The Liverpool FC Delusion">
             <div class="spread-folio-header">
                 <div>Sports &amp; Athletics Dispatch &nbsp;&bull;&nbsp; <span class="highlight">Clinical Report</span></div>
-                <div>Anatomy &amp; Delusion &nbsp;&bull;&nbsp; Sunday League</div>
-                <div>Pitch 4, Dublin</div>
+                <div>Anfield Dreams &bull; Sunday League &bull; Folio 18</div>
+                <div>Tallaght Turf, Dublin</div>
             </div>
 
             <div class="sports-spread-grid">
                 <div>
+                    <div class="ynwa-banner">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        LFC Anfield Desk // YNWA Protocol
+                    </div>
+
                     <div class="sports-header">
-                        <h2>The Premier League Delusion: Why Arteta Ceased Calling.</h2>
-                        <span class="sports-subhead">A clinical post-mortem on the Sunday afternoon he mistook his 39-year-old ankle for Thierry Henry's.</span>
+                        <h2>You'll Never Walk Alone (Because Your Cartilage Has Surrendered).</h2>
+                        <span class="sports-subhead">A forensic autopsy of the Sunday afternoon he mistook his 39-year-old ankle for Mohamed Salah's.</span>
                     </div>
 
                     <div class="editorial-body">
                         <p>
-                            Every weekend on the wet artificial turf of Dublin, a psychological tragedy unfolds. A respectable man—a man holding multiple university credentials, a global corporate reputation, and a mortgage—laces up fluorescent football boots and genuinely convinces himself that an Arsenal talent scout has gotten lost off the M50 and is hiding behind the goalposts with a clipboard.
+                            Every weekend across Dublin, a tragic comedy unfolds. A respectable man—an Ekiti scholar, a Top 150 HR leader with multiple postgraduate qualifications—puts on a full Liverpool FC red kit and genuinely convinces himself that Arne Slot has sent a scout undercover to an astro turf pitch in Tallaght.
                         </p>
                         <p>
-                            For sixty-four seconds, Dr. Stallion looks like a revelation. The body feint is sharp; the vision is sublime; the hand gestures to teammates are intensely managerial. But football at thirty-nine is governed by the brutal laws of Newtonian physics and deteriorating collagen.
+                            For sixty-four seconds, Dr. Stallion looks like Steven Gerrard in his prime. He shouts tactical instructions at confused 22-year-olds; he points dramatically into empty space; he adjusts his captain's armband. But football at thirty-nine obeys the merciless laws of orthopedic physics.
                         </p>
                         <p>
-                            On minute sixty-seven, attempting a step-over that has not been executed smoothly since the Obasanjo administration, his right ankle produced an acoustic event resembling a dry twig snapping under an elephant's foot.
+                            On minute sixty-seven, attempting a Mo Salah burst down the right wing, his right ankle emitted an acoustic vibration resembling dry spaghetti snapping inside a microphone. The match was halted. The Liverpool dream was officially postponed until the next life.
                         </p>
                         <p>
-                            The medical staff (two confused friends with a lukewarm Lucozade and a damp towel) confirmed the worst: he is not 21 years old. The Premier League contract has expired before it was drafted. His immediate future involves Deep Heat, compression socks, and watching the highlights from an orthopedic reclining chair.
+                            The medical consensus was swift: the Reds are not signing a 39-year-old midfielder from Dublin. His recommended recovery protocol is sitting on the couch with ice, a hot bowl of pepper soup, and watching Liverpool on television while singing <em>Allez Allez Allez</em> from a safe reclining position.
                         </p>
                     </div>
                 </div>
@@ -1722,36 +1800,96 @@
                 <div>
                     <div class="xray-container">
                         <img src="Magazine/Images/editorial/ankle-knee-scan.jpg" alt="Monochrome knee and ankle orthopedic MRI scan with telemetry">
-                        <div class="xray-overlay-badge">Diagnostic: Severe 39yo Syndrome</div>
+                        <div class="xray-overlay-badge">Diagnostic: Severe Anfield Syndrome</div>
                     </div>
 
                     <div class="biometric-telemetry">
                         <div class="telemetry-row">
                             <span class="telemetry-label">Subject</span>
-                            <span class="telemetry-val">Temitope R.B. (39y)</span>
+                            <span class="telemetry-val">Temitope R.B. (39y, Ekiti)</span>
                         </div>
                         <div class="telemetry-row">
-                            <span class="telemetry-label">Cartilage Resilience</span>
-                            <span class="telemetry-val">CRITICAL (14%)</span>
+                            <span class="telemetry-label">Club Allegiance</span>
+                            <span class="telemetry-val red">LIVERPOOL FC (FATAL)</span>
                         </div>
                         <div class="telemetry-row">
-                            <span class="telemetry-label">Ronaldinho Delusion Index</span>
-                            <span class="telemetry-val">99.4% (OFF CHARTS)</span>
+                            <span class="telemetry-label">Mo Salah Pace Delusion</span>
+                            <span class="telemetry-val">99.8% (OFF SCALE)</span>
                         </div>
                         <div class="telemetry-row">
-                            <span class="telemetry-label">Recommended Therapy</span>
-                            <span class="telemetry-val">SIT DOWN &amp; DRINK WATER</span>
+                            <span class="telemetry-label">Remaining Cartilage</span>
+                            <span class="telemetry-val">CRITICAL (11%)</span>
+                        </div>
+                        <div class="telemetry-row">
+                            <span class="telemetry-label">Prescribed Therapy</span>
+                            <span class="telemetry-val">WATCH MATCHES FROM SOFA</span>
                         </div>
                     </div>
                 </div>
             </div>
         </article>
 
-        <!-- SPREAD 06: THE CONTENT CREATOR'S DIARY -->
-        <article class="editorial-spread" id="spread-06" data-title="The Content Creator's Diary">
+        <!-- SPREAD 06: THE LOOKBOOK / THE 2TB PHOTO CRISIS -->
+        <article class="editorial-spread" id="spread-06" data-title="The Lookbook">
+            <div class="spread-folio-header">
+                <div>Visual Style &amp; Archives &nbsp;&bull;&nbsp; <span class="highlight">The Lookbook</span></div>
+                <div>iCloud Storage Alert: 99% Full &nbsp;&bull;&nbsp; Folio 20</div>
+                <div>Dublin &amp; Global Fashion</div>
+            </div>
+
+            <div class="lookbook-header">
+                <span style="font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent-orange); font-weight: 600; display: block; margin-bottom: 0.5rem;">
+                    The Camera Cannot Resist Him
+                </span>
+                <h2 style="font-family: var(--font-serif); font-size: clamp(2.3rem, 4vw, 3.4rem); line-height: 1.1; margin-bottom: 1rem;">
+                    The 2-Terabyte iCloud Crisis: Why Dr. Stallion Must Always Pose.
+                </h2>
+                <p style="font-size: 1rem; color: var(--text-secondary); max-width: 680px; margin: 0 auto; font-weight: 300;">
+                    An affectionate retrospective on the man who treats every doorway like Milan Fashion Week, every elevator like a photo booth, and every family gathering like a Vanity Fair cover shoot.
+                </p>
+            </div>
+
+            <div class="lookbook-grid">
+                <div class="lookbook-card">
+                    <div class="lookbook-img-box">
+                        <img src="Magazine/Images/temi-style-1.jpg" alt="Dr. Temitope posing sharply">
+                    </div>
+                    <div class="lookbook-meta">
+                        <div class="lookbook-tag">Look 01 // The Executive Contemplation</div>
+                        <h4>"Checking If The Sillage Reached The Balcony"</h4>
+                        <p>Looking effortlessly into the middle distance as if pondering macro-economic talent shifts, but secretly ensuring the left profile catches the natural Dublin sunlight.</p>
+                    </div>
+                </div>
+
+                <div class="lookbook-card">
+                    <div class="lookbook-img-box">
+                        <img src="Magazine/Images/temi-style-2.jpg" alt="Dr. Temitope in tailored styling">
+                    </div>
+                    <div class="lookbook-meta">
+                        <div class="lookbook-tag">Look 02 // The Ekiti Statesman</div>
+                        <h4>"Unapologetic Dignity In Any Climate"</h4>
+                        <p>Proving that whether under the warm skies of Ekiti or the freezing Irish rain, an Ekiti gentleman’s tailoring remains immaculately pressed and undefeated.</p>
+                    </div>
+                </div>
+
+                <div class="lookbook-card">
+                    <div class="lookbook-img-box">
+                        <img src="Magazine/Images/temi-style-3.jpg" alt="Dr. Temitope casual portrait">
+                    </div>
+                    <div class="lookbook-meta">
+                        <div class="lookbook-tag">Look 03 // The Candid Take #41</div>
+                        <h4>"Totally Spontaneous, We Promise"</h4>
+                        <p>The photographer took 40 discarded variations before Dr. Stallion nodded solemnly: <em>"Yes. This one respects the angle."</em> The 2TB iCloud upgrade was immediately purchased.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- SPREAD 07: THE CONTENT CREATOR'S DIARY -->
+        <article class="editorial-spread" id="spread-07" data-title="Content Creator's Diary">
             <div class="spread-folio-header">
                 <div>Digital Culture &nbsp;&bull;&nbsp; <span class="highlight">@the_only_trb</span></div>
-                <div>Behind The Ring Light &nbsp;&bull;&nbsp; Folio 22</div>
+                <div>Behind The Ring Light &nbsp;&bull;&nbsp; Folio 24</div>
                 <div>Dublin, 02:00 AM</div>
             </div>
 
@@ -1787,7 +1925,7 @@
                         <div class="diary-time">02:28 AM — The Accent Negotiation</div>
                         <h4>"Too Lekki or Too Dublin?"</h4>
                         <p>
-                            Take 29. A deep identity crisis erupts. Is he an Irish executive thought leader or an Ibadan intellectual? He tries pronouncing 'organizational' three different ways before giving up and staring blankly into the lens for 40 seconds.
+                            Take 29. A deep identity crisis erupts. Is he an Irish executive thought leader or an Ekiti intellectual? He tries pronouncing 'organizational' three different ways before giving up and staring blankly into the lens for 40 seconds.
                         </p>
                     </div>
 
@@ -1795,15 +1933,15 @@
                         <div class="diary-time">03:05 AM — The Defeat &amp; The Post</div>
                         <h4>"Comment 'SCALE' Below"</h4>
                         <p>
-                            At 3:05 AM, mentally drained and physically 48 years old, he uploads Take 3. He falls asleep praying for 100k views. He wakes at 7:45 AM: 12 views, 1 like from his cousin, and a comment asking: <em>"Uncle, is your ankle better?"</em>
+                            At 3:05 AM, mentally drained and physically 48 years old, he uploads Take 3. He falls asleep praying for 100k views. He wakes at 7:45 AM: 12 views, 1 like from his cousin, and a comment asking: <em>"Uncle, did Liverpool win yesterday?"</em>
                         </p>
                     </div>
                 </div>
             </div>
         </article>
 
-        <!-- SPREAD 07: NOLLYWOOD REVIEWS -->
-        <article class="editorial-spread" id="spread-07" data-title="Nollywood Reviews">
+        <!-- SPREAD 08: NOLLYWOOD REVIEWS -->
+        <article class="editorial-spread" id="spread-08" data-title="Nollywood Reviews">
             <div class="spread-folio-header">
                 <div>Cinematic Tribunal &nbsp;&bull;&nbsp; <span class="highlight">Decibel Culture</span></div>
                 <div>Film Review &nbsp;&bull;&nbsp; High Agitation</div>
@@ -1857,8 +1995,8 @@
             </div>
         </article>
 
-        <!-- SPREAD 08: BACK COVER / TOAST TO 39 -->
-        <article class="editorial-spread backcover-spread" id="spread-08" data-title="Toast to 39">
+        <!-- SPREAD 09: BACK COVER / TOAST TO 39 -->
+        <article class="editorial-spread backcover-spread" id="spread-09" data-title="Toast to 39">
             <img src="Magazine/Images/logo-white.png" alt="TRB Dr Stallion White Logo" class="backcover-logo">
             
             <h2 class="backcover-title">
@@ -1866,7 +2004,7 @@
             </h2>
             
             <p class="backcover-text">
-                Here's to Dr. Temitope Richard-Banji: the visionary HR leader, the relentless coach, the devoted servant of God, the football romantic, and the rarest kind of friend. May your 39th year bring deeper peace, legendary triumphs, renewed cartilage, and fewer 2:00 AM reel revisions.
+                To Dr. Temitope Richard-Banji: the proud son of Ekiti, the devoted servant of God, the relentless coach to upcoming generations, the Anfield faithful through thick and thin, the most fragrant gentleman in Dublin, and the rarest kind of friend. May your 39th year bring deeper peace, legendary triumphs, renewed cartilage, and infinite photo opportunities.
             </p>
 
             <button class="toast-celebrate-btn" id="confettiToastBtn">
@@ -1877,7 +2015,7 @@
             </button>
             
             <p style="font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); margin-top: 3.5rem;">
-                &copy; 2026 THE TRB ISSUE &nbsp;&bull;&nbsp; SPECIALLY COMMISSIONED BY CYNTHIA &nbsp;&bull;&nbsp; DUBLIN
+                &copy; 2026 THE TRB ISSUE &nbsp;&bull;&nbsp; COMMISSIONED WITH LOVE BY CYNTHIA &nbsp;&bull;&nbsp; EKITI &bull; DUBLIN &bull; ANFIELD
             </p>
         </article>
 
@@ -1930,7 +2068,6 @@
                 modeLabel.textContent = 'Spread Mode';
                 spreadNavigator.style.display = 'none';
                 spreads.forEach(s => s.classList.remove('active-spread'));
-                // Scroll to current spread in view
                 spreads[currentSpreadIndex].scrollIntoView({ behavior: 'smooth' });
             }
         });
@@ -1949,7 +2086,6 @@
                 }
             });
 
-            // Update UI
             currentSpreadNumEl.textContent = String(currentSpreadIndex + 1).padStart(2, '0');
             const title = spreads[currentSpreadIndex].getAttribute('data-title') || 'Spread';
             spreadTitlePreviewEl.textContent = title;
@@ -2026,14 +2162,14 @@
                     angle: 60,
                     spread: 65,
                     origin: { x: 0 },
-                    colors: ['#ffffff', '#FF6B00', '#111111', '#ffa96b']
+                    colors: ['#ffffff', '#FF6B00', '#C8102E', '#111111', '#ffa96b']
                 });
                 confetti({
                     particleCount: 8,
                     angle: 120,
                     spread: 65,
                     origin: { x: 1 },
-                    colors: ['#ffffff', '#FF6B00', '#111111', '#ffa96b']
+                    colors: ['#ffffff', '#FF6B00', '#C8102E', '#111111', '#ffa96b']
                 });
 
                 if (Date.now() < animationEnd) {

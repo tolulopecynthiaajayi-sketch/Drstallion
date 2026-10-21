@@ -1005,7 +1005,7 @@
             display: grid;
             grid-template-columns: 1.15fr 1fr;
             gap: 3.5rem;
-            align-items: center;
+            align-items: start;
         }
 
         .perfume-media-container {
@@ -1029,6 +1029,87 @@
             font-style: italic;
             font-size: 1.05rem;
             color: #e4e4e7;
+        }
+
+        .tolulope-accord-card {
+            margin-top: 1.5rem;
+            background: linear-gradient(145deg, rgba(234, 88, 12, 0.08) 0%, rgba(10, 10, 14, 0.75) 100%);
+            border: 1px solid rgba(255, 133, 51, 0.35);
+            border-radius: 4px;
+            padding: 1.6rem 1.75rem;
+            position: relative;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .tolulope-accord-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--orange-apricot);
+            background: rgba(255, 107, 0, 0.18);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            padding: 0.3rem 0.75rem;
+            border-radius: 2px;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .tolulope-accord-title {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 0.85rem;
+            font-style: italic;
+        }
+
+        .tolulope-accord-text {
+            font-size: 0.92rem;
+            line-height: 1.65;
+            color: #d1d1d6;
+            margin-bottom: 1.25rem;
+        }
+
+        .tolulope-accord-text p {
+            margin-bottom: 0.75rem;
+        }
+
+        .tolulope-accord-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tolulope-notes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+            border-top: 1px solid rgba(255, 133, 51, 0.25);
+            padding-top: 1rem;
+        }
+
+        .tolulope-note-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            font-size: 0.84rem;
+        }
+
+        .tolulope-note-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--orange-flame);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .tolulope-note-val {
+            color: #ffffff;
+            font-family: var(--font-serif);
+            font-style: italic;
+            text-align: right;
         }
 
         .scent-pyramid {
@@ -2139,7 +2220,41 @@
                     <div class="perfume-quote-strip">
                         &ldquo;You cannot change organizational culture if your cologne does not command respect in the elevator.&rdquo;
                         <div style="font-size: 0.7rem; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent-orange); margin-top: 0.4rem; font-style: normal;">
-                            — The TRB Olfactory Canon
+                            The TRB Olfactory Canon
+                        </div>
+                    </div>
+
+                    <div class="tolulope-accord-card">
+                        <span class="tolulope-accord-badge">The Private Formulation &bull; Curated by Tolulope</span>
+                        <h3 class="tolulope-accord-title">What Temitope Smells Like to Me</h3>
+                        <div class="tolulope-accord-text">
+                            <p>
+                                Temitope owns an entire universe of bottles, yet truth be told, I have never paid attention to the fancy names on his shelf. I am not a perfume person, and he knows this.
+                            </p>
+                            <p>
+                                Still, if I were asked to capture what Temitope smells like to me, it would have nothing to do with expensive labels. It would smell like <strong>quiet strength</strong> that does not need to shout. It would carry the gentle, protective stillness of someone who is deeply <strong>observant</strong> and <strong>cautious</strong>, paired with a <strong>fragile</strong> and tender heart that gives so much of itself. Above all, it would smell like <strong>steadfast loyalty</strong>, rooted like a tree that refuses to bend.
+                            </p>
+                            <p>
+                                He can keep his collection of bottles; this quiet, faithful presence is the only fragrance that matters.
+                            </p>
+                        </div>
+                        <div class="tolulope-notes-grid">
+                            <div class="tolulope-note-row">
+                                <span class="tolulope-note-label">Top Notes</span>
+                                <span class="tolulope-note-val">White Silver Needle Tea, Crisp Juniper &amp; Delicate Iris</span>
+                            </div>
+                            <div class="tolulope-note-row">
+                                <span class="tolulope-note-label">Heart Notes</span>
+                                <span class="tolulope-note-val">Sacred Frankincense, Soft Clary Sage &amp; Warm Cashmeran</span>
+                            </div>
+                            <div class="tolulope-note-row">
+                                <span class="tolulope-note-label">Base Notes</span>
+                                <span class="tolulope-note-val">Smoked Atlas Cedar, Bourbon Vetiver &amp; Mysore Sandalwood</span>
+                            </div>
+                            <div class="tolulope-note-row">
+                                <span class="tolulope-note-label">The True Sillage</span>
+                                <span class="tolulope-note-val">Intimate skin-scent &bull; Clings close to the heart</span>
+                            </div>
                         </div>
                     </div>
                 </div>

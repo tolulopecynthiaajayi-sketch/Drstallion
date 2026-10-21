@@ -3,22 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE TRB ISSUE</title>
+    <title>THE TRB ISSUE — Volume 39 | Special Confidential Folio</title>
     <!-- SEO & Metadata -->
-    <meta name="description" content="A confidential issue release. Prepare the joint supplements.">
+    <meta name="description" content="A confidential luxury digital magazine issue for Dr. Temitope Richard-Banji (Dr. Stallion). Volume 39. Prepare the joint supplements.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         :root {
-            --bg-color: #0a0a0a;
+            --bg-color: #060608;
             --text-primary: #ffffff;
-            --accent-color: #FF6B00;
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Inter', sans-serif;
+            --text-secondary: #d1d1d6;
+            --text-muted: #8e8e93;
+
+            /* Creative Multi-Shade Orange Palette */
+            --orange-blaze: #FF6B00;       /* Signature Vibrant Orange */
+            --orange-flame: #FF8533;       /* Bright Electric Orange */
+            --orange-sunset: #EA580C;      /* Warm Radiant Sunset */
+            --orange-amber: #F59E0B;       /* Warm Honey Gold & Amber */
+            --orange-terracotta: #C2410C;  /* Deep Luxury Burnt Terracotta */
+            --orange-rust: #9A3412;        /* Earthy Moody Rust */
+            --orange-apricot: #FED7AA;     /* Soft Typographic Highlight */
+
+            --accent-color: var(--orange-blaze);
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         * {
@@ -38,18 +50,80 @@
             position: relative;
         }
 
-        /* Hero Image with Gradient */
-        .hero-background {
-            position: absolute;
+        /* ------------------------------------------------------------- */
+        /* Ambient Creative Orange Backdrop with Faded Portrait          */
+        /* ------------------------------------------------------------- */
+        .ambient-backdrop {
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            /* Gradient: Deep black fading to transparent over the image */
-            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 1) 90%),
-                        url('Magazine/Images/IMG-20250806-WA0000.jpg') no-repeat center center/cover;
-            opacity: 0.6;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            background: #060608;
+        }
+
+        .ambient-faded-portrait {
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            object-fit: cover;
+            object-position: center 25%;
+            opacity: 0.22;
+            filter: grayscale(15%) contrast(1.3) brightness(0.92);
+            mix-blend-mode: luminosity;
+            animation: slowDrift 28s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowDrift {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.05) translate(-1.5%, 1.2%); }
+            100% { transform: scale(1.02) translate(1.2%, -1%); }
+        }
+
+        .ambient-orange-mesh {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 65% 55% at 18% 18%, rgba(255, 107, 0, 0.38) 0%, transparent 68%),
+                radial-gradient(ellipse 55% 45% at 82% 78%, rgba(234, 88, 12, 0.32) 0%, transparent 65%),
+                radial-gradient(circle 520px at 78% 22%, rgba(245, 158, 11, 0.28) 0%, transparent 60%),
+                radial-gradient(circle 560px at 22% 82%, rgba(194, 65, 12, 0.30) 0%, transparent 65%),
+                radial-gradient(ellipse 75% 50% at 50% 50%, rgba(255, 133, 51, 0.20) 0%, transparent 75%);
+            mix-blend-mode: screen;
+            animation: auraPulse 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes auraPulse {
+            0% { opacity: 0.75; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.04); }
+            100% { opacity: 0.8; transform: scale(0.97); }
+        }
+
+        .ambient-vignette {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at center, transparent 32%, rgba(6, 6, 8, 0.65) 75%, #060608 100%),
+                linear-gradient(180deg, rgba(6, 6, 8, 0.35) 0%, transparent 20%, transparent 80%, rgba(6, 6, 8, 0.85) 100%);
+        }
+
+        /* Subtle Luxury Film Grain */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            opacity: 0.038;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
         header {
@@ -57,13 +131,20 @@
             padding: 3rem 0;
             display: flex;
             justify-content: center;
+            position: relative;
             z-index: 10;
         }
 
         .logo {
-            max-width: 120px;
+            max-width: 130px;
             height: auto;
-            transition: opacity 0.5s ease;
+            transition: transform 0.4s ease, filter 0.4s ease;
+            filter: drop-shadow(0 0 25px rgba(255, 107, 0, 0.35));
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 35px rgba(255, 107, 0, 0.6));
         }
 
         main {
@@ -73,17 +154,24 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 2rem;
+            padding: 0 2rem 4rem 2rem;
+            position: relative;
             z-index: 10;
         }
 
         .kicker {
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
-            letter-spacing: 0.4em;
+            letter-spacing: 0.35em;
             margin-bottom: 2rem;
-            font-weight: 400;
-            color: #d1d1d1;
+            font-weight: 500;
+            color: var(--orange-apricot);
+            background: rgba(255, 107, 0, 0.08);
+            border: 1px solid rgba(255, 107, 0, 0.28);
+            padding: 0.45rem 1.4rem;
+            border-radius: 100px;
+            display: inline-block;
+            box-shadow: 0 0 25px rgba(255, 107, 0, 0.12);
         }
 
         .headline {
@@ -96,79 +184,162 @@
         }
 
         .headline em {
-            color: var(--accent-color);
+            background: linear-gradient(135deg, #FF8533 0%, #FF6B00 50%, #EA580C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-style: italic;
             font-weight: 400;
+            text-shadow: none;
         }
 
         .subtitle {
             font-size: clamp(1rem, 2.5vw, 1.25rem);
             font-weight: 300;
-            color: #b0b0b0;
-            margin-bottom: 5rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
             max-width: 600px;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
             transition: opacity 0.5s ease;
         }
 
-        /* Timer Grid */
+        /* Timer Grid & Multi-Shade Orange Capsules */
         .timer-grid {
             display: flex;
-            gap: clamp(2rem, 5vw, 4rem);
+            gap: clamp(1.2rem, 3vw, 2.5rem);
             justify-content: center;
             flex-wrap: wrap;
             transition: opacity 0.5s ease, transform 0.5s ease;
+            position: relative;
+            z-index: 2;
         }
 
         .timer-block {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 80px;
+            min-width: 130px;
+            padding: 1.75rem 2rem;
+            background: rgba(14, 14, 18, 0.75);
+            backdrop-filter: blur(20px) saturate(140%);
+            -webkit-backdrop-filter: blur(20px) saturate(140%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .timer-block:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Timer Block 1: Days — Signature Blaze Orange */
+        .timer-block.block-days {
+            border-color: rgba(255, 107, 0, 0.3);
+        }
+        .timer-block.block-days:hover {
+            border-color: var(--orange-blaze);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 107, 0, 0.25);
+        }
+        .timer-block.block-days .time-value {
+            color: #ffffff;
+        }
+        .timer-block.block-days .time-label {
+            color: var(--orange-blaze);
+        }
+
+        /* Timer Block 2: Hours — Bright Flame Orange */
+        .timer-block.block-hours {
+            border-color: rgba(255, 133, 51, 0.3);
+        }
+        .timer-block.block-hours:hover {
+            border-color: var(--orange-flame);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 133, 51, 0.25);
+        }
+        .timer-block.block-hours .time-value {
+            color: #ffffff;
+        }
+        .timer-block.block-hours .time-label {
+            color: var(--orange-flame);
+        }
+
+        /* Timer Block 3: Minutes — Radiant Sunset Orange */
+        .timer-block.block-minutes {
+            border-color: rgba(234, 88, 12, 0.3);
+        }
+        .timer-block.block-minutes:hover {
+            border-color: var(--orange-sunset);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(234, 88, 12, 0.25);
+        }
+        .timer-block.block-minutes .time-value {
+            color: #ffffff;
+        }
+        .timer-block.block-minutes .time-label {
+            color: var(--orange-sunset);
+        }
+
+        /* Timer Block 4: Seconds — Warm Honey Amber */
+        .timer-block.block-seconds {
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+        .timer-block.block-seconds:hover {
+            border-color: var(--orange-amber);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(245, 158, 11, 0.25);
+        }
+        .timer-block.block-seconds .time-value {
+            color: #ffffff;
+        }
+        .timer-block.block-seconds .time-label {
+            color: var(--orange-amber);
         }
 
         .time-value {
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 400;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 500;
             line-height: 1;
-            margin-bottom: 0.75rem;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 16px rgba(0,0,0,0.6);
         }
 
         .time-label {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: var(--accent-color);
+            letter-spacing: 0.28em;
             font-weight: 600;
         }
 
         /* Reveal State Elements */
         .unlock-btn {
             display: none;
-            background-color: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-            padding: 1.25rem 4rem;
-            font-size: 0.9rem;
+            background: linear-gradient(135deg, var(--orange-blaze) 0%, var(--orange-sunset) 100%);
+            color: #ffffff;
+            border: none;
+            padding: 1.35rem 4.5rem;
+            font-size: 0.95rem;
             font-family: var(--font-sans);
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.18em;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            margin-top: 1rem;
+            border-radius: 100px;
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.45), 0 0 50px rgba(255, 107, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-top: 1.5rem;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.8s ease forwards 0.5s;
         }
 
         .unlock-btn:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 107, 0, 0.65), 0 0 60px rgba(255, 107, 0, 0.35);
+        }
+
+        /* Direct Editorial Link */
+        .preview-direct-link a:hover {
+            color: var(--orange-apricot) !important;
+            border-bottom-color: var(--orange-blaze) !important;
         }
 
         /* Animations & Utilities */
@@ -189,37 +360,48 @@
 </head>
 <body>
 
-    <div class="hero-background"></div>
+    <!-- Creative Multi-Shade Orange Ambient Background with Faded Portrait Watermark -->
+    <div class="ambient-backdrop" aria-hidden="true">
+        <img src="Magazine/Images/temi-portrait-hero.jpg" alt="" class="ambient-faded-portrait">
+        <div class="ambient-orange-mesh"></div>
+        <div class="ambient-vignette"></div>
+    </div>
 
     <header>
-        <img src="TRB%20Logos/TRB%20Dr%20Stallion%20Final%20logo%20orange%20nobg.png" alt="TRB Logo" class="logo">
+        <img src="Magazine/Images/logo-orange.png" alt="TRB Dr. Stallion Logo" class="logo">
     </header>
 
     <main>
-        <div class="kicker">Confidential Issue</div>
+        <div class="kicker">Ekiti Pedigree &bull; Vol. 39 &bull; Confidential</div>
         <h1 class="headline">THE <em>TRB</em> ISSUE</h1>
         <p class="subtitle" id="subtitleText">Volume 39. Prepare the joint supplements.</p>
 
         <div class="timer-grid" id="timerGrid">
-            <div class="timer-block">
+            <div class="timer-block block-days">
                 <div class="time-value" id="days">00</div>
                 <div class="time-label">Days</div>
             </div>
-            <div class="timer-block">
+            <div class="timer-block block-hours">
                 <div class="time-value" id="hours">00</div>
                 <div class="time-label">Hours</div>
             </div>
-            <div class="timer-block">
+            <div class="timer-block block-minutes">
                 <div class="time-value" id="minutes">00</div>
                 <div class="time-label">Minutes</div>
             </div>
-            <div class="timer-block">
+            <div class="timer-block block-seconds">
                 <div class="time-value" id="seconds">00</div>
                 <div class="time-label">Seconds</div>
             </div>
         </div>
 
         <a href="magazine.html" class="unlock-btn" id="unlockBtn">Unlock the Issue</a>
+
+        <div class="preview-direct-link" style="margin-top: 3.5rem; position: relative; z-index: 2;">
+            <a href="magazine.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; border-bottom: 1px dashed rgba(255, 107, 0, 0.4); padding-bottom: 2px; transition: all 0.3s ease;">
+                Editorial Access &bull; Read The Issue
+            </a>
+        </div>
     </main>
 
     <script>
@@ -292,7 +474,7 @@
                     angle: 60,
                     spread: 60,
                     origin: { x: 0 },
-                    colors: ['#ffffff', '#0a0a0a', '#FF6B00']
+                    colors: ['#ffffff', '#0a0a0a', '#FF6B00', '#EA580C', '#F59E0B']
                 });
                 // Right side confetti
                 confetti({
@@ -300,7 +482,7 @@
                     angle: 120,
                     spread: 60,
                     origin: { x: 1 },
-                    colors: ['#ffffff', '#0a0a0a', '#FF6B00']
+                    colors: ['#ffffff', '#0a0a0a', '#FF6B00', '#EA580C', '#F59E0B']
                 });
 
                 if (Date.now() < animationEnd) {

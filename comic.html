@@ -230,9 +230,13 @@
                 <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
                 <span>02:00 PM</span>
             </a>
-            <a href="#panel-6" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="3:00 PM">
+            <a href="#panel-5" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="4:45 PM">
                 <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
-                <span>03:00 PM</span>
+                <span>04:45 PM</span>
+            </a>
+            <a href="#panel-6" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="5:15 PM">
+                <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
+                <span>05:15 PM</span>
             </a>
             <a href="#panel-8" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="5:00 PM">
                 <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
@@ -398,13 +402,14 @@
                 <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
                     <img src="Comic/images/panel-04.jpg" alt="TRB resting head completely flat on his desk surrounded by papers as Cynthia WhatsApp message lights up" class="w-full h-auto object-cover">
                     
-                    <!-- WhatsApp Pulsing Notification -->
-                    <div class="absolute bottom-4 right-4 bg-[#25D366] text-white font-sans text-xs sm:text-sm p-3 rounded-2xl border-2 border-black shadow-comic max-w-[260px] animate-pulse">
-                        <div class="flex items-center gap-1.5 font-bold mb-0.5">
-                            <span>💬 Cynthia</span>
-                            <span class="text-[10px] opacity-80">2:00 PM</span>
+                    <!-- WhatsApp Pulsing Notification with Sound Trigger -->
+                    <div id="whatsappBubble" onclick="playWhatsAppTone()" class="cursor-pointer group absolute bottom-4 right-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-sans text-xs sm:text-sm p-3 rounded-2xl border-2 border-black shadow-comic max-w-[270px] animate-pulse transition-all hover:scale-105 active:scale-95" title="Click to hear WhatsApp notification chime!">
+                        <div class="flex items-center justify-between font-bold mb-0.5">
+                            <span class="flex items-center gap-1.5">💬 Cynthia</span>
+                            <span class="text-[10px] bg-black/25 px-2 py-0.5 rounded-full flex items-center gap-1">2:00 PM &bull; 🔔 Chime</span>
                         </div>
                         <p class="font-medium text-slate-950">"You’ve got this! Are you not Dr. Stallion? 🐎"</p>
+                        <span class="text-[9px] text-emerald-950 font-bold block text-right mt-1 opacity-80 group-hover:opacity-100">&larr; Tap to replay chime</span>
                     </div>
                 </div>
 
@@ -417,29 +422,53 @@
         </article>
 
         <!-- ========================================================== -->
-        <!-- PANEL 5: The Rebuttal (2:01 PM)                            -->
+        <!-- PANEL 5: The Rebuttal (4:45 PM • 2.5+ Hours Later)         -->
         <!-- ========================================================== -->
-        <article id="panel-5" class="comic-panel-container w-full mb-20" data-time="2:01 PM • THE REBUTTAL">
+        <article id="panel-5" class="comic-panel-container w-full mb-20" data-time="4:45 PM • THE REBUTTAL">
             <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
                 <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
-                    <span class="font-bangers text-xl sm:text-2xl text-comic-red tracking-wide">PANEL 05 // 2:01 PM</span>
-                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">ONE MINUTE LATER</span>
+                    <span class="font-bangers text-xl sm:text-2xl text-comic-red tracking-wide">PANEL 05 // 4:45 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">2 HOURS &amp; 45 MINS LATER</span>
                 </div>
 
-                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
-                    <img src="Comic/images/panel-05.jpg" alt="TRB lifting his head dramatically staring at phone with side eye and exhaustion" class="w-full h-auto object-cover">
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900 group">
+                    <!-- Animated WebP with Moving / Darting Eyes & Blinking -->
+                    <img src="Comic/images/panel-05.webp" alt="TRB lifting his head dramatically with eyes actively darting in side-eye exhaustion" class="w-full h-auto object-cover">
                     
-                    <!-- Sweating Comic Drop -->
-                    <div class="absolute top-4 right-4 bg-comic-yellow text-black font-bangers text-sm sm:text-base px-3 py-1 rounded border-2 border-black shadow-comic-sm rotate-6">
-                        SIDE-EYE OF THE CENTURY
+                    <!-- Sweating Comic Drop & Moving Eyes Indicator -->
+                    <div class="absolute top-4 right-4 bg-comic-yellow text-black font-bangers text-xs sm:text-base px-3 py-1 rounded border-2 border-black shadow-comic-sm rotate-6 flex items-center gap-1.5">
+                        <span>👀 DRAMATIC SIDE-EYE (EYES DARTING)</span>
                     </div>
                 </div>
 
-                <!-- Speech Bubble: The Punchline -->
-                <div class="mt-4 bg-white border-3 border-black p-4 rounded-2xl bubble-bottom-left shadow-comic">
-                    <p class="font-comic font-bold text-slate-900 text-lg sm:text-xl leading-relaxed">
-                        🗣️ <span class="text-comic-red font-bangers text-2xl">TRB:</span> "I'm not Dr. Stallion. That's how you people used to kill somebody."
-                    </p>
+                <!-- Speech Bubble & WhatsApp Delivery Reality -->
+                <div class="mt-4 space-y-3">
+                    <!-- WhatsApp Thread Delivery Reality -->
+                    <div class="bg-emerald-950/25 border-2 border-emerald-500/40 p-3 rounded-xl font-sans text-xs sm:text-sm space-y-1.5 shadow-comic-sm">
+                        <div class="flex items-center justify-between text-slate-300 font-bold text-[11px] border-b border-emerald-500/20 pb-1">
+                            <span class="flex items-center gap-1.5">📱 WhatsApp Chat &bull; Cynthia &amp; TRB</span>
+                            <span class="text-amber-400 font-mono">Elapsed: 2h 45m</span>
+                        </div>
+                        <div class="bg-black/30 p-2 rounded-lg text-slate-200 flex items-center justify-between text-xs">
+                            <span><strong class="text-emerald-400">Cynthia:</strong> "You’ve got this! Are you not Dr. Stallion? 🐎"</span>
+                            <span class="text-[10px] text-slate-400 ml-2">2:00 PM</span>
+                        </div>
+                        <div class="flex items-center justify-between text-[11px] text-sky-400 font-mono px-1">
+                            <span class="text-slate-400">Status: Read after 165 minutes</span>
+                            <span>✓✓ Read 4:44 PM</span>
+                        </div>
+                    </div>
+
+                    <!-- Speech Bubble: The Punchline -->
+                    <div class="bg-white border-3 border-black p-4 rounded-2xl bubble-bottom-left shadow-comic">
+                        <p class="font-comic font-bold text-slate-900 text-lg sm:text-xl leading-relaxed">
+                            🗣️ <span class="text-comic-red font-bangers text-2xl">TRB (4:45 PM):</span> "I'm not Dr. Stallion. That's how you people used to kill somebody."
+                        </p>
+                    </div>
+
+                    <div class="bg-yellow-100 border-2 border-black p-2.5 rounded-lg text-slate-900 font-comic text-xs sm:text-sm">
+                        <span class="text-comic-orange font-bold uppercase tracking-wide">Executive Rule:</span> True leaders do not rush their WhatsApp replies. They allow Cynthia's question to marinate for nearly three hours before issuing a definitive refusal.
+                    </div>
                 </div>
             </div>
         </article>
@@ -631,15 +660,21 @@
                 <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
                     <img src="Comic/images/panel-12.jpg" alt="TRB sprawled on couch elevating iced leg on pillows while TV blares melodramatic Nollywood crying" class="w-full h-auto object-cover">
                     
-                    <div class="absolute top-4 right-4 bg-comic-cyan text-black font-bangers text-base sm:text-xl px-3 py-1 rounded border-2 border-black shadow-comic rotate-3">
-                        R.I.C.E. PROTOCOL
+                    <div class="absolute top-4 right-4 bg-comic-cyan text-black font-bangers text-sm sm:text-base px-3 py-1.5 rounded-xl border-2 border-black shadow-comic rotate-3 flex flex-col items-center text-center">
+                        <span class="text-base sm:text-lg">R.I.C.E. PROTOCOL</span>
+                        <span class="font-comic font-bold text-[10px] tracking-wider uppercase opacity-90">Rest &bull; Ice &bull; Compression &bull; Elevation</span>
                     </div>
                 </div>
 
-                <div class="mt-4 bg-yellow-100 border-2 border-black p-4 rounded-xl shadow-comic-sm">
-                    <p class="font-comic font-bold text-slate-900 text-base sm:text-lg">
-                        <span class="text-comic-orange font-bangers text-xl">Caption:</span> "Winding down with cinema that requires absolutely zero critical thinking. Just pure shouting, betrayal, and unconquerable tears."
-                    </p>
+                <div class="mt-4 space-y-2">
+                    <div class="bg-yellow-100 border-2 border-black p-4 rounded-xl shadow-comic-sm">
+                        <p class="font-comic font-bold text-slate-900 text-base sm:text-lg">
+                            <span class="text-comic-orange font-bangers text-xl">Caption:</span> "Winding down with cinema that requires absolutely zero critical thinking. Just pure shouting, betrayal, and unconquerable tears."
+                        </p>
+                    </div>
+                    <div class="bg-sky-950/20 border-2 border-sky-600/30 p-2.5 rounded-lg text-sky-200 font-comic text-xs">
+                        <span class="text-comic-cyan font-bold uppercase tracking-wider font-bangers text-sm">Sports Medicine Dossier:</span> <strong>R.I.C.E. Protocol</strong> = <strong>R</strong>est (corporate diplomacy ended), <strong>I</strong>ce (frozen pea bag), <strong>C</strong>ompression (elastic knee support), and <strong>E</strong>levation (propping the leg high above the heart on luxury pillows while Nollywood drama plays).
+                    </div>
                 </div>
             </div>
         </article>
@@ -762,6 +797,45 @@
             } catch (e) {}
         }
 
+        function playWhatsAppTone() {
+            if (!soundEnabled) return;
+            try {
+                initAudio();
+                const now = audioCtx.currentTime;
+                // Authentic WhatsApp two-tone marimba chime (C6 ~1046.5Hz -> E6 ~1318.5Hz)
+                const tones = [
+                    { freq: 1046.5, time: 0, dur: 0.16, gain: 0.35 },
+                    { freq: 1318.5, time: 0.13, dur: 0.32, gain: 0.4 }
+                ];
+                tones.forEach(t => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(t.freq, now + t.time);
+                    gain.gain.setValueAtTime(0, now + t.time);
+                    gain.gain.linearRampToValueAtTime(t.gain, now + t.time + 0.012);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + t.time + t.dur);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now + t.time);
+                    osc.stop(now + t.time + t.dur);
+
+                    // Add rich harmonic overtone for marimba/wood chime timbre
+                    const harm = audioCtx.createOscillator();
+                    const harmGain = audioCtx.createGain();
+                    harm.type = 'triangle';
+                    harm.frequency.setValueAtTime(t.freq * 2, now + t.time);
+                    harmGain.gain.setValueAtTime(0, now + t.time);
+                    harmGain.gain.linearRampToValueAtTime(t.gain * 0.28, now + t.time + 0.012);
+                    harmGain.gain.exponentialRampToValueAtTime(0.001, now + t.time + t.dur * 0.6);
+                    harm.connect(harmGain);
+                    harmGain.connect(audioCtx.destination);
+                    harm.start(now + t.time);
+                    harm.stop(now + t.time + t.dur);
+                });
+            } catch (e) {}
+        }
+
         function playLightbulbDing() {
             if (!soundEnabled) return;
             try {
@@ -871,6 +945,7 @@
                 ease: "power2.out",
                 onComplete: () => {
                     // Specific panel sound triggers
+                    if (panel.id === 'panel-4') playWhatsAppTone();
                     if (panel.id === 'panel-7') playLightbulbDing();
                     if (panel.id === 'panel-14') triggerBirthdayConfetti();
                 }

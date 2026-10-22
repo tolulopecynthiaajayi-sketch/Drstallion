@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAPPY BIRTHDAY TEMITOPE — Cheers to 39! | THE TRB ISSUE</title>
+    <title>HAPPY BIRTHDAY TEMITOPE — Cheers to 39! | Dr. Stallion</title>
     <!-- SEO & Metadata -->
-    <meta name="description" content="Happy Birthday Dr. Temitope Richard-Banji! Cheers to 39. The TRB Special Confidential Folio.">
+    <meta name="description" content="Happy Birthday Dr. Temitope Richard-Banji! Cheers to 39. The 39th Birthday Countdown.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -582,7 +582,7 @@
     </header>
 
     <main>
-        <div class="kicker" id="kickerTag" title="Special Birthday Folio">Special Birthday Folio &bull; Vol. 39 &bull; Dr. Stallion</div>
+        <div class="kicker" id="kickerTag" title="Special Birthday Countdown">Top Secret &bull; 39th Birthday Countdown &bull; Dr. Stallion</div>
         <h1 class="headline" id="mainHeadline">HAPPY BIRTHDAY <br><em>TEMITOPE</em></h1>
         <p class="subtitle" id="subtitleText">Cheers to 39!</p>
 
@@ -605,6 +605,7 @@
             </div>
         </div>
 
+        <!-- Unlocked Gift Actions (Hidden until Countdown reaches Zero) -->
         <div class="unlock-actions-container" id="unlockActionsContainer">
             <a href="magazine.html?autoplay=true" class="unlock-btn unlock-btn-magazine" id="unlockMagazineBtn">
                 <span class="btn-subtext">Volume 39 &bull; Luxury Folio</span>
@@ -616,7 +617,14 @@
             </a>
         </div>
 
-        <div class="preview-direct-link" style="margin-top: 3.5rem; position: relative; z-index: 2; display: flex; gap: 1.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <!-- Mystery Suspense Teaser during Countdown (No gift spoilers) -->
+        <div class="countdown-mystery-note" id="countdownMysteryNote" style="margin-top: 3.5rem; position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 0.65rem; color: var(--text-muted); font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase; transition: opacity 0.5s ease;">
+            <span style="display: inline-block; width: 6px; height: 6px; background: var(--orange-blaze); border-radius: 50%; box-shadow: 0 0 10px var(--orange-blaze);"></span>
+            <span>A Special Birthday Surprise Unlocks When The Countdown Ends</span>
+        </div>
+
+        <!-- Secret Dev Direct Links (Only active when ?dev=true is in URL) -->
+        <div class="preview-direct-link" id="devDirectLinks" style="display: none; margin-top: 2rem; position: relative; z-index: 2; gap: 1.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
             <a href="magazine.html?autoplay=true" style="color: var(--text-muted); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; border-bottom: 1px dashed rgba(255, 107, 0, 0.4); padding-bottom: 2px; transition: all 0.3s ease;">
                 Direct Access &bull; Magazine
             </a>
@@ -751,6 +759,13 @@
             
             // Hide timer grid gracefully
             timerGrid.classList.add('hidden');
+
+            // Hide countdown mystery note
+            const mysteryNote = document.getElementById('countdownMysteryNote');
+            if (mysteryNote) {
+                mysteryNote.style.opacity = '0';
+                setTimeout(() => { mysteryNote.style.display = 'none'; }, 400);
+            }
             
             // Start Nathaniel Bassey praise track automatically
             startMusicPlayback();
@@ -759,8 +774,8 @@
             setTimeout(() => {
                 subtitleText.style.opacity = 0;
                 setTimeout(() => {
-                    if (kickerTag) kickerTag.textContent = "Celebration Active • Volume 39 Unlocked";
-                    subtitleText.textContent = "Cheers to 39! The confidential folio is now officially unlocked.";
+                    if (kickerTag) kickerTag.textContent = "Celebration Active • 39th Birthday Gifts Unlocked";
+                    subtitleText.textContent = "Cheers to 39! Your special birthday gifts are now officially unlocked.";
                     subtitleText.style.opacity = 1;
                     
                     // Show dual action portal for Magazine and Comic Book
@@ -808,6 +823,12 @@
             // Initialize standard countdown
             updateCountdown();
             setInterval(updateCountdown, 1000);
+        }
+
+        // Dev Mode direct links (?dev=true)
+        if (urlParams.get('dev') === 'true') {
+            const devLinks = document.getElementById('devDirectLinks');
+            if (devLinks) devLinks.style.display = 'flex';
         }
 
         // Allow previewing the revealed state by clicking the kicker tag

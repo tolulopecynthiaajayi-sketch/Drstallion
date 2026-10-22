@@ -252,6 +252,112 @@
             stroke-width: 2;
         }
 
+        /* Luxury Audio Player Controls */
+        .music-btn {
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .music-btn.playing {
+            border-color: rgba(255, 107, 0, 0.6);
+            background: rgba(255, 107, 0, 0.12);
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 107, 0, 0.25);
+        }
+
+        .music-bars {
+            display: inline-flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 12px;
+            width: 12px;
+        }
+
+        .music-bars .bar {
+            width: 2px;
+            background: var(--accent-orange);
+            border-radius: 1px;
+            height: 3px;
+            transition: height 0.2s ease;
+        }
+
+        .music-btn.playing .music-bars .bar-1 {
+            animation: eqBounce 0.8s ease-in-out infinite alternate;
+        }
+
+        .music-btn.playing .music-bars .bar-2 {
+            animation: eqBounce 0.6s ease-in-out infinite alternate 0.2s;
+        }
+
+        .music-btn.playing .music-bars .bar-3 {
+            animation: eqBounce 0.9s ease-in-out infinite alternate 0.4s;
+        }
+
+        @keyframes eqBounce {
+            0% { height: 2px; }
+            100% { height: 12px; }
+        }
+
+        .music-toast {
+            position: fixed;
+            top: 5rem;
+            right: 2rem;
+            background: rgba(18, 18, 22, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 107, 0, 0.4);
+            border-radius: 10px;
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65), 0 0 30px rgba(255, 107, 0, 0.15);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-12px);
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .music-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .music-toast-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 107, 0, 0.15);
+            border: 1px solid rgba(255, 107, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-orange);
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .music-toast-meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .music-toast-kicker {
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        .music-toast-title {
+            font-family: var(--font-serif);
+            font-size: 0.98rem;
+            color: #ffffff;
+            font-style: italic;
+        }
+
         /* Floating Spread Navigator (Spread Reader Mode) */
         .spread-navigator {
             position: fixed;
@@ -2171,16 +2277,33 @@
             background: radial-gradient(circle at center, #141418 0%, #080808 80%);
             border: 1px solid var(--border-accent);
             text-align: center;
-            padding: 5rem 3rem;
+            padding: 4.5rem 3rem 6rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+        }
+
+        body.mode-spread .backcover-spread {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start !important;
+            padding: 3.5rem 2.5rem 8rem !important;
+            overflow-y: auto !important;
+            scroll-behavior: smooth;
+        }
+
+        body.mode-spread .backcover-spread.active-spread {
+            display: flex !important;
         }
 
         .backcover-logo {
-            max-width: 140px;
-            margin-bottom: 2rem;
+            max-width: 110px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.3);
+            margin-bottom: 1.5rem;
         }
 
         .backcover-title {
@@ -2417,6 +2540,16 @@
         </a>
 
         <div class="nav-controls">
+            <!-- Music Player Toggle -->
+            <button class="pill-btn music-btn" id="musicToggleBtn" title="Play / Pause: Nathaniel Bassey - See What The Lord Has Done">
+                <div class="music-bars" id="musicBars">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </div>
+                <span id="musicLabel">Play Music</span>
+            </button>
+
             <!-- Table of Contents Trigger -->
             <button class="pill-btn" id="tocOpenBtn" title="View Table of Contents">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -2446,6 +2579,21 @@
             </a>
         </div>
     </header>
+
+    <!-- Music Toast Notification -->
+    <div class="music-toast" id="musicToast">
+        <div class="music-toast-icon">&#9835;</div>
+        <div class="music-toast-meta">
+            <span class="music-toast-kicker">Now Playing // Birthday Praise</span>
+            <span class="music-toast-title">Nathaniel Bassey &bull; See What The Lord Has Done</span>
+        </div>
+    </div>
+
+    <!-- Background Praise Music -->
+    <audio id="bgMusic" loop preload="metadata">
+        <source src="Magazine/Audio/nathaniel-bassey-see-what-the-lord-has-done.mp3" type="audio/mpeg">
+        <source src="SEE%20WHAT%20THE%20LORD%20HAS%20DONE%20-%20NATHANIEL%20BASSEY%20%23seewhatthelordhasdone%20%23hallelujahagain%20%23namesofGod.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Floating Spread Navigator (Visible in Spread Reader Mode) -->
     <div class="spread-navigator" id="spreadNavigator" style="display: none;">
@@ -2868,7 +3016,7 @@
         <article class="editorial-spread" id="spread-05" data-title="The Liverpool FC Delusion">
             <div class="spread-folio-header">
                 <div>Sports &amp; Athletics Dispatch &nbsp;&bull;&nbsp; <span class="highlight">Clinical Report</span></div>
-                <div>Anfield Dreams &bull; Sunday League &bull; Folio 18</div>
+                <div>Anfield Dreams &bull; Saturday League &bull; Folio 18</div>
                 <div>Tallaght Turf, Dublin</div>
             </div>
 
@@ -3454,34 +3602,76 @@
             });
         });
 
+        // Background Music Controller
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggleBtn = document.getElementById('musicToggleBtn');
+        const musicLabel = document.getElementById('musicLabel');
+        const musicToast = document.getElementById('musicToast');
+        let musicToastTimeout;
+
+        function showMusicToast() {
+            if (!musicToast) return;
+            musicToast.classList.add('show');
+            clearTimeout(musicToastTimeout);
+            musicToastTimeout = setTimeout(() => {
+                musicToast.classList.remove('show');
+            }, 5000);
+        }
+
+        function toggleMusic() {
+            if (!bgMusic) return;
+            if (bgMusic.paused) {
+                bgMusic.play().then(() => {
+                    if (musicToggleBtn) musicToggleBtn.classList.add('playing');
+                    if (musicLabel) musicLabel.textContent = 'Music: On';
+                    showMusicToast();
+                }).catch(err => {
+                    console.log('Audio play error:', err);
+                });
+            } else {
+                bgMusic.pause();
+                if (musicToggleBtn) musicToggleBtn.classList.remove('playing');
+                if (musicLabel) musicLabel.textContent = 'Play Music';
+            }
+        }
+
+        if (musicToggleBtn) {
+            musicToggleBtn.addEventListener('click', toggleMusic);
+        }
+
         // Confetti Celebration Trigger
         const confettiToastBtn = document.getElementById('confettiToastBtn');
-        confettiToastBtn.addEventListener('click', () => {
-            playPaperTurnSound();
-            const duration = 4.5 * 1000;
-            const animationEnd = Date.now() + duration;
-
-            (function frame() {
-                confetti({
-                    particleCount: 8,
-                    angle: 60,
-                    spread: 65,
-                    origin: { x: 0 },
-                    colors: ['#ffffff', '#FF6B00', '#EAB308', '#C8102E', '#111111', '#ffa96b']
-                });
-                confetti({
-                    particleCount: 8,
-                    angle: 120,
-                    spread: 65,
-                    origin: { x: 1 },
-                    colors: ['#ffffff', '#FF6B00', '#EAB308', '#C8102E', '#111111', '#ffa96b']
-                });
-
-                if (Date.now() < animationEnd) {
-                    requestAnimationFrame(frame);
+        if (confettiToastBtn) {
+            confettiToastBtn.addEventListener('click', () => {
+                playPaperTurnSound();
+                if (bgMusic && bgMusic.paused) {
+                    toggleMusic();
                 }
-            }());
-        });
+                const duration = 4.5 * 1000;
+                const animationEnd = Date.now() + duration;
+
+                (function frame() {
+                    confetti({
+                        particleCount: 8,
+                        angle: 60,
+                        spread: 65,
+                        origin: { x: 0 },
+                        colors: ['#ffffff', '#FF6B00', '#EAB308', '#C8102E', '#111111', '#ffa96b']
+                    });
+                    confetti({
+                        particleCount: 8,
+                        angle: 120,
+                        spread: 65,
+                        origin: { x: 1 },
+                        colors: ['#ffffff', '#FF6B00', '#EAB308', '#C8102E', '#111111', '#ffa96b']
+                    });
+
+                    if (Date.now() < animationEnd) {
+                        requestAnimationFrame(frame);
+                    }
+                }());
+            });
+        }
 
         // Photo Lightbox Handling
         const photoLightboxModal = document.getElementById('photoLightboxModal');

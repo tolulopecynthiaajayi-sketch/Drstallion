@@ -3618,6 +3618,38 @@
             }, 5000);
         }
 
+        function startMusicPlayback() {
+            if (!bgMusic) return;
+            if (bgMusic.paused) {
+                bgMusic.play().then(() => {
+                    if (musicToggleBtn) musicToggleBtn.classList.add('playing');
+                    if (musicLabel) musicLabel.textContent = 'Music: On';
+                    showMusicToast();
+                }).catch(err => {
+                    console.log('Autoplay deferred pending user interaction:', err);
+                    // Modern browsers restrict zero-gesture audio autoplay.
+                    // Automatically start immediately upon the reader's first gesture anywhere (tap, scroll, click, key)
+                    const startOnFirstGesture = () => {
+                        if (bgMusic && bgMusic.paused) {
+                            bgMusic.play().then(() => {
+                                if (musicToggleBtn) musicToggleBtn.classList.add('playing');
+                                if (musicLabel) musicLabel.textContent = 'Music: On';
+                                showMusicToast();
+                            }).catch(e => console.log('Gesture play error:', e));
+                        }
+                        window.removeEventListener('click', startOnFirstGesture);
+                        window.removeEventListener('touchstart', startOnFirstGesture);
+                        window.removeEventListener('scroll', startOnFirstGesture);
+                        window.removeEventListener('keydown', startOnFirstGesture);
+                    };
+                    window.addEventListener('click', startOnFirstGesture, { once: true, passive: true });
+                    window.addEventListener('touchstart', startOnFirstGesture, { once: true, passive: true });
+                    window.addEventListener('scroll', startOnFirstGesture, { once: true, passive: true });
+                    window.addEventListener('keydown', startOnFirstGesture, { once: true, passive: true });
+                });
+            }
+        }
+
         function toggleMusic() {
             if (!bgMusic) return;
             if (bgMusic.paused) {
@@ -3637,6 +3669,13 @@
 
         if (musicToggleBtn) {
             musicToggleBtn.addEventListener('click', toggleMusic);
+        }
+
+        // Auto-play the birthday praise track automatically on page load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', startMusicPlayback);
+        } else {
+            startMusicPlayback();
         }
 
         // Confetti Celebration Trigger

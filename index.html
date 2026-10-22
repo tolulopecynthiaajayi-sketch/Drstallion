@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE TRB ISSUE — Volume 39 | Special Confidential Folio</title>
+    <title>HAPPY BIRTHDAY TEMITOPE — Cheers to 39! | THE TRB ISSUE</title>
     <!-- SEO & Metadata -->
-    <meta name="description" content="A confidential luxury digital magazine issue for Dr. Temitope Richard-Banji (Dr. Stallion). Volume 39. Prepare the joint supplements.">
+    <meta name="description" content="Happy Birthday Dr. Temitope Richard-Banji! Cheers to 39. The TRB Special Confidential Folio.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,11 +128,140 @@
 
         header {
             width: 100%;
-            padding: 3rem 0;
+            padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 4rem);
             display: flex;
+            align-items: center;
             justify-content: center;
             position: relative;
-            z-index: 10;
+            z-index: 20;
+        }
+
+        .music-pill-btn {
+            position: absolute;
+            right: clamp(1.5rem, 5vw, 4rem);
+            background: rgba(14, 14, 18, 0.75);
+            border: 1px solid rgba(255, 107, 0, 0.35);
+            color: #ffffff;
+            padding: 0.6rem 1.3rem;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.75rem;
+            font-family: var(--font-sans);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            cursor: pointer;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            transition: all 0.35s ease;
+        }
+
+        .music-pill-btn:hover {
+            border-color: var(--orange-blaze);
+            background: rgba(255, 107, 0, 0.14);
+            box-shadow: 0 0 25px rgba(255, 107, 0, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .music-pill-btn.playing {
+            border-color: var(--orange-blaze);
+            background: rgba(255, 107, 0, 0.22);
+            box-shadow: 0 0 25px rgba(255, 107, 0, 0.45);
+        }
+
+        .music-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 2.5px;
+            height: 12px;
+            width: 12px;
+        }
+
+        .music-bars .bar {
+            width: 2.5px;
+            background: var(--orange-blaze);
+            border-radius: 1px;
+            height: 3px;
+            transition: height 0.2s ease;
+        }
+
+        .music-pill-btn.playing .music-bars .bar-1 {
+            animation: bounceBar 0.8s ease-in-out infinite alternate;
+        }
+        .music-pill-btn.playing .music-bars .bar-2 {
+            animation: bounceBar 0.6s ease-in-out 0.2s infinite alternate;
+        }
+        .music-pill-btn.playing .music-bars .bar-3 {
+            animation: bounceBar 0.9s ease-in-out 0.4s infinite alternate;
+        }
+
+        @keyframes bounceBar {
+            0% { height: 3px; }
+            100% { height: 12px; }
+        }
+
+        /* Floating Music Toast Notification */
+        .music-toast {
+            position: fixed;
+            top: clamp(1rem, 3vw, 2rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(-30px);
+            background: rgba(14, 14, 18, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 107, 0, 0.4);
+            border-radius: 50px;
+            padding: 0.75rem 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 30px rgba(255, 107, 0, 0.25);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .music-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+
+        .music-toast-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange-blaze), var(--orange-sunset));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 0.85rem;
+            box-shadow: 0 0 15px rgba(255, 107, 0, 0.5);
+        }
+
+        .music-toast-meta {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .music-toast-kicker {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--orange-blaze);
+            font-weight: 700;
+        }
+
+        .music-toast-title {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-style: italic;
         }
 
         .logo {
@@ -164,7 +293,7 @@
             text-transform: uppercase;
             letter-spacing: 0.35em;
             margin-bottom: 2rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--orange-apricot);
             background: rgba(255, 107, 0, 0.08);
             border: 1px solid rgba(255, 107, 0, 0.28);
@@ -176,11 +305,14 @@
 
         .headline {
             font-family: var(--font-serif);
-            font-size: clamp(3rem, 10vw, 7.5rem);
-            line-height: 1.05;
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.8rem, 8vw, 6.2rem);
+            line-height: 1.08;
+            margin-bottom: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.02em;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .headline em {
@@ -194,13 +326,18 @@
         }
 
         .subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            font-weight: 300;
-            color: var(--text-secondary);
-            margin-bottom: 4rem;
-            max-width: 600px;
+            font-family: var(--font-serif);
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--orange-apricot);
+            margin-bottom: 3.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
             letter-spacing: 0.04em;
             transition: opacity 0.5s ease;
+            text-shadow: 0 2px 25px rgba(255, 107, 0, 0.35);
         }
 
         /* Timer Grid & Multi-Shade Orange Capsules */
@@ -314,27 +451,34 @@
             display: none;
             background: linear-gradient(135deg, var(--orange-blaze) 0%, var(--orange-sunset) 100%);
             color: #ffffff;
-            border: none;
-            padding: 1.35rem 4.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 1.4rem 4rem;
             font-size: 0.95rem;
             font-family: var(--font-sans);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.18em;
             cursor: pointer;
             text-decoration: none;
             border-radius: 100px;
-            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.45), 0 0 50px rgba(255, 107, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.45), 0 0 50px rgba(255, 107, 0, 0.25);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             margin-top: 1.5rem;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeUp 0.8s ease forwards 0.5s;
+            animation: fadeUp 0.8s ease forwards 0.4s, glowPulse 3s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes glowPulse {
+            0% { box-shadow: 0 10px 30px rgba(255, 107, 0, 0.45), 0 0 40px rgba(255, 107, 0, 0.2); }
+            100% { box-shadow: 0 15px 45px rgba(255, 107, 0, 0.75), 0 0 70px rgba(255, 107, 0, 0.45); }
         }
 
         .unlock-btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(255, 107, 0, 0.65), 0 0 60px rgba(255, 107, 0, 0.35);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(255, 107, 0, 0.75), 0 0 75px rgba(255, 107, 0, 0.5);
         }
 
         /* Direct Editorial Link */
@@ -370,12 +514,20 @@
 
     <header>
         <img src="Magazine/Images/logo-orange.png" alt="TRB Dr. Stallion Logo" class="logo">
+        <button class="music-pill-btn" id="musicToggleBtn" title="Play / Pause Nathaniel Bassey Praise Track">
+            <div class="music-bars" id="musicBars">
+                <span class="bar bar-1"></span>
+                <span class="bar bar-2"></span>
+                <span class="bar bar-3"></span>
+            </div>
+            <span id="musicLabel">Play Music</span>
+        </button>
     </header>
 
     <main>
-        <div class="kicker">Ekiti Pedigree &bull; Vol. 39 &bull; Confidential</div>
-        <h1 class="headline">THE <em>TRB</em> ISSUE</h1>
-        <p class="subtitle" id="subtitleText">Volume 39. Prepare the joint supplements.</p>
+        <div class="kicker" id="kickerTag" title="Special Birthday Folio">Special Birthday Folio &bull; Vol. 39 &bull; Dr. Stallion</div>
+        <h1 class="headline" id="mainHeadline">HAPPY BIRTHDAY <br><em>TEMITOPE</em></h1>
+        <p class="subtitle" id="subtitleText">Cheers to 39!</p>
 
         <div class="timer-grid" id="timerGrid">
             <div class="timer-block block-days">
@@ -396,14 +548,29 @@
             </div>
         </div>
 
-        <a href="magazine.html" class="unlock-btn" id="unlockBtn">Unlock the Issue</a>
+        <a href="magazine.html?autoplay=true" class="unlock-btn" id="unlockBtn">Enter The Magazine &bull; Read The TRB Issue</a>
 
         <div class="preview-direct-link" style="margin-top: 3.5rem; position: relative; z-index: 2;">
-            <a href="magazine.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; border-bottom: 1px dashed rgba(255, 107, 0, 0.4); padding-bottom: 2px; transition: all 0.3s ease;">
+            <a href="magazine.html?autoplay=true" style="color: var(--text-muted); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; border-bottom: 1px dashed rgba(255, 107, 0, 0.4); padding-bottom: 2px; transition: all 0.3s ease;">
                 Editorial Access &bull; Read The Issue
             </a>
         </div>
     </main>
+
+    <!-- Music Toast Notification -->
+    <div class="music-toast" id="musicToast">
+        <div class="music-toast-icon">&#9835;</div>
+        <div class="music-toast-meta">
+            <span class="music-toast-kicker">Now Playing // Birthday Praise</span>
+            <span class="music-toast-title">Nathaniel Bassey &bull; See What The Lord Has Done</span>
+        </div>
+    </div>
+
+    <!-- Background Praise Music -->
+    <audio id="bgMusic" loop preload="metadata">
+        <source src="Magazine/Audio/nathaniel-bassey-see-what-the-lord-has-done.mp3" type="audio/mpeg">
+        <source src="SEE%20WHAT%20THE%20LORD%20HAS%20DONE%20-%20NATHANIEL%20BASSEY%20%23seewhatthelordhasdone%20%23hallelujahagain%20%23namesofGod.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
         // Target Date: October 24, 2026, at 00:00:00 Irish Standard Time (UTC+1)
@@ -411,11 +578,77 @@
 
         const timerGrid = document.getElementById('timerGrid');
         const subtitleText = document.getElementById('subtitleText');
+        const kickerTag = document.getElementById('kickerTag');
         const unlockBtn = document.getElementById('unlockBtn');
         const daysEl = document.getElementById('days');
         const hoursEl = document.getElementById('hours');
         const minutesEl = document.getElementById('minutes');
         const secondsEl = document.getElementById('seconds');
+
+        // Background Praise Audio Controller
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggleBtn = document.getElementById('musicToggleBtn');
+        const musicLabel = document.getElementById('musicLabel');
+        const musicToast = document.getElementById('musicToast');
+        let musicToastTimeout;
+
+        function showMusicToast() {
+            if (!musicToast) return;
+            musicToast.classList.add('show');
+            clearTimeout(musicToastTimeout);
+            musicToastTimeout = setTimeout(() => {
+                musicToast.classList.remove('show');
+            }, 5000);
+        }
+
+        function startMusicPlayback() {
+            if (!bgMusic) return;
+            if (bgMusic.paused) {
+                bgMusic.play().then(() => {
+                    if (musicToggleBtn) musicToggleBtn.classList.add('playing');
+                    if (musicLabel) musicLabel.textContent = 'Music: On';
+                    showMusicToast();
+                }).catch(err => {
+                    console.log('Autoplay deferred pending user interaction:', err);
+                    // Modern browsers restrict zero-gesture audio autoplay.
+                    // Start immediately upon the user's first tap or click anywhere.
+                    const startOnFirstGesture = () => {
+                        if (bgMusic && bgMusic.paused) {
+                            bgMusic.play().then(() => {
+                                if (musicToggleBtn) musicToggleBtn.classList.add('playing');
+                                if (musicLabel) musicLabel.textContent = 'Music: On';
+                                showMusicToast();
+                            }).catch(e => console.log('Gesture play error:', e));
+                        }
+                        window.removeEventListener('click', startOnFirstGesture);
+                        window.removeEventListener('touchstart', startOnFirstGesture);
+                    };
+                    window.addEventListener('click', startOnFirstGesture, { once: true, passive: true });
+                    window.addEventListener('touchstart', startOnFirstGesture, { once: true, passive: true });
+                });
+            }
+        }
+
+        function toggleMusic() {
+            if (!bgMusic) return;
+            if (bgMusic.paused) {
+                bgMusic.play().then(() => {
+                    if (musicToggleBtn) musicToggleBtn.classList.add('playing');
+                    if (musicLabel) musicLabel.textContent = 'Music: On';
+                    showMusicToast();
+                }).catch(err => {
+                    console.log('Audio play error:', err);
+                });
+            } else {
+                bgMusic.pause();
+                if (musicToggleBtn) musicToggleBtn.classList.remove('playing');
+                if (musicLabel) musicLabel.textContent = 'Play Music';
+            }
+        }
+
+        if (musicToggleBtn) {
+            musicToggleBtn.addEventListener('click', toggleMusic);
+        }
 
         let isRevealed = false;
 
@@ -443,19 +676,24 @@
         }
 
         function triggerReveal() {
+            if (isRevealed) return;
             isRevealed = true;
             
             // Hide timer grid gracefully
             timerGrid.classList.add('hidden');
             
-            // Wait slightly for transition then change text
+            // Start Nathaniel Bassey praise track automatically
+            startMusicPlayback();
+            
+            // Wait slightly for transition then update celebratory state
             setTimeout(() => {
                 subtitleText.style.opacity = 0;
                 setTimeout(() => {
-                    subtitleText.textContent = "Dr. Stallion has entered the building.";
+                    if (kickerTag) kickerTag.textContent = "Celebration Active • Volume 39 Unlocked";
+                    subtitleText.textContent = "Happy Birthday Temitope, Cheers to 39! The confidential folio is now officially open.";
                     subtitleText.style.opacity = 1;
                     
-                    // Show button
+                    // Show button linking to magazine with autoplay
                     unlockBtn.style.display = 'inline-block';
                     
                     // Trigger confetti
@@ -465,7 +703,7 @@
         }
 
         function triggerConfetti() {
-            const duration = 5 * 1000;
+            const duration = 6 * 1000;
             const animationEnd = Date.now() + duration;
 
             (function frame() {
@@ -492,9 +730,23 @@
             }());
         }
 
-        // Initialize
-        updateCountdown();
-        const timerInterval = setInterval(updateCountdown, 1000);
+        // Check URL parameters for testing/previewing the timer-ended state: ?test=true or ?reveal=true
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('test') === 'true' || urlParams.get('reveal') === 'true') {
+            triggerReveal();
+        } else {
+            // Initialize standard countdown
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        // Allow previewing the revealed state by clicking the kicker tag
+        if (kickerTag) {
+            kickerTag.style.cursor = 'pointer';
+            kickerTag.addEventListener('click', () => {
+                triggerReveal();
+            });
+        }
 
     </script>
 </body>

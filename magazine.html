@@ -442,15 +442,15 @@
         }
 
         .toc-modal {
-            width: 90%;
-            max-width: 940px;
-            max-height: 85vh;
+            width: 92%;
+            max-width: 1060px;
+            max-height: 88vh;
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
-            padding: 3.5rem;
+            padding: 3.5rem 3.5rem 3rem;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
             transform: translateY(20px);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -494,45 +494,78 @@
             list-style: none;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem 2.5rem;
+            column-gap: 3.25rem;
+            row-gap: 0;
+        }
+
+        .toc-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition-smooth);
+        }
+
+        .toc-item:hover {
+            border-bottom-color: rgba(224, 90, 41, 0.5);
         }
 
         .toc-item a {
-            display: flex;
+            display: grid;
+            grid-template-columns: 2rem 1fr auto;
             align-items: baseline;
-            justify-content: space-between;
+            column-gap: 0.75rem;
             text-decoration: none;
             color: var(--text-primary);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding-bottom: 0.6rem;
+            width: 100%;
+            padding: 0.85rem 0;
             transition: var(--transition-smooth);
         }
 
         .toc-item a:hover {
-            border-color: var(--accent-orange);
             color: var(--accent-orange);
             transform: translateX(4px);
         }
 
         .toc-num {
             font-family: var(--font-serif);
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--accent-orange);
             font-style: italic;
-            margin-right: 1rem;
+            font-variant-numeric: tabular-nums;
+            align-self: flex-start;
+            line-height: 1.4;
         }
 
         .toc-article-name {
-            font-size: 0.92rem;
+            font-size: 0.91rem;
             font-weight: 500;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.012em;
+            line-height: 1.4;
+            color: var(--text-primary);
+            transition: color 0.2s ease;
+        }
+
+        .toc-item a:hover .toc-article-name {
+            color: var(--accent-orange);
         }
 
         .toc-author {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            white-space: nowrap;
+            text-align: right;
+            align-self: flex-start;
+            line-height: 1.4;
+            padding-top: 0.12rem;
+            padding-left: 0.6rem;
+            transition: color 0.2s ease;
+        }
+
+        .toc-item a:hover .toc-author {
+            color: var(--accent-gold);
         }
 
         /* ------------------------------------------------------------- */
@@ -2484,11 +2517,18 @@
             }
 
             .toc-modal {
-                padding: 2rem 1.5rem;
+                padding: 2.5rem 1.5rem;
             }
 
             .toc-list {
                 grid-template-columns: 1fr;
+                column-gap: 0;
+            }
+
+            .toc-item a {
+                grid-template-columns: 2rem 1fr auto;
+                column-gap: 0.6rem;
+                padding: 0.75rem 0;
             }
         }
     </style>
@@ -2631,100 +2671,78 @@
             <ul class="toc-list">
                 <li class="toc-item">
                     <a href="#spread-01" class="toc-link" data-index="0">
-                        <div>
-                            <span class="toc-num">01</span>
-                            <span class="toc-article-name">The Cover: Masthead &amp; Teasers</span>
-                        </div>
+                        <span class="toc-num">01</span>
+                        <span class="toc-article-name">The Cover: Masthead &amp; Teasers</span>
                         <span class="toc-author">Folio</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-02" class="toc-link" data-index="1">
-                        <div>
-                            <span class="toc-num">02</span>
-                            <span class="toc-article-name">Letter from the Editor</span>
-                        </div>
+                        <span class="toc-num">02</span>
+                        <span class="toc-article-name">Letter from the Editor</span>
                         <span class="toc-author">By Tolulope</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-03" class="toc-link" data-index="2">
-                        <div>
-                            <span class="toc-num">03</span>
-                            <span class="toc-article-name">The 'Dr. Stallion' Paradox</span>
-                        </div>
+                        <span class="toc-num">03</span>
+                        <span class="toc-article-name">The 'Dr. Stallion' Paradox</span>
                         <span class="toc-author">Investigative</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-04" class="toc-link" data-index="3">
-                        <div>
-                            <span class="toc-num">04</span>
-                            <span class="toc-article-name">What Temitope Smells Like to Me</span>
-                        </div>
+                        <span class="toc-num">04</span>
+                        <span class="toc-article-name">What Temitope Smells Like to Me</span>
                         <span class="toc-author">Haute Parfumerie</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-05" class="toc-link" data-index="4">
-                        <div>
-                            <span class="toc-num">05</span>
-                            <span class="toc-article-name">The Liverpool FC &amp; Anfield Delusion</span>
-                        </div>
+                        <span class="toc-num">05</span>
+                        <span class="toc-article-name">The Liverpool FC &amp; Anfield Delusion</span>
                         <span class="toc-author">Sports Desk</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-06" class="toc-link" data-index="5">
-                        <div>
-                            <span class="toc-num">06</span>
-                            <span class="toc-article-name">Family: Commitment &amp; Anchor</span>
-                        </div>
+                        <span class="toc-num">06</span>
+                        <span class="toc-article-name">Family: Commitment &amp; Anchor</span>
                         <span class="toc-author">Family Chronicle</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-07" class="toc-link" data-index="6">
-                        <div>
-                            <span class="toc-num">07</span>
-                            <span class="toc-article-name">The Lookbook: A Life in Frames</span>
-                        </div>
+                        <span class="toc-num">07</span>
+                        <span class="toc-article-name">The Lookbook: A Life in Frames</span>
                         <span class="toc-author">Photographic Folio</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-08" class="toc-link" data-index="7">
-                        <div>
-                            <span class="toc-num">08</span>
-                            <span class="toc-article-name">Content Creator's Diary (@the_only_trb)</span>
-                        </div>
+                        <span class="toc-num">08</span>
+                        <span class="toc-article-name">Content Creator's Diary (@the_only_trb)</span>
                         <span class="toc-author">Culture Feature</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-09" class="toc-link" data-index="8">
-                        <div>
-                            <span class="toc-num">09</span>
-                            <span class="toc-article-name">The Nollywood Tribunal: 10/10 Shouting</span>
-                        </div>
+                        <span class="toc-num">09</span>
+                        <span class="toc-article-name">The Nollywood Tribunal: 10/10 Shouting</span>
                         <span class="toc-author">Film Critique</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-10" class="toc-link" data-index="9">
-                        <div>
-                            <span class="toc-num">10</span>
-                            <span class="toc-article-name">The WhatsApp Nap Dossier</span>
-                        </div>
+                        <span class="toc-num">10</span>
+                        <span class="toc-article-name">The WhatsApp Nap Dossier</span>
                         <span class="toc-author">Video Call Archive</span>
                     </a>
                 </li>
                 <li class="toc-item">
                     <a href="#spread-11" class="toc-link" data-index="10">
-                        <div>
-                            <span class="toc-num">11</span>
-                            <span class="toc-article-name">Back Cover &amp; Toast to 39</span>
-                        </div>
+                        <span class="toc-num">11</span>
+                        <span class="toc-article-name">Back Cover &amp; Toast to 39</span>
                         <span class="toc-author">Colophon</span>
                     </a>
                 </li>

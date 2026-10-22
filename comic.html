@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Day in the Life of TRB | The Official 39th Birthday Web Comic</title>
+    <meta name="description" content="An interactive, vertical-scrolling comic celebrating Dr. Temitope Richard-Banji's 39th birthday. Corporate diplomacy, 400 unread emails, and the eternal struggle with cartilage.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bebas+Neue&family=Comic+Neue:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        comic: {
+                            yellow: '#FDE047',
+                            orange: '#F97316',
+                            red: '#EF4444',
+                            blue: '#3B82F6',
+                            cyan: '#06B6D4',
+                            dark: '#0F172A',
+                            paper: '#FFFDF9',
+                            green: '#22C55E'
+                        }
+                    },
+                    fontFamily: {
+                        bangers: ['Bangers', 'cursive'],
+                        bebas: ['Bebas Neue', 'sans-serif'],
+                        comic: ['Comic Neue', 'cursive'],
+                        sans: ['Outfit', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'comic': '6px 6px 0px 0px #000000',
+                        'comic-lg': '10px 10px 0px 0px #000000',
+                        'comic-sm': '4px 4px 0px 0px #000000',
+                        'comic-orange': '8px 8px 0px 0px #F97316',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <style>
+        /* Comic Halftone Dot Background */
+        body {
+            background-color: #0b0f19;
+            background-image: 
+                radial-gradient(rgba(249, 115, 22, 0.12) 1.5px, transparent 1.5px),
+                radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 24px 24px, 12px 12px;
+            background-position: 0 0, 6px 6px;
+            color: #0F172A;
+            overflow-x: hidden;
+        }
+
+        /* Speech Bubble Pointer Tails */
+        .bubble-bottom-left::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 28px;
+            border-width: 16px 14px 0 0;
+            border-style: solid;
+            border-color: #ffffff transparent transparent transparent;
+            display: block;
+            width: 0;
+        }
+        .bubble-bottom-left::before {
+            content: '';
+            position: absolute;
+            bottom: -21px;
+            left: 25px;
+            border-width: 20px 18px 0 0;
+            border-style: solid;
+            border-color: #000000 transparent transparent transparent;
+            display: block;
+            width: 0;
+        }
+
+        .bubble-bottom-right::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            right: 32px;
+            border-width: 16px 0 0 14px;
+            border-style: solid;
+            border-color: #ffffff transparent transparent transparent;
+            display: block;
+            width: 0;
+        }
+        .bubble-bottom-right::before {
+            content: '';
+            position: absolute;
+            bottom: -21px;
+            right: 29px;
+            border-width: 20px 0 0 18px;
+            border-style: solid;
+            border-color: #000000 transparent transparent transparent;
+            display: block;
+            width: 0;
+        }
+
+        /* Thought Bubble Clouds */
+        .thought-bubble {
+            border-radius: 28px;
+            position: relative;
+        }
+        .thought-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 36px;
+            width: 16px;
+            height: 16px;
+            background: #ffffff;
+            border: 3px solid #000000;
+            border-radius: 50%;
+        }
+        .thought-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -26px;
+            left: 24px;
+            width: 10px;
+            height: 10px;
+            background: #ffffff;
+            border: 3px solid #000000;
+            border-radius: 50%;
+        }
+
+        /* Custom Animated Keyframes */
+        @keyframes pulse-siren {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px #ef4444); }
+            50% { transform: scale(1.18); filter: drop-shadow(0 0 25px #ef4444); }
+        }
+        .animate-siren {
+            animation: pulse-siren 0.7s infinite;
+        }
+
+        @keyframes float-zzz {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+            40% { opacity: 1; }
+            100% { transform: translateY(-70px) rotate(12deg); opacity: 0; }
+        }
+        .float-z-1 { animation: float-zzz 3s infinite ease-in; }
+        .float-z-2 { animation: float-zzz 3s infinite 1s ease-in; }
+        .float-z-3 { animation: float-zzz 3s infinite 2s ease-in; }
+
+        @keyframes soundwave {
+            0%, 100% { height: 8px; opacity: 0.4; }
+            50% { height: 26px; opacity: 1; }
+        }
+        .wave-bar {
+            animation: soundwave 0.8s infinite ease-in-out;
+        }
+
+        @keyframes steam-rise {
+            0% { transform: translateY(0) scaleX(1); opacity: 0.8; }
+            50% { transform: translateY(-15px) scaleX(1.3); opacity: 0.4; }
+            100% { transform: translateY(-30px) scaleX(1.6); opacity: 0; }
+        }
+        .animate-steam {
+            animation: steam-rise 2.2s infinite ease-out;
+        }
+
+        /* Sticky Timeline Active Marker */
+        .timeline-step.active .timeline-dot {
+            background-color: #F97316;
+            border-color: #FDE047;
+            transform: scale(1.3);
+            box-shadow: 0 0 14px #F97316;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-slate-100 selection:bg-comic-orange selection:text-white">
+
+    <!-- TOP STICKY BAR: Navigation, Sound, Progress -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b-4 border-black px-4 py-2.5 shadow-comic flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="bg-comic-orange text-black font-bangers text-xl px-2.5 py-0.5 rounded border-2 border-black shadow-comic-sm group-hover:bg-comic-yellow transition-transform group-hover:-rotate-2">TRB 39</span>
+                <span class="hidden sm:inline font-bebas text-lg tracking-wider text-slate-200">A Day in the Life</span>
+            </a>
+            <span class="text-slate-600 hidden sm:inline">&bull;</span>
+            <div id="currentTimeIndicator" class="font-bebas tracking-wide text-comic-yellow text-sm sm:text-base bg-slate-900 border border-slate-700 px-2 py-0.5 rounded">
+                7:00 AM &bull; DUBLIN
+            </div>
+        </div>
+
+        <!-- Center: Interactive Audio & Progress -->
+        <div class="flex items-center gap-3">
+            <!-- Audio FX Toggle -->
+            <button id="sfxToggle" class="flex items-center gap-1.5 px-3 py-1 bg-slate-800 hover:bg-slate-700 border-2 border-black rounded text-xs font-bold uppercase tracking-wider text-comic-yellow shadow-comic-sm transition-transform active:translate-y-0.5">
+                <span id="sfxIcon">🔊</span>
+                <span class="hidden md:inline">Comic FX: </span><span id="sfxStatus">ON</span>
+            </button>
+
+            <!-- Jump to Magazine Button -->
+            <a href="magazine.html" class="bg-comic-yellow hover:bg-yellow-300 text-black font-bangers text-sm sm:text-base px-3.5 py-1 rounded border-2 border-black shadow-comic-sm transition-transform hover:-translate-y-0.5 active:translate-y-0">
+                The TRB Magazine &rarr;
+            </a>
+        </div>
+    </header>
+
+    <!-- FLOATING SIDEBAR TIMELINE (Desktop Only) -->
+    <aside class="hidden xl:flex fixed left-6 top-1/2 -translate-y-1/2 z-40 flex-col gap-2 bg-slate-950/85 backdrop-blur-md p-3 rounded-2xl border-2 border-black shadow-comic">
+        <div class="text-[10px] font-bebas text-comic-orange uppercase tracking-widest text-center border-b border-slate-800 pb-1 mb-1">Schedule</div>
+        <div class="flex flex-col gap-2.5 text-xs font-bold text-slate-400">
+            <a href="#panel-1" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="7:00 AM">
+                <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
+                <span>07:00 AM</span>
+            </a>
+            <a href="#panel-3" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="11:00 AM">
+                <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
+                <span>11:00 AM</span>
+            </a>
+            <a href="#panel-4" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="2:00 PM">
+                <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
+                <span>02:00 PM</span>
+            </a>
+            <a href="#panel-6" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="3:00 PM">
+                <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
+                <span>03:00 PM</span>
+            </a>
+            <a href="#panel-8" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="5:00 PM">
+                <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
+                <span>05:00 PM</span>
+            </a>
+            <a href="#panel-10" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="7:00 PM">
+                <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
+                <span>07:00 PM</span>
+            </a>
+            <a href="#panel-12" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="9:00 PM">
+                <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
+                <span>09:00 PM</span>
+            </a>
+            <a href="#panel-13" class="timeline-step flex items-center gap-2 hover:text-comic-yellow transition-colors" data-time="11:00 PM">
+                <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-slate-700 border border-black transition-all"></span>
+                <span>11:00 PM</span>
+            </a>
+            <a href="#panel-14" class="timeline-step flex items-center gap-2 text-comic-orange hover:text-comic-yellow transition-colors" data-time="12:00 AM">
+                <span class="timeline-dot w-2.5 h-2.5 rounded-full bg-comic-orange border border-black transition-all"></span>
+                <span>12:00 AM 🎉</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- HERO HEADER: Web Comic Masthead -->
+    <main class="max-w-3xl mx-auto px-4 pt-24 pb-20 flex flex-col items-center">
+        <div class="w-full text-center mb-12">
+            <!-- Issue Tag -->
+            <div class="inline-block bg-comic-yellow text-black font-bangers text-sm sm:text-base uppercase tracking-widest px-4 py-1 rounded-full border-2 border-black shadow-comic-sm -rotate-1 mb-3">
+                Volume 39 &bull; Exclusive Collector's Comic Edition
+            </div>
+            
+            <!-- Main Comic Title -->
+            <h1 class="font-bangers text-5xl sm:text-7xl lg:text-8xl tracking-wider text-comic-orange drop-shadow-[5px_5px_0px_#000000] uppercase mb-3">
+                A Day in the Life<br>
+                <span class="text-white drop-shadow-[5px_5px_0px_#ea580c]">of TRB</span>
+            </h1>
+
+            <p class="font-comic text-lg sm:text-xl text-slate-300 max-w-xl mx-auto leading-relaxed">
+                The unauthorized 24-hour chronicle of <span class="text-comic-yellow font-bold">Dr. Stallion</span>: corporate diplomacy, 400 unread emails, culinary indecision, and the eternal fight with knee cartilage.
+            </p>
+
+            <div class="mt-4 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span>By Tolulope</span>
+                <span>&bull;</span>
+                <span class="text-comic-orange">Scroll Down to Read &darr;</span>
+            </div>
+        </div>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 1: The Morning Stroll (7:00 AM)                      -->
+        <!-- ========================================================== -->
+        <article id="panel-1" class="comic-panel-container w-full mb-20" data-time="7:00 AM • MORNING STROLL">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <!-- Timestamp Header Bar -->
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-comic-orange tracking-wide">PANEL 01 // 7:00 AM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">DUBLIN MORNING STROLL</span>
+                </div>
+
+                <!-- Comic Artwork Image -->
+                <div class="relative rounded-xl border-3 border-black overflow-hidden shadow-inner bg-slate-900">
+                    <img src="Comic/images/panel-01.jpg" alt="TRB walking briskly down an Irish street bundled in a winter coat with phone glued to hand" class="w-full h-auto object-cover transform transition-transform duration-500 hover:scale-102">
+                    
+                    <!-- Micro-Animation: Email Notification Badge Ticking -->
+                    <div class="absolute top-4 right-4 bg-red-600 text-white font-bangers text-sm sm:text-base px-3 py-1 rounded-full border-2 border-black shadow-comic-sm animate-bounce flex items-center gap-1.5">
+                        <span>✉️</span>
+                        <span id="unreadCounter">412 Unread</span>
+                    </div>
+
+                    <!-- Comic SFX Sticker -->
+                    <div class="absolute bottom-4 left-4 bg-comic-yellow text-black font-bangers text-lg sm:text-2xl px-3 py-0.5 rounded border-2 border-black shadow-comic -rotate-6">
+                        TAP-TAP-TAP!
+                    </div>
+                </div>
+
+                <!-- Narrative Caption Box -->
+                <div class="mt-4 bg-yellow-100 border-2 border-black p-3.5 rounded-xl shadow-comic-sm">
+                    <p class="font-comic font-bold text-slate-900 text-base sm:text-lg leading-snug">
+                        <span class="text-comic-orange font-bangers text-xl">Caption:</span> "The daily walk. Getting the steps in whilst simultaneously checking 400 emails before normal humans have even opened their eyes."
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 2: The Home Office Setup (9:00 AM)                   -->
+        <!-- ========================================================== -->
+        <article id="panel-2" class="comic-panel-container w-full mb-20" data-time="9:00 AM • HOME OFFICE">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-comic-blue tracking-wide">PANEL 02 // 9:00 AM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">THE EXECUTIVE ENVIRONMENT</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-02.jpg" alt="TRB sitting at his desk holding phone with laptop and loud TV blasting in background" class="w-full h-auto object-cover">
+                    
+                    <!-- Soundwave Micro-Animation Badge -->
+                    <div class="absolute top-4 right-4 bg-black/85 backdrop-blur border-2 border-comic-yellow text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-comic-sm">
+                        <span class="text-xs font-bold text-comic-yellow">TV VOL: 42</span>
+                        <div class="flex items-end gap-1 h-6">
+                            <span class="w-1 bg-comic-yellow rounded-full wave-bar" style="animation-delay: 0.1s"></span>
+                            <span class="w-1 bg-comic-orange rounded-full wave-bar" style="animation-delay: 0.3s"></span>
+                            <span class="w-1 bg-comic-red rounded-full wave-bar" style="animation-delay: 0.2s"></span>
+                            <span class="w-1 bg-comic-cyan rounded-full wave-bar" style="animation-delay: 0.4s"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thought Bubble -->
+                <div class="mt-4 bg-white border-3 border-black p-4 thought-bubble shadow-comic-sm">
+                    <p class="font-comic font-bold text-slate-900 text-base sm:text-lg italic">
+                        💭 "If the television isn't providing deafening background noise at all times, how on earth am I supposed to concentrate on global human capital strategy?"
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 3: The Endless Loop (11:00 AM)                       -->
+        <!-- ========================================================== -->
+        <article id="panel-3" class="comic-panel-container w-full mb-20" data-time="11:00 AM • THE ENDLESS LOOP">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-comic-red tracking-wide">PANEL 03 // 11:00 AM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">THE VIRTUAL MARATHON</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-03.jpg" alt="Split screen of TRB jumping directly from Zoom Meeting 14 into Teams Meeting 15" class="w-full h-auto object-cover">
+                    
+                    <!-- Comic Action Bubble -->
+                    <div class="absolute top-4 left-4 bg-comic-cyan text-black font-bangers text-sm sm:text-base px-3 py-1 rounded border-2 border-black shadow-comic-sm -rotate-3">
+                        LEAP OF DIPLOMACY!
+                    </div>
+                </div>
+
+                <!-- Speech Bubble & Caption -->
+                <div class="mt-4 space-y-3">
+                    <div class="bg-white border-2 border-black p-3.5 rounded-2xl bubble-bottom-left shadow-comic-sm">
+                        <p class="font-comic font-bold text-slate-900 text-base sm:text-lg">
+                            💬 <span class="text-blue-600 font-extrabold">TRB:</span> "Yes, absolutely. Let's align on that enterprise culture transformation roadmap before the next touchpoint..."
+                        </p>
+                    </div>
+                    <div class="bg-slate-900 text-slate-200 border-2 border-black p-3 rounded-xl font-comic text-sm sm:text-base">
+                        <span class="text-comic-orange font-bold uppercase tracking-wider">Caption:</span> Always in a meeting. Always. If you call him, he is on Zoom. If you text him, he is on Teams.
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 4: The Project Deadline (2:00 PM)                    -->
+        <!-- ========================================================== -->
+        <article id="panel-4" class="comic-panel-container w-full mb-20" data-time="2:00 PM • DEADLINE COLLAPSE">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-purple-600 tracking-wide">PANEL 04 // 2:00 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">THE 2:00 PM COLLAPSE</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-04.jpg" alt="TRB resting head completely flat on his desk surrounded by papers as Cynthia WhatsApp message lights up" class="w-full h-auto object-cover">
+                    
+                    <!-- WhatsApp Pulsing Notification -->
+                    <div class="absolute bottom-4 right-4 bg-[#25D366] text-white font-sans text-xs sm:text-sm p-3 rounded-2xl border-2 border-black shadow-comic max-w-[260px] animate-pulse">
+                        <div class="flex items-center gap-1.5 font-bold mb-0.5">
+                            <span>💬 Cynthia</span>
+                            <span class="text-[10px] opacity-80">2:00 PM</span>
+                        </div>
+                        <p class="font-medium text-slate-950">"You’ve got this! Are you not Dr. Stallion? 🐎"</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 bg-yellow-100 border-2 border-black p-3.5 rounded-xl shadow-comic-sm">
+                    <p class="font-comic font-bold text-slate-900 text-sm sm:text-base">
+                        <span class="text-comic-orange font-bangers text-lg">Scene:</span> Resting head flat on desk. 14 open tabs. Two laptops glowing. The body requires sleep; the corporate calendar requires sacrifice.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 5: The Rebuttal (2:01 PM)                            -->
+        <!-- ========================================================== -->
+        <article id="panel-5" class="comic-panel-container w-full mb-20" data-time="2:01 PM • THE REBUTTAL">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-comic-red tracking-wide">PANEL 05 // 2:01 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">ONE MINUTE LATER</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-05.jpg" alt="TRB lifting his head dramatically staring at phone with side eye and exhaustion" class="w-full h-auto object-cover">
+                    
+                    <!-- Sweating Comic Drop -->
+                    <div class="absolute top-4 right-4 bg-comic-yellow text-black font-bangers text-sm sm:text-base px-3 py-1 rounded border-2 border-black shadow-comic-sm rotate-6">
+                        SIDE-EYE OF THE CENTURY
+                    </div>
+                </div>
+
+                <!-- Speech Bubble: The Punchline -->
+                <div class="mt-4 bg-white border-3 border-black p-4 rounded-2xl bubble-bottom-left shadow-comic">
+                    <p class="font-comic font-bold text-slate-900 text-lg sm:text-xl leading-relaxed">
+                        🗣️ <span class="text-comic-red font-bangers text-2xl">TRB:</span> "I'm not Dr. Stallion. That's how you people used to kill somebody."
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 6: The Content Creator's Block (3:00 PM)             -->
+        <!-- ========================================================== -->
+        <article id="panel-6" class="comic-panel-container w-full mb-20" data-time="3:00 PM • CREATOR'S BLOCK">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-slate-800 tracking-wide">PANEL 06 // 3:00 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">THE INFLUENCER'S VOID</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-06.jpg" alt="TRB sitting in front of ring light staring completely blankly with tumbleweed blowing across desk" class="w-full h-auto object-cover">
+                    
+                    <!-- Blinking REC Indicator -->
+                    <div class="absolute top-4 left-4 bg-black/80 backdrop-blur px-3 py-1 rounded-full border border-red-500/50 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+                        <span class="font-mono text-xs font-bold text-red-400">REC 00:00</span>
+                    </div>
+
+                    <!-- Tumbleweed SFX -->
+                    <div class="absolute bottom-4 right-4 bg-amber-200 text-black font-bangers text-sm sm:text-base px-2.5 py-0.5 rounded border-2 border-black shadow-comic-sm">
+                        *CRICKETS CHIRPING*
+                    </div>
+                </div>
+
+                <!-- Thought Bubble -->
+                <div class="mt-4 bg-white border-3 border-black p-4 thought-bubble shadow-comic-sm">
+                    <p class="font-comic font-bold text-slate-900 text-base sm:text-lg italic">
+                        💭 "I am an award-winning Top 150 Global HR Influencer. Why can I not think of a single English sentence to say to this ring light?"
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 7: The Miracle (3:30 PM)                             -->
+        <!-- ========================================================== -->
+        <article id="panel-7" class="comic-panel-container w-full mb-20" data-time="3:30 PM • THE MIRACLE">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-comic-yellow tracking-wide">PANEL 07 // 3:30 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">THE CHARISMA SWITCH</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-07.jpg" alt="Glowing yellow lightbulb illuminates as TRB aggressively hits record suddenly full of energy" class="w-full h-auto object-cover">
+                    
+                    <!-- BING DING Sound Effect -->
+                    <div class="absolute top-4 right-4 bg-comic-yellow text-black font-bangers text-2xl sm:text-3xl px-3 py-1 rounded border-3 border-black shadow-comic rotate-12 animate-pulse">
+                        BING! DING!
+                    </div>
+                </div>
+
+                <!-- Speech Bubble -->
+                <div class="mt-4 bg-white border-3 border-black p-4 rounded-2xl bubble-bottom-left shadow-comic">
+                    <p class="font-comic font-bold text-slate-900 text-base sm:text-lg">
+                        🎙️ <span class="text-comic-orange font-bangers text-xl">TRB (Instantly Locked In):</span> "Welcome back guys! Today, let’s talk about career mastery, executive stamina, and unlocking your leadership bandwidth..."
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 8: The Culinary Debate (5:00 PM)                     -->
+        <!-- ========================================================== -->
+        <article id="panel-8" class="comic-panel-container w-full mb-20" data-time="5:00 PM • CULINARY DEBATE">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-emerald-600 tracking-wide">PANEL 08 // 5:00 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">KITCHEN EXISTENTIALISM</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-08.jpg" alt="TRB standing in kitchen wearing apron holding spatula in one hand and delivery app on phone in other" class="w-full h-auto object-cover">
+                    
+                    <div class="absolute top-4 left-4 bg-comic-yellow text-black font-bangers text-base sm:text-xl px-3 py-0.5 rounded border-2 border-black shadow-comic -rotate-3">
+                        SPATULA VS. DELIVEROO
+                    </div>
+                </div>
+
+                <!-- Thought Bubble -->
+                <div class="mt-4 bg-white border-3 border-black p-4 thought-bubble shadow-comic-sm">
+                    <p class="font-comic font-bold text-slate-900 text-base sm:text-lg italic">
+                        💭 "Should I spend the next two hours chopping peppers to prepare an artisanal culinary masterpiece... or simply press two buttons on this telephone and eat within twelve minutes?"
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 9: The Feast (5:30 PM)                               -->
+        <!-- ========================================================== -->
+        <article id="panel-9" class="comic-panel-container w-full mb-20" data-time="5:30 PM • THE FEAST">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-comic-orange tracking-wide">PANEL 09 // 5:30 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">DELIVERY DECISION WON</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-09.jpg" alt="TRB sitting smiling eating massive feast of Egusi soup, pounded yam, Indomie with fried egg, bread" class="w-full h-auto object-cover">
+                    
+                    <div class="absolute top-4 right-4 bg-emerald-500 text-black font-bangers text-lg sm:text-2xl px-3 py-1 rounded border-3 border-black shadow-comic rotate-6">
+                        PRIORITIES: 10/10!
+                    </div>
+                </div>
+
+                <div class="mt-4 bg-yellow-100 border-2 border-black p-4 rounded-xl shadow-comic-sm">
+                    <p class="font-comic font-bold text-slate-900 text-base sm:text-lg leading-relaxed">
+                        <span class="text-comic-orange font-bangers text-xl">Caption:</span> "Priorities properly aligned. Hot Egusi soup with pounded yam, flanked by Indomie noodles and agege bread. The spatula has been visibly retired to the sink."
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 10: The Beautiful Game (7:00 PM)                     -->
+        <!-- ========================================================== -->
+        <article id="panel-10" class="comic-panel-container w-full mb-20" data-time="7:00 PM • THE BEAUTIFUL GAME">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-comic-red tracking-wide">PANEL 10 // 7:00 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">TURF MAJESTY</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-10.jpg" alt="TRB in red football kit executing an aggressive heroic slide tackle on the pitch under floodlights" class="w-full h-auto object-cover">
+                    
+                    <div class="absolute top-4 left-4 bg-comic-yellow text-black font-bangers text-xl sm:text-3xl px-3 py-1 rounded border-3 border-black shadow-comic -rotate-6">
+                        WHOOSH! CRUNCH!
+                    </div>
+                </div>
+
+                <div class="mt-4 bg-white border-3 border-black p-4 rounded-2xl bubble-bottom-left shadow-comic">
+                    <p class="font-comic font-bold text-slate-900 text-base sm:text-xl">
+                        ⚽ <span class="text-comic-red font-bangers text-2xl">TRB:</span> "Corporate diplomacy ends at the touchline! Dr. Stallion is back!"
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 11: The Immediate Regret (7:01 PM)                   -->
+        <!-- ========================================================== -->
+        <article id="panel-11" class="comic-panel-container w-full mb-20" data-time="7:01 PM • CARTILAGE AUDIT">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-comic-red tracking-wide">PANEL 11 // 7:01 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-red-600 text-white px-2.5 py-0.5 rounded animate-pulse">ONE MINUTE LATER</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-11.jpg" alt="TRB sitting abruptly on grass clutching knee with flashing red warning light graphic" class="w-full h-auto object-cover">
+                    
+                    <!-- Flashing Siren Graphic Over Knee -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-600/90 text-white font-bangers text-lg sm:text-2xl px-4 py-2 rounded-xl border-3 border-black shadow-comic animate-siren text-center">
+                        🚨 JOINT ERROR 404 🚨<br>
+                        <span class="font-comic text-xs uppercase tracking-widest">Cartilage Depleted</span>
+                    </div>
+                </div>
+
+                <div class="mt-4 space-y-3">
+                    <div class="bg-white border-3 border-black p-4 thought-bubble shadow-comic-sm">
+                        <p class="font-comic font-bold text-slate-900 text-base sm:text-lg italic">
+                            💭 "I am 39 years old. Why on earth did I slide in on wet turf like I am 22?"
+                        </p>
+                    </div>
+                    <div class="bg-red-100 border-2 border-black p-3.5 rounded-xl font-comic font-bold text-red-950 text-sm sm:text-base">
+                        <span class="text-red-600 font-bangers text-lg">Caption:</span> The annual birthday reminder that even thoroughbred stallions require lubricating joint supplements.
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 12: The Nollywood Escape (9:00 PM)                   -->
+        <!-- ========================================================== -->
+        <article id="panel-12" class="comic-panel-container w-full mb-20" data-time="9:00 PM • NOLLYWOOD THERAPY">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-purple-600 tracking-wide">PANEL 12 // 9:00 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">ICE &amp; SHOUTING</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-900">
+                    <img src="Comic/images/panel-12.jpg" alt="TRB sprawled on couch elevating iced leg on pillows while TV blares melodramatic Nollywood crying" class="w-full h-auto object-cover">
+                    
+                    <div class="absolute top-4 right-4 bg-comic-cyan text-black font-bangers text-base sm:text-xl px-3 py-1 rounded border-2 border-black shadow-comic rotate-3">
+                        R.I.C.E. PROTOCOL
+                    </div>
+                </div>
+
+                <div class="mt-4 bg-yellow-100 border-2 border-black p-4 rounded-xl shadow-comic-sm">
+                    <p class="font-comic font-bold text-slate-900 text-base sm:text-lg">
+                        <span class="text-comic-orange font-bangers text-xl">Caption:</span> "Winding down with cinema that requires absolutely zero critical thinking. Just pure shouting, betrayal, and unconquerable tears."
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 13: The True Passion (11:00 PM)                      -->
+        <!-- ========================================================== -->
+        <article id="panel-13" class="comic-panel-container w-full mb-20" data-time="11:00 PM • THE BURRITO PASSION">
+            <div class="comic-frame bg-comic-paper rounded-2xl border-4 border-black p-3.5 sm:p-5 shadow-comic-lg relative overflow-hidden transition-all duration-300">
+                <div class="flex items-center justify-between border-b-2 border-black pb-2.5 mb-3">
+                    <span class="font-bangers text-xl sm:text-2xl text-blue-600 tracking-wide">PANEL 13 // 11:00 PM</span>
+                    <span class="font-bebas text-xs sm:text-sm tracking-widest bg-black text-white px-2.5 py-0.5 rounded">DEEP DELTA BURRITO</span>
+                </div>
+
+                <div class="relative rounded-xl border-3 border-black overflow-hidden bg-slate-950">
+                    <!-- Vector SVG Illustration -->
+                    <img src="Comic/images/panel-13.svg" alt="TRB wrapped up tightly in a duvet like a burrito fast asleep with floating Zzz" class="w-full h-auto object-cover">
+                    
+                    <!-- Floating Animated Zzz Micro-Elements -->
+                    <div class="absolute top-1/4 right-1/4 pointer-events-none font-bangers text-sky-400 select-none">
+                        <div class="float-z-1 text-3xl font-bold">z</div>
+                        <div class="float-z-2 text-5xl font-bold">Z</div>
+                        <div class="float-z-3 text-7xl font-bold">Z</div>
+                    </div>
+                </div>
+
+                <div class="mt-4 bg-slate-900 border-2 border-black p-4 rounded-xl text-slate-100 shadow-comic-sm">
+                    <p class="font-comic font-bold text-base sm:text-lg">
+                        <span class="text-comic-yellow font-bangers text-xl">Caption:</span> "Dr. Stallion has officially left the building. Wrapped into an impenetrable duvet burrito. Do not disturb under any circumstances."
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ========================================================== -->
+        <!-- PANEL 14: The Birthday Drop (Midnight)                     -->
+        <!-- ========================================================== -->
+        <article id="panel-14" class="comic-panel-container w-full mb-16" data-time="12:00 AM • MIDNIGHT DROP">
+            <div class="comic-frame bg-gradient-to-b from-amber-400 via-orange-500 to-rose-600 rounded-3xl border-6 border-black p-4 sm:p-8 shadow-comic-lg relative overflow-hidden text-center">
+                <!-- Midnight Glow Stamp -->
+                <div class="inline-block bg-black text-comic-yellow font-bangers text-lg sm:text-2xl px-6 py-1.5 rounded-full border-3 border-white shadow-comic mb-4 -rotate-1 animate-bounce">
+                    ⚡ 12:00 AM MIDNIGHT CLIMAX ⚡
+                </div>
+
+                <div class="relative rounded-2xl border-4 border-black overflow-hidden bg-slate-950 shadow-2xl mb-6">
+                    <!-- Vector SVG Illustration -->
+                    <img src="Comic/images/panel-14.svg" alt="TRB waking up surprised with birthday cake candles 39 and digital confetti fireworks" class="w-full h-auto object-cover">
+                </div>
+
+                <!-- Giant Glowing Birthday Typography -->
+                <div class="bg-black/90 backdrop-blur-md rounded-2xl border-4 border-white p-6 sm:p-8 shadow-comic">
+                    <h2 class="font-bangers text-4xl sm:text-6xl lg:text-7xl text-comic-yellow drop-shadow-[4px_4px_0px_#ea580c] tracking-wider uppercase mb-3">
+                        HAPPY 39TH BIRTHDAY TEMITOPE!
+                    </h2>
+                    <p class="font-comic font-bold text-white text-lg sm:text-2xl max-w-xl mx-auto leading-relaxed mb-6">
+                        Time to wake up, celebrate Volume 39, and remember to take your joint supplements before the next strategy meeting! 🎂💊
+                    </p>
+
+                    <!-- Confetti Burst Action Button -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button id="confettiBtn" class="w-full sm:w-auto bg-comic-yellow hover:bg-yellow-300 text-black font-bangers text-xl sm:text-2xl px-8 py-3 rounded-xl border-3 border-black shadow-comic hover:-translate-y-1 active:translate-y-0 transition-transform">
+                            🎉 Fire More Confetti!
+                        </button>
+                        <a href="magazine.html" class="w-full sm:w-auto bg-white hover:bg-slate-100 text-black font-bangers text-xl sm:text-2xl px-8 py-3 rounded-xl border-3 border-black shadow-comic hover:-translate-y-1 active:translate-y-0 transition-transform">
+                            Read The TRB Magazine &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- FOOTER: Credits & Portal Return -->
+        <footer class="w-full max-w-xl text-center border-t-2 border-slate-800 pt-8 pb-16 space-y-4">
+            <div class="font-bebas text-slate-400 tracking-widest text-sm">
+                CREATED WITH LOVE BY TOLULOPE &bull; FOR DR. STALLION'S 39TH
+            </div>
+            <div class="flex items-center justify-center gap-4 text-xs font-bold uppercase tracking-wider text-slate-400">
+                <a href="index.html" class="hover:text-comic-orange transition-colors">Countdown Portal</a>
+                <span>&bull;</span>
+                <a href="magazine.html" class="hover:text-comic-orange transition-colors">The TRB Magazine</a>
+                <span>&bull;</span>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-comic-orange transition-colors">Top &uarr;</button>
+            </div>
+        </footer>
+    </main>
+
+    <!-- INTERACTIVE JAVASCRIPT: Scroll Animations, Audio Synth, Confetti -->
+    <script>
+        // -------------------------------------------------------------
+        // Web Audio Synthesizer for Comic Sound Effects
+        // -------------------------------------------------------------
+        let soundEnabled = true;
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playPopSound() {
+            if (!soundEnabled) return;
+            try {
+                initAudio();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.08);
+                gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.08);
+            } catch (e) {}
+        }
+
+        function playLightbulbDing() {
+            if (!soundEnabled) return;
+            try {
+                initAudio();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(1200, audioCtx.currentTime);
+                osc.frequency.setValueAtTime(1800, audioCtx.currentTime + 0.04);
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.45);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.45);
+            } catch (e) {}
+        }
+
+        function playCelebrationChime() {
+            if (!soundEnabled) return;
+            try {
+                initAudio();
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // C E G C
+                notes.forEach((freq, i) => {
+                    setTimeout(() => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                        gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.start();
+                        osc.stop(audioCtx.currentTime + 0.5);
+                    }, i * 110);
+                });
+            } catch (e) {}
+        }
+
+        // SFX Toggle Handler
+        const sfxToggle = document.getElementById('sfxToggle');
+        const sfxStatus = document.getElementById('sfxStatus');
+        const sfxIcon = document.getElementById('sfxIcon');
+
+        sfxToggle.addEventListener('click', () => {
+            soundEnabled = !soundEnabled;
+            if (soundEnabled) {
+                initAudio();
+                sfxStatus.textContent = 'ON';
+                sfxIcon.textContent = '🔊';
+                playPopSound();
+            } else {
+                sfxStatus.textContent = 'OFF';
+                sfxIcon.textContent = '🔇';
+            }
+        });
+
+        // -------------------------------------------------------------
+        // Confetti Fireworks Generator
+        // -------------------------------------------------------------
+        function triggerBirthdayConfetti() {
+            playCelebrationChime();
+            const count = 200;
+            const defaults = { origin: { y: 0.7 } };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
+        }
+
+        document.getElementById('confettiBtn').addEventListener('click', triggerBirthdayConfetti);
+
+        // -------------------------------------------------------------
+        // GSAP Scroll Animations & Timeline Synchronization
+        // -------------------------------------------------------------
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate each comic panel as it enters the viewport
+        const panels = document.querySelectorAll('.comic-panel-container');
+        const timeIndicator = document.getElementById('currentTimeIndicator');
+        const timelineSteps = document.querySelectorAll('.timeline-step');
+
+        panels.forEach((panel, idx) => {
+            const frame = panel.querySelector('.comic-frame');
+            const bubble = panel.querySelector('.thought-bubble, .bubble-bottom-left, .bubble-bottom-right');
+
+            // Slide in animation for panel
+            gsap.from(frame, {
+                scrollTrigger: {
+                    trigger: panel,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                scale: 0.96,
+                duration: 0.7,
+                ease: "power2.out",
+                onComplete: () => {
+                    // Specific panel sound triggers
+                    if (panel.id === 'panel-7') playLightbulbDing();
+                    if (panel.id === 'panel-14') triggerBirthdayConfetti();
+                }
+            });
+
+            // Pop in speech/thought bubble
+            if (bubble) {
+                gsap.from(bubble, {
+                    scrollTrigger: {
+                        trigger: panel,
+                        start: "top 75%",
+                        toggleActions: "play none none none"
+                    },
+                    scale: 0.85,
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.2,
+                    ease: "back.out(1.7)",
+                    onStart: () => {
+                        playPopSound();
+                    }
+                });
+            }
+
+            // Sync top sticky time indicator and sidebar
+            ScrollTrigger.create({
+                trigger: panel,
+                start: "top 40%",
+                end: "bottom 40%",
+                onEnter: () => updateTime(panel),
+                onEnterBack: () => updateTime(panel)
+            });
+        });
+
+        function updateTime(panel) {
+            const timeText = panel.getAttribute('data-time');
+            if (timeText && timeIndicator) {
+                timeIndicator.textContent = timeText;
+            }
+
+            // Highlight corresponding sidebar marker
+            const panelId = panel.id;
+            timelineSteps.forEach(step => {
+                if (step.getAttribute('href') === `#${panelId}`) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+        }
+
+        // Ticking unread emails counter in Panel 1
+        const unreadCounter = document.getElementById('unreadCounter');
+        let emailCount = 412;
+        setInterval(() => {
+            emailCount += Math.floor(Math.random() * 3) + 1;
+            if (unreadCounter) {
+                unreadCounter.textContent = `${emailCount} Unread`;
+            }
+        }, 3200);
+
+        // Initial Audio Enable on First Click
+        window.addEventListener('click', () => {
+            if (!audioCtx) initAudio();
+        }, { once: true });
+    </script>
+</body>
+</html>

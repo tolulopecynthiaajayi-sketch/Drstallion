@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329"/>
+      <stop offset="60%" stop-color="#141e3c"/>
+      <stop offset="100%" stop-color="#1e294b"/>
+    </linearGradient>
+    <radialGradient id="lampGlow" cx="20%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#ffb703" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#ffb703" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffb703" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="duvetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdfbf7"/>
+      <stop offset="40%" stop-color="#eae6dd"/>
+      <stop offset="100%" stop-color="#c5beb3"/>
+    </linearGradient>
+    <linearGradient id="pillowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d4d4d8"/>
+    </linearGradient>
+    <!-- Halftone Pattern -->
+    <pattern id="halftone" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="1.5" fill="#ffffff" fill-opacity="0.05"/>
+    </pattern>
+    <filter id="comicShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="4" dy="6" stdDeviation="0" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Background Wall -->
+  <rect width="1024" height="768" fill="url(#bgGrad)"/>
+  <rect width="1024" height="768" fill="url(#lampGlow)"/>
+  <rect width="1024" height="768" fill="url(#halftone)"/>
+
+  <!-- Window with Crescent Moon and Stars -->
+  <g transform="translate(720, 80)">
+    <rect x="0" y="0" width="220" height="260" rx="8" fill="#050814" stroke="#000" stroke-width="6"/>
+    <line x1="110" y1="0" x2="110" y2="260" stroke="#000" stroke-width="5"/>
+    <line x1="0" y1="130" x2="220" y2="130" stroke="#000" stroke-width="5"/>
+    <!-- Crescent Moon -->
+    <path d="M160 40 A30 30 0 1 0 180 85 A24 24 0 1 1 160 40 Z" fill="#ffe066"/>
+    <!-- Twinkle Stars -->
+    <circle cx="60" cy="50" r="2.5" fill="#fff"/>
+    <circle cx="100" cy="90" r="2" fill="#fff"/>
+    <circle cx="40" cy="180" r="3" fill="#fff"/>
+    <circle cx="160" cy="200" r="2" fill="#fff"/>
+  </g>
+
+  <!-- Framed Art on Wall: "TRB 39" -->
+  <g transform="translate(100, 90)">
+    <rect x="0" y="0" width="140" height="110" fill="#f97316" stroke="#000" stroke-width="5"/>
+    <rect x="10" y="10" width="120" height="90" fill="#18181b"/>
+    <text x="70" y="65" font-family="'Impact', sans-serif" font-size="28" fill="#f97316" text-anchor="middle" font-weight="bold">TRB</text>
+    <text x="70" y="85" font-family="'Impact', sans-serif" font-size="14" fill="#fbbf24" text-anchor="middle" letter-spacing="2">VOL. 39</text>
+  </g>
+
+  <!-- Bed Headboard -->
+  <path d="M 180 240 Q 512 200 844 240 L 844 520 L 180 520 Z" fill="#1e1b18" stroke="#000" stroke-width="7"/>
+  <path d="M 210 260 Q 512 230 814 260 L 814 480 L 210 480 Z" fill="#2d2620" stroke="#000" stroke-width="4"/>
+
+  <!-- Giant Fluffy Pillows -->
+  <g id="pillows">
+    <ellipse cx="380" cy="380" rx="150" ry="70" fill="url(#pillowGrad)" stroke="#000" stroke-width="6"/>
+    <path d="M 260 380 Q 380 410 500 380" fill="none" stroke="#a1a1aa" stroke-width="3"/>
+    <ellipse cx="580" cy="380" rx="150" ry="70" fill="url(#pillowGrad)" stroke="#000" stroke-width="6"/>
+  </g>
+
+  <!-- Nightstand with Lamp & Clock on Left -->
+  <g transform="translate(40, 360)">
+    <!-- Stand -->
+    <rect x="0" y="80" width="160" height="280" rx="4" fill="#3f2e20" stroke="#000" stroke-width="6"/>
+    <rect x="10" y="100" width="140" height="60" fill="#2d1f14" stroke="#000" stroke-width="3"/>
+    <circle cx="80" cy="130" r="6" fill="#fbbf24"/>
+    <!-- Lamp -->
+    <path d="M 50 80 L 110 80 L 95 20 L 65 20 Z" fill="#fbbf24" stroke="#000" stroke-width="5"/>
+    <rect x="75" y="0" width="10" height="20" fill="#000"/>
+    <path d="M 40 0 L 120 0 L 105 -50 L 55 -50 Z" fill="#ea580c" stroke="#000" stroke-width="5"/>
+    <!-- Digital Alarm Clock reading 11:00 PM -->
+    <rect x="25" y="190" width="110" height="45" rx="6" fill="#000" stroke="#444" stroke-width="3"/>
+    <text x="80" y="222" font-family="'Courier New', monospace" font-size="22" font-weight="bold" fill="#22c55e" text-anchor="middle">11:00 PM</text>
+    <!-- Do Not Disturb Sign -->
+    <rect x="20" y="250" width="120" height="35" rx="4" fill="#ef4444" stroke="#000" stroke-width="3"/>
+    <text x="80" y="272" font-family="'Impact', sans-serif" font-size="13" fill="#fff" text-anchor="middle" letter-spacing="1">DO NOT DISTURB</text>
+    <!-- Glasses Resting -->
+    <ellipse cx="60" cy="70" rx="14" ry="10" fill="none" stroke="#000" stroke-width="3"/>
+    <ellipse cx="95" cy="70" rx="14" ry="10" fill="none" stroke="#000" stroke-width="3"/>
+    <line x1="74" y1="70" x2="81" y2="70" stroke="#000" stroke-width="3"/>
+  </g>
+
+  <!-- Duvet / Burrito Blanket Wrapping (Layers) -->
+  <!-- Back wrap layer -->
+  <path d="M 220 440 C 220 320, 780 320, 780 440 L 860 768 L 140 768 Z" fill="#d1ccc0" stroke="#000" stroke-width="6"/>
+
+  <!-- TRB's Head (Peacefully Sleeping Face peeking out) -->
+  <g transform="translate(480, 360)">
+    <!-- Ears -->
+    <ellipse cx="-75" cy="0" rx="14" ry="20" fill="#663c1f" stroke="#000" stroke-width="5"/>
+    <ellipse cx="75" cy="0" rx="14" ry="20" fill="#663c1f" stroke="#000" stroke-width="5"/>
+
+    <!-- Head Shape -->
+    <path d="M -70 -50 C -70 -120, 70 -120, 70 -50 C 70 20, 60 70, 0 85 C -60 70, -70 20, -70 -50 Z" fill="#784723" stroke="#000" stroke-width="6"/>
+
+    <!-- Fade Haircut (Top) -->
+    <path d="M -70 -50 C -70 -125, 70 -125, 70 -50 C 70 -80, -70 -80, -70 -50 Z" fill="#18181b" stroke="#000" stroke-width="4"/>
+    <path d="M -68 -40 Q 0 -60 68 -40 L 70 -55 Q 0 -105 -70 -55 Z" fill="#18181b"/>
+
+    <!-- Trimmed Beard & Mustache -->
+    <path d="M -60 -10 Q 0 10 60 -10 Q 65 30 50 60 Q 0 95 -50 60 Q -65 30 -60 -10 Z" fill="#18181b"/>
+    <!-- Mustache -->
+    <path d="M -30 20 Q 0 12 30 20 Q 0 32 -30 20 Z" fill="#18181b"/>
+
+    <!-- Peaceful Closed Eyes (Curved Smiling Lashes) -->
+    <path d="M -48 -10 Q -32 -2 016 -10" fill="none" stroke="#18181b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M 16 -10 Q 32 -2 48 -10" fill="none" stroke="#18181b" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Eyebrows (Relaxed) -->
+    <path d="M -50 -26 Q -32 -32 -14 -26" fill="none" stroke="#18181b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M 14 -26 Q 32 -32 50 -26" fill="none" stroke="#18181b" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Nose -->
+    <path d="M -4 -8 L -6 14 Q 0 20 6 14 L 4 -8" fill="none" stroke="#522e14" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Gentle Smiling Sleeping Mouth -->
+    <path d="M -18 42 Q 0 54 18 42" fill="none" stroke="#18181b" stroke-width="4" stroke-linecap="round"/>
+    <!-- Rosy Sleep Blush -->
+    <circle cx="-45" cy="15" r="10" fill="#a14e24" opacity="0.3"/>
+    <circle cx="45" cy="15" r="10" fill="#a14e24" opacity="0.3"/>
+  </g>
+
+  <!-- Duvet Burrito Wrap (Overlapping rolls around neck and chin) -->
+  <g id="burritoFolds">
+    <!-- Main Duvet Body -->
+    <path d="M 280 430 Q 480 455 680 430 C 760 480, 800 620, 820 768 L 140 768 C 160 620, 200 480, 280 430 Z" fill="url(#duvetGrad)" stroke="#000" stroke-width="7"/>
+
+    <!-- Rolled Blanket Swirl Folds (Burrito effect) -->
+    <path d="M 240 500 Q 480 540 720 500" fill="none" stroke="#000" stroke-width="6"/>
+    <path d="M 220 580 Q 480 625 740 580" fill="none" stroke="#000" stroke-width="6"/>
+    <path d="M 200 660 Q 480 710 760 660" fill="none" stroke="#000" stroke-width="6"/>
+
+    <!-- Cute Burrito Wrap Crease Shadows -->
+    <path d="M 250 505 Q 480 545 710 505" fill="none" stroke="#b0a99c" stroke-width="8" opacity="0.6"/>
+    <path d="M 230 585 Q 480 630 730 585" fill="none" stroke="#b0a99c" stroke-width="8" opacity="0.6"/>
+    <path d="M 210 665 Q 480 715 750 665" fill="none" stroke="#b0a99c" stroke-width="8" opacity="0.6"/>
+  </g>
+
+  <!-- Floating Stylized Cartoon Zzz's with Comic Glow -->
+  <g id="comicZzz" filter="url(#comicShadow)">
+    <!-- Small Z -->
+    <text x="590" y="290" font-family="'Impact', 'Arial Black', sans-serif" font-size="38" font-weight="bold" fill="#38bdf8" stroke="#000" stroke-width="4">z</text>
+    <!-- Medium Z -->
+    <text x="640" y="230" font-family="'Impact', 'Arial Black', sans-serif" font-size="56" font-weight="bold" fill="#60a5fa" stroke="#000" stroke-width="5">Z</text>
+    <!-- Large Z -->
+    <text x="700" y="160" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-weight="bold" fill="#818cf8" stroke="#000" stroke-width="7">Z</text>
+    <!-- Dream cloud bubble dots -->
+    <circle cx="560" cy="320" r="7" fill="#38bdf8" stroke="#000" stroke-width="3"/>
+    <circle cx="575" cy="305" r="10" fill="#38bdf8" stroke="#000" stroke-width="3"/>
+  </g>
+
+  <!-- Sleeping sound bubble: "SNHOOOOORE... HONK-SHOO" -->
+  <g transform="translate(680, 260)" filter="url(#comicShadow)">
+    <path d="M 0 0 C 15 -20, 90 -20, 110 0 C 130 20, 110 50, 90 50 L 50 50 L 20 70 L 35 50 C 10 50, -15 30, 0 0 Z" fill="#ffffff" stroke="#000" stroke-width="4"/>
+    <text x="55" y="32" font-family="'Bangers', 'Impact', sans-serif" font-size="16" fill="#000" text-anchor="middle" font-weight="bold">HONK-SHOO...</text>
+  </g>
+
+  <!-- Comic Outer Border -->
+  <rect x="3" y="3" width="1018" height="762" fill="none" stroke="#000" stroke-width="6"/>
+</svg>

@@ -737,7 +737,8 @@
             const distance = targetDate - now;
 
             if (distance <= 0) {
-                triggerReveal();
+                // If countdown finishes live while user is watching
+                triggerReveal(false);
                 return;
             }
 
@@ -753,60 +754,134 @@
             secondsEl.textContent = String(seconds).padStart(2, '0');
         }
 
-        function triggerReveal() {
+        function triggerReveal(isImmediate = false) {
             if (isRevealed) return;
             isRevealed = true;
-            
-            // Hide timer grid gracefully
-            timerGrid.classList.add('hidden');
+            if (countdownTimerId) clearInterval(countdownTimerId);
 
-            // Hide countdown mystery note
             const mysteryNote = document.getElementById('countdownMysteryNote');
-            if (mysteryNote) {
-                mysteryNote.style.opacity = '0';
-                setTimeout(() => { mysteryNote.style.display = 'none'; }, 400);
-            }
-            
-            // Start Nathaniel Bassey praise track automatically
-            startMusicPlayback();
-            
-            // Wait slightly for transition then update celebratory state
-            setTimeout(() => {
-                subtitleText.style.opacity = 0;
-                setTimeout(() => {
-                    if (kickerTag) kickerTag.textContent = "Celebration Active • 39th Birthday Gifts Unlocked";
+
+            if (isImmediate) {
+                // Direct arrival after timer has already ended:
+                // Instantly present celebratory unlocked state without flashing empty countdown capsules
+                if (timerGrid) {
+                    timerGrid.style.display = 'none';
+                    timerGrid.classList.add('hidden');
+                }
+                if (mysteryNote) {
+                    mysteryNote.style.display = 'none';
+                }
+                if (kickerTag) {
+                    kickerTag.textContent = "Celebration Active • 39th Birthday Gifts Unlocked";
+                    kickerTag.style.cursor = 'pointer';
+                    kickerTag.title = "Click to celebrate with more confetti!";
+                }
+                if (subtitleText) {
                     subtitleText.textContent = "Cheers to 39! Your special birthday gifts are now officially unlocked.";
-                    subtitleText.style.opacity = 1;
-                    
-                    // Show dual action portal for Magazine and Comic Book
-                    if (unlockActionsContainer) unlockActionsContainer.style.display = 'flex';
-                    
-                    // Trigger confetti
-                    triggerConfetti();
-                }, 300);
-            }, 200);
+                    subtitleText.style.opacity = '1';
+                }
+                if (unlockActionsContainer) {
+                    unlockActionsContainer.style.display = 'flex';
+                }
+
+                // Autoplay praise track (or queue on first gesture)
+                startMusicPlayback();
+
+                // Trigger grand arrival confetti burst immediately upon opening!
+                triggerConfetti(true);
+            } else {
+                // Live countdown transition when user watches the timer hit zero
+                if (timerGrid) timerGrid.classList.add('hidden');
+
+                if (mysteryNote) {
+                    mysteryNote.style.opacity = '0';
+                    setTimeout(() => { mysteryNote.style.display = 'none'; }, 400);
+                }
+                
+                // Start praise track
+                startMusicPlayback();
+                
+                // Wait slightly for smooth capsule exit then reveal gift portal and confetti
+                setTimeout(() => {
+                    subtitleText.style.opacity = '0';
+                    setTimeout(() => {
+                        if (kickerTag) {
+                            kickerTag.textContent = "Celebration Active • 39th Birthday Gifts Unlocked";
+                            kickerTag.style.cursor = 'pointer';
+                            kickerTag.title = "Click to celebrate with more confetti!";
+                        }
+                        subtitleText.textContent = "Cheers to 39! Your special birthday gifts are now officially unlocked.";
+                        subtitleText.style.opacity = '1';
+                        
+                        if (unlockActionsContainer) unlockActionsContainer.style.display = 'flex';
+                        
+                        // Grand celebratory confetti burst!
+                        triggerConfetti(true);
+                    }, 300);
+                }, 200);
+            }
         }
 
-        function triggerConfetti() {
+        function triggerConfetti(withGrandOpening = true) {
+            if (typeof confetti !== 'function') {
+                // Retry in case CDN library is still loading
+                setTimeout(() => triggerConfetti(withGrandOpening), 100);
+                return;
+            }
+
+            // Warm luxury celebratory palette: gold, bright orange, sunset amber, champagne, and crisp white
+            const festiveColors = ['#FFD700', '#FF6B00', '#EA580C', '#F59E0B', '#FFFFFF', '#FFF3E0'];
+
+            // 1. Initial Grand Center-Stage Firework Explosion
+            if (withGrandOpening) {
+                confetti({
+                    particleCount: 90,
+                    spread: 110,
+                    origin: { y: 0.6 },
+                    colors: festiveColors,
+                    ticks: 250,
+                    gravity: 0.85,
+                    scalar: 1.15
+                });
+
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 60,
+                        angle: 60,
+                        spread: 70,
+                        origin: { x: 0.1, y: 0.65 },
+                        colors: festiveColors
+                    });
+                    confetti({
+                        particleCount: 60,
+                        angle: 120,
+                        spread: 70,
+                        origin: { x: 0.9, y: 0.65 },
+                        colors: festiveColors
+                    });
+                }, 300);
+            }
+
+            // 2. Continuous Cascading Streams for 6 seconds
             const duration = 6 * 1000;
             const animationEnd = Date.now() + duration;
 
             (function frame() {
-                // Left side confetti
+                // Left cannon
                 confetti({
-                    particleCount: 7,
+                    particleCount: 6,
                     angle: 60,
-                    spread: 60,
-                    origin: { x: 0 },
-                    colors: ['#ffffff', '#0a0a0a', '#FF6B00', '#EA580C', '#F59E0B']
+                    spread: 55,
+                    origin: { x: 0, y: 0.75 },
+                    colors: festiveColors
                 });
-                // Right side confetti
+                // Right cannon
                 confetti({
-                    particleCount: 7,
+                    particleCount: 6,
                     angle: 120,
-                    spread: 60,
-                    origin: { x: 1 },
-                    colors: ['#ffffff', '#0a0a0a', '#FF6B00', '#EA580C', '#F59E0B']
+                    spread: 55,
+                    origin: { x: 1, y: 0.75 },
+                    colors: festiveColors
                 });
 
                 if (Date.now() < animationEnd) {
@@ -815,20 +890,25 @@
             }());
         }
 
-        // Check URL parameters:
-        // 1. ?test=true or ?reveal=true -> Immediately show revealed birthday state
-        // 2. ?simulate=true or ?countdown=5 -> Run a live 5-second countdown simulation
-        // 3. Default -> Standard live countdown to October 24
+        // Check URL parameters and date status:
+        // 1. ?test=true or ?reveal=true -> Immediately show revealed birthday state with confetti
+        // 2. now >= targetDate -> If opened on/after birthday, immediately celebrate with confetti
+        // 3. ?simulate=true or ?countdown=5 -> Run a live 5-second countdown simulation
+        // 4. Default -> Standard live countdown to October 24
         const urlParams = new URLSearchParams(window.location.search);
         let countdownTimerId = null;
 
-        if (urlParams.get('test') === 'true' || urlParams.get('reveal') === 'true') {
-            triggerReveal();
+        const now = new Date().getTime();
+        const hasPassedTarget = (now >= targetDate);
+
+        if (urlParams.get('test') === 'true' || urlParams.get('reveal') === 'true' || hasPassedTarget) {
+            // Either preview mode requested or user opened the page after countdown has already ended
+            triggerReveal(true);
         } else if (urlParams.get('simulate') === 'true' || urlParams.has('countdown')) {
             const simSecs = parseInt(urlParams.get('countdown') || '5', 10);
             startSimulationCountdown(simSecs);
         } else {
-            // Initialize standard countdown
+            // Initialize standard live countdown
             updateCountdown();
             countdownTimerId = setInterval(updateCountdown, 1000);
         }
@@ -836,8 +916,27 @@
         function startSimulationCountdown(seconds = 5) {
             if (countdownTimerId) clearInterval(countdownTimerId);
             isRevealed = false;
-            if (timerGrid) timerGrid.classList.remove('hidden');
+            if (timerGrid) {
+                timerGrid.style.display = '';
+                timerGrid.classList.remove('hidden');
+            }
             if (unlockActionsContainer) unlockActionsContainer.style.display = 'none';
+            
+            const mysteryNote = document.getElementById('countdownMysteryNote');
+            if (mysteryNote) {
+                mysteryNote.style.display = 'flex';
+                mysteryNote.style.opacity = '1';
+            }
+
+            if (kickerTag) {
+                kickerTag.textContent = "Top Secret • 39th Birthday Countdown • Dr. Stallion";
+                kickerTag.title = "Click to run a 4-second countdown simulation!";
+            }
+
+            if (subtitleText) {
+                subtitleText.textContent = "Cheers to 39!";
+                subtitleText.style.opacity = '1';
+            }
             
             targetDate = Date.now() + (seconds * 1000) + 950;
             updateCountdown();
@@ -856,14 +955,35 @@
             if (devLinks) devLinks.style.display = 'flex';
         }
 
-        // Allow previewing countdown simulation by clicking the kicker tag
+        // Allow previewing countdown simulation or re-firing confetti when clicking kicker tag
         if (kickerTag) {
             kickerTag.style.cursor = 'pointer';
-            kickerTag.title = "Click to run a 4-second countdown simulation!";
             kickerTag.addEventListener('click', () => {
-                startSimulationCountdown(4);
+                if (isRevealed) {
+                    // Already in celebration mode -> fire celebratory confetti salute!
+                    triggerConfetti(true);
+                } else {
+                    // Countdown running -> start live 4-second simulation
+                    startSimulationCountdown(4);
+                }
             });
         }
+
+        // On first user tap/click after opening revealed page, shoot a cheerful sparkle burst
+        const celebrationFirstTap = () => {
+            if (isRevealed && typeof confetti === 'function') {
+                confetti({
+                    particleCount: 35,
+                    spread: 60,
+                    origin: { y: 0.7 },
+                    colors: ['#FFD700', '#FF6B00', '#F59E0B', '#FFFFFF']
+                });
+            }
+            window.removeEventListener('click', celebrationFirstTap);
+            window.removeEventListener('touchstart', celebrationFirstTap);
+        };
+        window.addEventListener('click', celebrationFirstTap, { once: true, passive: true });
+        window.addEventListener('touchstart', celebrationFirstTap, { once: true, passive: true });
 
     </script>
 </body>

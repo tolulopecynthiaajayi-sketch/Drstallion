@@ -189,7 +189,7 @@
     <!-- TOP STICKY BAR: Navigation, Sound, Progress -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b-4 border-black px-4 py-2.5 shadow-comic flex items-center justify-between">
         <div class="flex items-center gap-3">
-            <a href="index.html" class="flex items-center gap-2 group">
+            <a href="index.html?celebrate=true" class="flex items-center gap-2 group" title="Return to Birthday Celebration Hub">
                 <span class="bg-comic-orange text-black font-bangers text-xl px-2.5 py-0.5 rounded border-2 border-black shadow-comic-sm group-hover:bg-comic-yellow transition-transform group-hover:-rotate-2">TRB 39</span>
                 <span class="hidden sm:inline font-bebas text-lg tracking-wider text-slate-200">A Day in the Life</span>
             </a>
@@ -200,7 +200,7 @@
         </div>
 
         <!-- Center: Interactive Audio & Progress -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2 sm:gap-3">
             <!-- Audio FX Toggle -->
             <button id="sfxToggle" class="flex items-center gap-1.5 px-3 py-1 bg-slate-800 hover:bg-slate-700 border-2 border-black rounded text-xs font-bold uppercase tracking-wider text-comic-yellow shadow-comic-sm transition-transform active:translate-y-0.5">
                 <span id="sfxIcon">🔊</span>
@@ -210,6 +210,11 @@
             <!-- Jump to Magazine Button -->
             <a href="magazine.html" class="bg-comic-yellow hover:bg-yellow-300 text-black font-bangers text-sm sm:text-base px-3.5 py-1 rounded border-2 border-black shadow-comic-sm transition-transform hover:-translate-y-0.5 active:translate-y-0">
                 The TRB Magazine &rarr;
+            </a>
+
+            <!-- Return to Celebration Hub Button -->
+            <a href="index.html?celebrate=true" class="bg-slate-800 hover:bg-slate-700 text-comic-orange font-bangers text-sm sm:text-base px-3 py-1 rounded border-2 border-black shadow-comic-sm transition-transform hover:-translate-y-0.5 active:translate-y-0" title="Return to Birthday Celebration Hub">
+                Hub &rarr;
             </a>
         </div>
     </header>
@@ -711,7 +716,7 @@
                 CREATED WITH LOVE BY TOLULOPE &bull; FOR DR. STALLION'S 39TH
             </div>
             <div class="flex items-center justify-center gap-4 text-xs font-bold uppercase tracking-wider text-slate-400">
-                <a href="index.html" class="hover:text-comic-orange transition-colors">Celebration Hub</a>
+                <a href="index.html?celebrate=true" class="hover:text-comic-orange transition-colors">Celebration Hub</a>
                 <span>&bull;</span>
                 <a href="magazine.html" class="hover:text-comic-orange transition-colors">The TRB Magazine</a>
                 <span>&bull;</span>
@@ -722,6 +727,8 @@
 
     <!-- INTERACTIVE JAVASCRIPT: Scroll Animations, Audio Synth, Confetti -->
     <script>
+        try { localStorage.setItem('trb_unlocked', 'true'); } catch (e) {}
+
         // -------------------------------------------------------------
         // Web Audio Synthesizer for Comic Sound Effects
         // -------------------------------------------------------------

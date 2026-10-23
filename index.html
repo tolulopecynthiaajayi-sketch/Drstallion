@@ -758,6 +758,7 @@
             if (isRevealed) return;
             isRevealed = true;
             if (countdownTimerId) clearInterval(countdownTimerId);
+            try { localStorage.setItem('trb_unlocked', 'true'); } catch (e) {}
 
             const mysteryNote = document.getElementById('countdownMysteryNote');
 
@@ -891,18 +892,29 @@
         }
 
         // Check URL parameters and date status:
-        // 1. ?test=true or ?reveal=true -> Immediately show revealed birthday state with confetti
-        // 2. now >= targetDate -> If opened on/after birthday, immediately celebrate with confetti
-        // 3. ?simulate=true or ?countdown=5 -> Run a live 5-second countdown simulation
-        // 4. Default -> Standard live countdown to October 24
+        // 1. ?celebrate=true, ?reveal=true, or ?test=true -> Immediately show revealed celebration hub
+        // 2. now >= targetDate -> If opened on/after birthday, immediately celebrate
+        // 3. localStorage 'trb_unlocked' === 'true' -> If previously unlocked on this device, stay unlocked!
+        // 4. ?timer=true or ?reset=true -> Explicitly reset back to live countdown for testing
+        // 5. ?simulate=true or ?countdown=5 -> Run a live 5-second countdown simulation
+        // 6. Default -> Standard live countdown to October 24
         const urlParams = new URLSearchParams(window.location.search);
         let countdownTimerId = null;
 
+        const isResetParam = urlParams.get('reset') === 'true' || urlParams.get('timer') === 'true';
+        if (isResetParam) {
+            try { localStorage.removeItem('trb_unlocked'); } catch (e) {}
+        }
+
+        let isUnlockedStorage = false;
+        try { isUnlockedStorage = (localStorage.getItem('trb_unlocked') === 'true'); } catch (e) {}
+
+        const isCelebrateParam = urlParams.get('celebrate') === 'true' || urlParams.get('test') === 'true' || urlParams.get('reveal') === 'true';
         const now = new Date().getTime();
         const hasPassedTarget = (now >= targetDate);
 
-        if (urlParams.get('test') === 'true' || urlParams.get('reveal') === 'true' || hasPassedTarget) {
-            // Either preview mode requested or user opened the page after countdown has already ended
+        if (!isResetParam && (isCelebrateParam || hasPassedTarget || isUnlockedStorage)) {
+            // Either preview/celebrate mode requested, birthday reached, or previously unlocked on this device!
             triggerReveal(true);
         } else if (urlParams.get('simulate') === 'true' || urlParams.has('countdown')) {
             const simSecs = parseInt(urlParams.get('countdown') || '5', 10);

@@ -2579,7 +2579,7 @@
 
     <!-- Fixed Editorial Masthead Navigation -->
     <header class="masthead-nav">
-        <a href="magazine.html" class="nav-brand">
+        <a href="index.html?celebrate=true" class="nav-brand" title="Return to Birthday Celebration Hub">
             <img src="Magazine/Images/logo-orange.png" alt="TRB Dr. Stallion Logo" class="nav-brand-logo">
             <div class="nav-meta-text">
                 THE TRB ISSUE &nbsp;|&nbsp; <span>VOL. 39</span> &nbsp;|&nbsp; EKITI &bull; DUBLIN &bull; ANFIELD
@@ -2622,6 +2622,15 @@
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
                 <span>Comic</span>
+            </a>
+
+            <!-- Return to Celebration Hub -->
+            <a href="index.html?celebrate=true" class="pill-btn" title="Return to Birthday Celebration Hub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>Hub</span>
             </a>
         </div>
     </header>
@@ -3508,6 +3517,8 @@
 
     <!-- Interactive Navigation Logic -->
     <script>
+        try { localStorage.setItem('trb_unlocked', 'true'); } catch (e) {}
+
         const spreads = Array.from(document.querySelectorAll('.editorial-spread'));
         const totalSpreads = spreads.length;
         let currentSpreadIndex = 0;

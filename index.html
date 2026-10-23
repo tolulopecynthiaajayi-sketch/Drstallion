@@ -128,7 +128,7 @@
 
         header {
             width: 100%;
-            padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 4rem);
+            padding: clamp(1.2rem, 3vw, 2.2rem) clamp(1.5rem, 5vw, 4rem);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -283,7 +283,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 2rem 4rem 2rem;
+            padding: 0 1.5rem 2.5rem 1.5rem;
             position: relative;
             z-index: 10;
         }
@@ -292,7 +292,7 @@
             font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 0.35em;
-            margin-bottom: 2rem;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
             font-weight: 600;
             color: var(--orange-apricot);
             background: rgba(255, 107, 0, 0.08);
@@ -307,7 +307,7 @@
             font-family: var(--font-serif);
             font-size: clamp(2.8rem, 8vw, 6.2rem);
             line-height: 1.08;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             max-width: 900px;
@@ -327,12 +327,12 @@
 
         .subtitle {
             font-family: var(--font-serif);
-            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            font-size: clamp(1.3rem, 3.2vw, 2rem);
             font-style: italic;
             font-weight: 400;
             color: var(--orange-apricot);
-            margin-bottom: 3.5rem;
-            max-width: 650px;
+            margin-bottom: clamp(1.8rem, 3.5vw, 2.75rem);
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             letter-spacing: 0.04em;
@@ -652,7 +652,7 @@
 
     <script>
         // Target Date: October 24, 2026, at 00:00:00 Irish Standard Time (UTC+1)
-        const targetDate = new Date("2026-10-24T00:00:00+01:00").getTime();
+        let targetDate = new Date("2026-10-24T00:00:00+01:00").getTime();
 
         const timerGrid = document.getElementById('timerGrid');
         const subtitleText = document.getElementById('subtitleText');
@@ -815,14 +815,39 @@
             }());
         }
 
-        // Check URL parameters for testing/previewing the timer-ended state: ?test=true or ?reveal=true
+        // Check URL parameters:
+        // 1. ?test=true or ?reveal=true -> Immediately show revealed birthday state
+        // 2. ?simulate=true or ?countdown=5 -> Run a live 5-second countdown simulation
+        // 3. Default -> Standard live countdown to October 24
         const urlParams = new URLSearchParams(window.location.search);
+        let countdownTimerId = null;
+
         if (urlParams.get('test') === 'true' || urlParams.get('reveal') === 'true') {
             triggerReveal();
+        } else if (urlParams.get('simulate') === 'true' || urlParams.has('countdown')) {
+            const simSecs = parseInt(urlParams.get('countdown') || '5', 10);
+            startSimulationCountdown(simSecs);
         } else {
             // Initialize standard countdown
             updateCountdown();
-            setInterval(updateCountdown, 1000);
+            countdownTimerId = setInterval(updateCountdown, 1000);
+        }
+
+        function startSimulationCountdown(seconds = 5) {
+            if (countdownTimerId) clearInterval(countdownTimerId);
+            isRevealed = false;
+            if (timerGrid) timerGrid.classList.remove('hidden');
+            if (unlockActionsContainer) unlockActionsContainer.style.display = 'none';
+            
+            targetDate = Date.now() + (seconds * 1000) + 950;
+            updateCountdown();
+            countdownTimerId = setInterval(() => {
+                if (isRevealed) {
+                    clearInterval(countdownTimerId);
+                } else {
+                    updateCountdown();
+                }
+            }, 1000);
         }
 
         // Dev Mode direct links (?dev=true)
@@ -831,11 +856,12 @@
             if (devLinks) devLinks.style.display = 'flex';
         }
 
-        // Allow previewing the revealed state by clicking the kicker tag
+        // Allow previewing countdown simulation by clicking the kicker tag
         if (kickerTag) {
             kickerTag.style.cursor = 'pointer';
+            kickerTag.title = "Click to run a 4-second countdown simulation!";
             kickerTag.addEventListener('click', () => {
-                triggerReveal();
+                startSimulationCountdown(4);
             });
         }
 
